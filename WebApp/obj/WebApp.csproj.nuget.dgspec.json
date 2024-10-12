@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\.NET\\API_Book\\WebApp\\WebApp.csproj": {}
+    "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "D:\\Code\\.NET\\API_Book\\WebApp\\WebApp.csproj": {
+    "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\.NET\\API_Book\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "D:\\Code\\.NET\\API_Book\\WebApp\\WebApp.csproj",
+        "projectPath": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\.NET\\API_Book\\WebApp\\obj\\",
+        "outputPath": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

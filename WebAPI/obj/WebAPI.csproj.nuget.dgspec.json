@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\.NET\\API_Book\\WebAPI\\WebAPI.csproj": {}
+    "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\Code\\.NET\\API_Book\\WebAPI\\WebAPI.csproj": {
+    "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\.NET\\API_Book\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\Code\\.NET\\API_Book\\WebAPI\\WebAPI.csproj",
+        "projectPath": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\.NET\\API_Book\\WebAPI\\obj\\",
+        "outputPath": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
