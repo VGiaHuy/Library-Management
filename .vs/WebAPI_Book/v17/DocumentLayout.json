@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "WebApp\\appsettings.json",
               "ToolTip": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\appsettings.json",
               "RelativeToolTip": "WebApp\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-10-12T00:57:06.668Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "WebAPI\\Controllers\\Admin\\KhoSachController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T07:54:52.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T07:54:52.527Z"
             },
             {
               "$type": "Document",
