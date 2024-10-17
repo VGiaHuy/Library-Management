@@ -211,16 +211,54 @@ namespace WebApp.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true });
+                    return Json(new { success = true, message = "Đăng ký thành công!" });
                 }
                 else
                 {
-                    return Json(new { success = false });
+                    return Json(new { success = false, message = "Đăng ký thấy bại!" });
                 }
             }
             catch
             {
-                return Json(new { success = false });
+                return Json(new { success = false, message = "Có lỗi xảy ra" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendEmailRegister(string phoneNumber, string username, string email)
+        {
+            var infoUser = new
+            {
+                phoneNumber = phoneNumber,
+                username = username,
+                userEmail = email,
+            };
+
+            HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/UserAuth/SendEMmail_Register", infoUser).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return Json(new { success = true, message = "Gửi mail thành công" });
+            }
+            else
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                return Json(new { success = false, message = responseContent });
+            }
+        }
+
+        [HttpGet]
+        public IActionResult CheckEmailRegister(int otp)
+        {
+            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/UserAuth/CheckEMmail_Register/{otp}").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                return Json(new { success = true, message = "Xác thực thành công!" });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Mã OTP sai!!!" });
             }
         }
 

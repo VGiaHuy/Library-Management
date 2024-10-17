@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using Microsoft.Win32;
+using WebAPI.Content;
 using WebAPI.DTOs;
+using WebAPI.Helper;
 using WebAPI.Models;
+using WebAPI.Service;
 
 namespace WebAPI.Controllers
 {
@@ -17,10 +21,13 @@ namespace WebAPI.Controllers
     public class UserAuthController : ControllerBase
     {
         private readonly QuanLyThuVienContext _context;
+        private readonly IEmailService _emailService;
+        private static int OTP_email;
 
-        public UserAuthController(QuanLyThuVienContext context)
+        public UserAuthController(QuanLyThuVienContext context, IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
 
@@ -67,10 +74,72 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendEMmail_Register([FromBody] JsonElement infoUser)
+        {
+
+            try
+            {
+                // Truy cập thông tin email và các thông tin khác
+                string userEmail = infoUser.GetProperty("userEmail").GetString(); // Đảm bảo tên thuộc tính đúng
+                string phoneNumber = infoUser.GetProperty("phoneNumber").GetString(); // Truy cập số điện thoại
+                string username = infoUser.GetProperty("username").GetString(); // Truy cập tên người dùng
+
+                if (LoginDgExists(phoneNumber) && _context.LoginDgs.Any(e => e.Email == userEmail))
+                {
+                    return BadRequest("Email hoặc số điện thoại đã tồn tại");
+                }
+
+                // tạo các đối tượng sendEmail
+                var email = new SendEmailRegister();
+                Random rd = new Random();
+                int random = rd.Next(100000, 1000000);
+
+                OTP_email = random;
+
+                MailRequest mailRequest = new MailRequest();
+                mailRequest.ToEmail = userEmail;
+                mailRequest.Subject = "Xác thực đăng ký tài khoản";
+                mailRequest.Body = email.SendEmail_Register(random, username);
+                await _emailService.SendEmailAsync(mailRequest);
+
+                return Ok("Gửi mail thành công");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
+        [HttpGet("{otp}")]
+        public async Task<IActionResult> CheckEMmail_Register(int otp)
+        {
+            try
+            {
+                var systemOTP = OTP_email;
+
+                if (otp == systemOTP)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("OTP sai!!!");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
         // POST: api/UserAuth
         [HttpPost]
         public async Task<IActionResult> Register([FromBody] UserAuthentication newRegister)
         {
+
             LoginDg register = new LoginDg()
             {
                 Sdt = newRegister.Sdt,
@@ -86,13 +155,10 @@ namespace WebAPI.Controllers
                 return Ok();
             }
             catch (DbUpdateException e)
-            {
-                if (LoginDgExists(register.Sdt))
-                {
-                    return BadRequest("Tài khoản đã tồn tại");
-                }
+            {   
                 return BadRequest(e.InnerException);
             }
+
         }
 
         private bool LoginDgExists(string sdt)
