@@ -5,13 +5,13 @@ namespace WebApp.Models;
 
 public partial class ChiTietDk
 {
-    public int MaDk { get; set; }
+    public int Madk { get; set; }
 
-    public int MaSach { get; set; }
+    public int Masach { get; set; }
 
     public int? Soluongmuon { get; set; }
 
-    public virtual DkiMuonSach MaDkNavigation { get; set; } = null!;
+    public virtual DkiMuonSach MadkNavigation { get; set; } = null!;
 
-    public virtual Sach MaSachNavigation { get; set; } = null!;
+    public virtual Sach MasachNavigation { get; set; } = null!;
 }

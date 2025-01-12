@@ -5,15 +5,15 @@ namespace WebApp.Models;
 
 public partial class ChiTietPtl
 {
-    public int MaPtl { get; set; }
+    public int Maptl { get; set; }
 
-    public int MaSachkho { get; set; }
+    public int Masachkho { get; set; }
 
     public int? Soluongtl { get; set; }
 
-    public decimal? GiaTl { get; set; }
+    public decimal? Giatl { get; set; }
 
-    public virtual PhieuThanhLy MaPtlNavigation { get; set; } = null!;
+    public virtual PhieuThanhLy MaptlNavigation { get; set; } = null!;
 
-    public virtual KhoSachThanhLy MaSachkhoNavigation { get; set; } = null!;
+    public virtual KhoSachThanhLy MasachkhoNavigation { get; set; } = null!;
 }

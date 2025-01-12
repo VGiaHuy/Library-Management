@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using WebAPI.DTOs;
-using WebApp.Models;
+
 using X.PagedList;
 using static Azure.Core.HttpHeader;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Diagnostics;
+using WebApp.Responses;
 
 namespace WebApp.Controllers
 {
     public class BookController : Controller
     {
-        Uri baseAddress = new Uri("https://localhost:7028/api");
+       
+        Uri baseAddress = new Uri("https://localhost:7028/api/Client");
         private readonly HttpClient _client;
 
         public BookController()
@@ -21,77 +23,93 @@ namespace WebApp.Controllers
 
         }
 
-        public IActionResult Index(int? page)
+        public async Task<IActionResult> Index(int? page)
         {
-            List<SachDTO> bookList = new List<SachDTO>();
+            List<dynamic> bookList = new List<dynamic>();
+            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/Book/GetAllBooks").Result;
 
-            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/Book/GetAllBook").Result;
+            // Ghi lại thông tin về trạng thái phản hồi
+            Debug.WriteLine($"Response Status Code: {response.StatusCode}");
 
             if (response.IsSuccessStatusCode)
             {
-                string data = response.Content.ReadAsStringAsync().Result;
-                bookList = JsonConvert.DeserializeObject<List<SachDTO>>(data);
+                string data = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Response Data: {data}"); // Ghi lại nội dung trả về
+
+                bookList = JsonConvert.DeserializeObject<List<dynamic>>(data);
+                Debug.WriteLine($"Number of books retrieved: {bookList.Count}");
+            }
+            else
+            {
+                Debug.WriteLine("Failed to retrieve books.");
             }
 
-
+            // Cài đặt phân trang
             int pageSize = 9;
-
             int pageNumber = (page ?? 1);
-
-            IPagedList<SachDTO> pagedListSach = bookList.ToPagedList(pageNumber, pageSize);
+            var pagedBooks = bookList.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
             ViewBag.CurrentPage = pageNumber;
-            ViewBag.TotalPages = pagedListSach.PageCount;
+            ViewBag.TotalPages = (int)Math.Ceiling((double)bookList.Count / pageSize);
 
-            return View(pagedListSach);
+            return View(pagedBooks);
         }
 
-        [HttpPost]
-        public IActionResult SearchBook(string tenSach)
-        {
 
-            List<SachDTO> bookList = new List<SachDTO>();
-            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Book/GetBookByName/{tenSach}").Result;
+
+        [HttpPost]
+        public async Task<IActionResult> GetBookByName(string tenSach)
+        {
+            List<GetBookByNameResDto> bookList = new List<GetBookByNameResDto>();
+            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Book/GetBookByName/{Uri.EscapeDataString(tenSach)}").Result;
+
+            Debug.WriteLine($"Response Status Code: {response.StatusCode}");
 
             if (response.IsSuccessStatusCode)
             {
-                string data = response.Content.ReadAsStringAsync().Result;
-                var responseObject = JsonConvert.DeserializeObject<dynamic>(data);
-                bookList = responseObject.sachList.ToObject<List<SachDTO>>();
+                string data = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Response Data: {data}"); // Ghi lại nội dung trả về
+
+                bookList = JsonConvert.DeserializeObject<List<GetBookByNameResDto>>(data) ?? bookList;
+                Debug.WriteLine($"Number of books retrieved: {bookList.Count}");
             }
+            else
+            {
+                Debug.WriteLine("Failed to retrieve books.");
+            }
+
+            Debug.WriteLine(JsonConvert.SerializeObject(bookList));
 
             return Ok(new { success = true, sachList = bookList });
         }
 
 
         [HttpPost]
-        public IActionResult GetBookByCategory(string ngonNgu, string theLoai, string namXB)
+        public async Task<IActionResult> GetBookByCategory(string ngonNgu, string theLoai, string namXB)
         {
+          
+            List<GetBookByNameResDto> bookList = new List<GetBookByNameResDto>();
+            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Book/GetBookByCategory/{ngonNgu}/{theLoai}/{namXB}").Result;
 
-            try
+            Debug.WriteLine($"Response Status Code: {response.StatusCode}");
+
+            if (response.IsSuccessStatusCode)
             {
-                List<SachDTO> bookList = new List<SachDTO>();
+                string data = await response.Content.ReadAsStringAsync();
+                Debug.WriteLine($"Response Data: {data}"); // Ghi lại nội dung trả về
 
-                HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Book/GetBookByCategory/{ngonNgu}/{theLoai}/{namXB}").Result;
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string data = response.Content.ReadAsStringAsync().Result;
-                    var responseObject = JsonConvert.DeserializeObject<dynamic>(data);
-                    bookList = responseObject.sachList.ToObject<List<SachDTO>>();
-                    return Ok(new { success = true, sachList = bookList });
-                }
-                else
-                {
-                    // Handle non-success status code
-                    return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
-                }
+                bookList = JsonConvert.DeserializeObject<List<GetBookByNameResDto>>(data) ?? bookList;
+                Debug.WriteLine($"Number of books retrieved: {bookList.Count}");
             }
-            catch (Exception ex)
+            else
             {
-                // Handle exception
-                return StatusCode(500, new { success = false, message = ex.Message });
+                Debug.WriteLine("Failed to retrieve books.");
             }
+
+            Debug.WriteLine(JsonConvert.SerializeObject(bookList));
+
+            return Ok(new { success = true, sachList = bookList });
+            
 
         }
 

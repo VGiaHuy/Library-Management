@@ -5,19 +5,19 @@ namespace WebApp.Models;
 
 public partial class NhanVien
 {
-    public int MaNv { get; set; }
+    public int Manv { get; set; }
 
-    public string? HoTenNv { get; set; }
+    public string? Hotennv { get; set; }
 
-    public string? GioiTinh { get; set; }
+    public string? Gioitinh { get; set; }
 
-    public string? DiaChi { get; set; }
+    public string? Diachi { get; set; }
 
     public DateOnly? Ngaysinh { get; set; }
 
     public string? Sdt { get; set; }
 
-    public string? ChucVu { get; set; }
+    public string? Chucvu { get; set; }
 
     public virtual ICollection<LoginNv> LoginNvs { get; set; } = new List<LoginNv>();
 

@@ -9009,6 +9009,10 @@
       "PackagePath": "staticwebassets\\img_web\\BiXanhVaBongTim.jpg"
     },
     {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Bogia.jpg",
+      "PackagePath": "staticwebassets\\img_web\\Bogia.jpg"
+    },
+    {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\CN8(CTST).jpg",
       "PackagePath": "staticwebassets\\img_web\\CN8(CTST).jpg"
     },
@@ -9037,6 +9041,10 @@
       "PackagePath": "staticwebassets\\img_web\\ConChimXanhBiecBayVe.jpg"
     },
     {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Congbangtrendoiladoban.png",
+      "PackagePath": "staticwebassets\\img_web\\Congbangtrendoiladoban.png"
+    },
+    {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\CungBanTruongThanh.jpg",
       "PackagePath": "staticwebassets\\img_web\\CungBanTruongThanh.jpg"
     },
@@ -9047,6 +9055,10 @@
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\DamTreODaiDuongDen.jpg",
       "PackagePath": "staticwebassets\\img_web\\DamTreODaiDuongDen.jpg"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\DanhNgonCuocSong.jpg",
+      "PackagePath": "staticwebassets\\img_web\\DanhNgonCuocSong.jpg"
     },
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\DatRungPhuongNam.jpg",
@@ -9073,6 +9085,10 @@
       "PackagePath": "staticwebassets\\img_web\\HaiHuocMotChutTheGioiSeKhacDi.jpg"
     },
     {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\HatGiongTamHon.jpg",
+      "PackagePath": "staticwebassets\\img_web\\HatGiongTamHon.jpg"
+    },
+    {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Ielts_27f55c8e-9ae0-421c-88c0-a5e905c36963.jpg",
       "PackagePath": "staticwebassets\\img_web\\Ielts_27f55c8e-9ae0-421c-88c0-a5e905c36963.jpg"
     },
@@ -9087,6 +9103,10 @@
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\MuaHeKhongTen.jpg",
       "PackagePath": "staticwebassets\\img_web\\MuaHeKhongTen.jpg"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Nghethuattuduychienluoc.jpg",
+      "PackagePath": "staticwebassets\\img_web\\Nghethuattuduychienluoc.jpg"
     },
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\NhaGiaKim.jpg",
@@ -9115,6 +9135,10 @@
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Screenshot 2024-03-27 094245.png",
       "PackagePath": "staticwebassets\\img_web\\Screenshot 2024-03-27 094245.png"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\Screenshot 2024-06-15 100918.png",
+      "PackagePath": "staticwebassets\\img_web\\Screenshot 2024-06-15 100918.png"
     },
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\SinhHoc11(CTST).jpg",
@@ -9173,12 +9197,32 @@
       "PackagePath": "staticwebassets\\img_web\\VT2.jpg"
     },
     {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\anh-hoa-mau-don-yody-vn-76.jpg",
+      "PackagePath": "staticwebassets\\img_web\\anh-hoa-mau-don-yody-vn-76.jpg"
+    },
+    {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\avticon.jpg",
       "PackagePath": "staticwebassets\\img_web\\avticon.jpg"
     },
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\c600896f-0236-4f0f-951b-41aabae3f6c7.png",
       "PackagePath": "staticwebassets\\img_web\\c600896f-0236-4f0f-951b-41aabae3f6c7.png"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\hinh-nen-hoa-cuc-dep_042446305.jpg",
+      "PackagePath": "staticwebassets\\img_web\\hinh-nen-hoa-cuc-dep_042446305.jpg"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\hinh-nen-hoa-nhe-nhang.jpg",
+      "PackagePath": "staticwebassets\\img_web\\hinh-nen-hoa-nhe-nhang.jpg"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\hinh-nen-iphone-14-hoa-nhai-thu-hut-nhung-dieu-tot-dep-230418103144.jpg",
+      "PackagePath": "staticwebassets\\img_web\\hinh-nen-iphone-14-hoa-nhai-thu-hut-nhung-dieu-tot-dep-230418103144.jpg"
+    },
+    {
+      "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\images (1).jpg",
+      "PackagePath": "staticwebassets\\img_web\\images (1).jpg"
     },
     {
       "Id": "D:\\Code\\.NET\\Library-Management_.Net-Core8\\WebApp\\wwwroot\\img_web\\sach.jpg",

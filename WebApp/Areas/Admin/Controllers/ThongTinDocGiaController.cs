@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Common;
+using System.Net.Http.Headers;
+using WebApp.Admin.Data;
 using WebApp.Areas.Admin.Data;
 using WebApp.Models;
 
@@ -22,8 +25,9 @@ namespace WebApp.Areas.Admin.Controllers
 
         }
 
+
         [Route("")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (User.IsInRole("QuanLyKho"))
             {
@@ -31,25 +35,29 @@ namespace WebApp.Areas.Admin.Controllers
             }
             else
             {
-                List<DTO_DocGia_TheDocGia> data = new List<DTO_DocGia_TheDocGia>();
-
-                HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/TheDocGia/GetAllTheDocGia").Result;
+                HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + "/TheDocGia/GetAllTheDocGia");
 
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<List<DTO_DocGia_TheDocGia>>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DocGia_TheDocGia>>>(dataJson);
 
-                    ViewData["ThongTinDocGia"] = data;
-                    return View();
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        var data = apiResponse.Data;
+                        ViewData["ThongTinDocGia"] = data;
+                        return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
                 else
                 {
                     return View();
                 }
             }
-
-
         }
 
 
@@ -57,20 +65,25 @@ namespace WebApp.Areas.Admin.Controllers
         [Route("GetAllThongTinDocGia")]
         public ActionResult GetAllThongTinDocGia()
         {
-            List<DTO_DocGia_TheDocGia> data = new List<DTO_DocGia_TheDocGia>();
-
             HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/TheDocGia/GetAllTheDocGia").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 string dataJson = response.Content.ReadAsStringAsync().Result;
-                data = JsonConvert.DeserializeObject<List<DTO_DocGia_TheDocGia>>(dataJson);
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DocGia_TheDocGia>>>(dataJson);
 
-                return Json(new { success = true, data = data });
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, data = apiResponse.Data });
+                }
+                else
+                {
+                    return Json(new { success = false, Message = apiResponse.Message });
+                }
             }
             else
             {
-                return Json(new { success = false, message = "Lỗi gọi API" });
+                return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
             }
         }
 
@@ -88,22 +101,22 @@ namespace WebApp.Areas.Admin.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    theDocGia = JsonConvert.DeserializeObject<DTO_DocGia_TheDocGia>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_DocGia_TheDocGia>>(dataJson);
 
-                    if (theDocGia != null)
+                    if (apiResponse != null && apiResponse.Success)
                     {
                         // Trả về dữ liệu JSON nếu thành công
-                        return Json(new { success = true, data = theDocGia });
+                        return Json(new { success = true, data = apiResponse.Data });
                     }
                     else
                     {
                         // Trả về thông báo lỗi nếu không tìm thấy sách
-                        return Json(new { success = false, message = "Không tìm thấy độc  giả" });
+                        return Json(new { success = false, message = apiResponse.Message });
                     }
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Gọi API không thành công" });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
 
 
@@ -118,29 +131,41 @@ namespace WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("CapNhatThongTin")]
-        public ActionResult CapNhatThongTin(int maDocGia, DateOnly ngaySinh, string diaChi, string gioiTinh, string soDienThoai, string tenDocGia)
+        public ActionResult CapNhatThongTin(int maDocGia, DateOnly ngaySinh, string diaChi, string gioiTinh, string soDienThoai, string tenDocGia, string token)
         {
             try
             {
                 DocGium dg = new DocGium();
 
-                dg.MaDg = maDocGia;
-                dg.HoTenDg = tenDocGia;
-                dg.NgaySinh =  ngaySinh;
-                dg.DiaChi = diaChi;
-                dg.GioiTinh = gioiTinh;
+                dg.Madg = maDocGia;
+                dg.Hotendg = tenDocGia;
+                dg.Ngaysinh = ngaySinh;
+                dg.Diachi = diaChi;
+                dg.Gioitinh = gioiTinh;
                 dg.Sdt = soDienThoai;
 
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 // call API
                 HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/ThongTinDocGia/UpdateThongTinDocGia", dg).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                return Json(new { success = true, data = dg });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<DocGium>>(dataJson);
+
+                    if(apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, data = dg });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = false, message = response.RequestMessage });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
 
             }

@@ -34,6 +34,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Code/.NET/Library-Management_.Net-Core8/WebApp/Areas/Admin/Views/BangQuyDinh/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQmFuZ1F1eURpbmhcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Code/.NET/Library-Management_.Net-Core8/WebApp/Areas/Admin/Views/DangKyMuonSach/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFuZ0t5TXVvblNhY2hcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

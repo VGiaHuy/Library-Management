@@ -2,17 +2,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Newtonsoft.Json;
+using NuGet.Common;
+using System.Net.Http.Headers;
+using WebApp.Admin.Data;
 using WebApp.Areas.Admin.Data;
 using WebApp.Areas.Admin.Helper;
 using WebApp.DTOs;
-using WebApp.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApp.Areas.Admin.Controllers
 {
     [Area("admin")]
     [Route("admin/thedocgia")]
-
     [Authorize(AuthenticationSchemes = "AdminCookie")]
 
     public class TheDocGiaController : Controller
@@ -36,73 +37,77 @@ namespace WebApp.Areas.Admin.Controllers
             }
             else
             {
-                List<DTO_DocGia_TheDocGia> data = new List<DTO_DocGia_TheDocGia>();
 
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/TheDocGia/GetAllTheDocGia").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<List<DTO_DocGia_TheDocGia>>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DocGia_TheDocGia>>>(dataJson);
 
-                    ViewData["TheDocGia"] = data;
-                    return View();
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        var data = apiResponse.Data;
+                        ViewData["TheDocGia"] = data;
+                        return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
                 else
                 {
                     return View();
                 }
             }
-
-
         }
 
 
         [HttpPost]
         [Route("ThongTinTheDocGia")]
-        public ActionResult ThongTinTheDocGia(int id)
+        public async Task<ActionResult> ThongTinTheDocGia(int id)
         {
             try
             {
-                DTO_DocGia_TheDocGia theDocGia = new DTO_DocGia_TheDocGia();
-
-                HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/TheDocGia/ThongTinTheDocGia/{id}").Result;
+                HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + $"/TheDocGia/ThongTinTheDocGia/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string dataJson = response.Content.ReadAsStringAsync().Result;
-                    theDocGia = JsonConvert.DeserializeObject<DTO_DocGia_TheDocGia>(dataJson);
+                    string dataJson = await response.Content.ReadAsStringAsync();
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_DocGia_TheDocGia>>(dataJson);
 
-                    if (theDocGia != null)
+                    if (apiResponse != null && apiResponse.Success)
                     {
                         // Trả về dữ liệu JSON nếu thành công
-                        return Json(new { success = true, data = theDocGia });
+                        return Json(new { success = true, data = apiResponse.Data });
                     }
                     else
                     {
                         // Trả về thông báo lỗi nếu không tìm thấy sách
-                        return Json(new { success = false, message = "Không tìm thấy độc  giả" });
+                        return Json(new { success = false, message = apiResponse?.Message });
                     }
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Gọi API không thành công" });
+                    // Xử lý trường hợp phản hồi lỗi từ API
+                    string errorMessage = await response.Content.ReadAsStringAsync();
+                    return Json(new { success = false, message = "Lỗi từ API: " + errorMessage });
                 }
-
-
             }
             catch (Exception ex)
             {
                 // Xử lý lỗi nếu có
-                Console.WriteLine($"Error in ChiTietDocGia: {ex.Message}");
-                return Json(new { success = false, message = "Đã xảy ra lỗi" });
+                Console.WriteLine($"Error in ThongTinTheDocGia: {ex.Message}");
+                return Json(new { success = false, message = "Đã xảy ra lỗi hệ thống" });
             }
         }
 
 
+
         [HttpPost]
         [Route("GiaHanTheDocGia")]
-        public ActionResult GiaHanTheDocGia(int maThe, DateOnly thoiGianGiaHan, int tienGiaHan)
+        public async Task<ActionResult> GiaHanTheDocGia(int maThe, DateOnly thoiGianGiaHan, int tienGiaHan, string token)
         {
             try
             {
@@ -111,15 +116,18 @@ namespace WebApp.Areas.Admin.Controllers
                 tdg.MaThe = maThe;
                 tdg.NgayHetHan = thoiGianGiaHan;
                 tdg.TienThe = tienGiaHan;
-                tdg.DiaChi = "a";
-                tdg.GioiTinh = "a";
-                tdg.HoTenDG = "a";
+                tdg.DiaChi = "null";
+                tdg.GioiTinh = "null";
+                tdg.HoTenDG = "null";
                 tdg.NgayDangKy = thoiGianGiaHan;
                 tdg.NgaySinh = thoiGianGiaHan;
-                tdg.SDT = "0";
+                tdg.SDT = "null";
+
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // call API
-                HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/TheDocGia/Update", tdg).Result;
+                HttpResponseMessage response = await _client.PostAsJsonAsync(_client.BaseAddress + "/TheDocGia/Update", tdg);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -127,7 +135,7 @@ namespace WebApp.Areas.Admin.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
             }
             catch (Exception ex)
@@ -139,9 +147,54 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GenerateTheDocGiaPDF")]
+        public async Task<IActionResult> GenerateTheDocGiaPDF(int maNV, int maThe, DateTime ngayDK, string tenDocGia, string soDienThoai, string gioiTinh, DateOnly ngaySinh, string diaChi, int hanThe, int tienDK)
+        {
+            try
+            {
+                DTO_DocGia_TheDocGia tdg = new DTO_DocGia_TheDocGia
+                {
+                    MaThe = maThe,
+                    MaNhanVien = maNV,
+                    NgayDangKy = DateOnly.FromDateTime(DateTime.Now),
+                    HoTenDG = tenDocGia,
+                    SDT = soDienThoai,
+                    GioiTinh = gioiTinh,
+                    NgaySinh = ngaySinh,
+                    DiaChi = diaChi,
+                    TienThe = tienDK,
+                    NgayHetHan = DateOnly.FromDateTime(DateTime.Now).AddMonths(hanThe)
+                };
+
+                // Gọi API tạo file PDF
+                HttpResponseMessage generatePDF = await _client.PostAsJsonAsync(_client.BaseAddress + "/GeneratePDF/GenerateTheDocGiaPDF", tdg);
+
+                if (generatePDF.IsSuccessStatusCode)
+                {
+                    // Trả file về client (browser)
+                    var fileContent = await generatePDF.Content.ReadAsByteArrayAsync();
+                    var fileName = "HoaDonTaoThe.pdf";
+                    return File(fileContent, "application/pdf", fileName);
+                }
+                else
+                {
+                    // Trả lỗi nếu không thành công
+                    string errorDetails = await generatePDF.Content.ReadAsStringAsync();
+                    return Json(new { success = false, message = "Tạo file PDF thất bại: " + errorDetails });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Tạo file PDF thất bại: " + ex.Message });
+            }
+        }
+
+
+
         [HttpPost]
         [Route("DangKyTheDocGia")]
-        public ActionResult DangKyTheDocGia(int maNV, DateTime ngayDK, string tenDocGia, string soDienThoai, string gioiTinh, DateOnly ngaySinh, string diaChi, int hanThe, int tienDK)
+        public async Task<ActionResult> DangKyTheDocGia(int maNV, DateTime ngayDK, string tenDocGia, string soDienThoai, string gioiTinh, DateOnly ngaySinh, string diaChi, int hanThe, int tienDK, string token)
         {
             try
             {
@@ -157,12 +210,25 @@ namespace WebApp.Areas.Admin.Controllers
                 tdg.TienThe = tienDK;
                 tdg.NgayHetHan = DateOnly.FromDateTime(DateTime.Now).AddMonths(hanThe);
 
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // call API
-                HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/TheDocGia/DangKyTheDocGia", tdg).Result;
+                HttpResponseMessage response = await _client.PostAsJsonAsync(_client.BaseAddress + "/TheDocGia/DangKyTheDocGia", tdg);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, data = tdg });
+                    string dataJson = await response.Content.ReadAsStringAsync();
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_DocGia_TheDocGia>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, data = apiResponse.Data });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
@@ -185,20 +251,25 @@ namespace WebApp.Areas.Admin.Controllers
         [Route("DangKyTheDocGia")]
         public ActionResult GetAllTheDocGia()
         {
-            List<DTO_DocGia_TheDocGia> data = new List<DTO_DocGia_TheDocGia>();
-
             HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/TheDocGia/GetAllTheDocGia").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 string dataJson = response.Content.ReadAsStringAsync().Result;
-                data = JsonConvert.DeserializeObject<List<DTO_DocGia_TheDocGia>>(dataJson);
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DocGia_TheDocGia>>>(dataJson);
 
-                return Json(new { success = true, data = data });
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, data = apiResponse.Data });
+                }
+                else
+                {
+                    return Json(new { success = false, Message = apiResponse.Message });
+                }
             }
             else
             {
-                return Json(new { success = false, message = "Lỗi gọi API" });
+                return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
             }
         }
     }

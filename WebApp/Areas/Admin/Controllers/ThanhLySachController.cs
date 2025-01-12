@@ -55,7 +55,7 @@ namespace WebApp.Areas.Admin.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     string data = response.Content.ReadAsStringAsync().Result;
-                    var responseObject = JsonConvert.DeserializeObject<WebApp.DTOs.PagingResult<DTO_DonViTL>>(data);
+                    var responseObject = JsonConvert.DeserializeObject<PagingResult<DTO_DonViTL>>(data);
                     //return Ok(responseObject);
                     return Ok(new { success = true, donviList = responseObject });
                 }
@@ -87,7 +87,7 @@ namespace WebApp.Areas.Admin.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     string data = response.Content.ReadAsStringAsync().Result;
-                    var responseObject = JsonConvert.DeserializeObject<WebApp.DTOs.PagingResult<KhoSachThanhLyDTO>>(data);
+                    var responseObject = JsonConvert.DeserializeObject<PagingResult<KhoSachThanhLyDTO>>(data);
                     //return Ok(responseObject);
                     return Ok(new { success = true, sachList = responseObject });
                 }
@@ -119,7 +119,7 @@ namespace WebApp.Areas.Admin.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     string data = response.Content.ReadAsStringAsync().Result;
-                    var responseObject = JsonConvert.DeserializeObject<WebApp.DTOs.PagingResult<DTO_Sach_Nhap_Kho>>(data);
+                    var responseObject = JsonConvert.DeserializeObject<PagingResult<DTO_Sach_Nhap_Kho>>(data);
                     //return Ok(responseObject);
                     return Ok(new { success = true, sachList = responseObject });
                 }
@@ -141,7 +141,7 @@ namespace WebApp.Areas.Admin.Controllers
         {
             try
             {
-                if (dto == null || string.IsNullOrEmpty(dto.TenDv) || string.IsNullOrEmpty(dto.Sdtdv) || string.IsNullOrEmpty(dto.DiaChiDv))
+                if (dto == null || string.IsNullOrEmpty(dto.Tendv) || string.IsNullOrEmpty(dto.Sdtdv) || string.IsNullOrEmpty(dto.Diachidv))
                 {
                     return BadRequest(new { success = false, message = "Dữ liệu không hợp lệ." });
                 }
@@ -170,14 +170,13 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-
         [HttpPost]
         [Route("ThemSachThanhLy_APP")]
         public async Task<IActionResult> ThemSachThanhLy_APP([FromBody] SachNhapKhoDTO dto)
         {
             try
             {
-                if (dto == null )
+                if (dto == null)
                 {
                     return BadRequest(new { success = false, message = "Dữ liệu không hợp lệ." });
                 }
@@ -235,3 +234,4 @@ namespace WebApp.Areas.Admin.Controllers
 
     }
 }
+

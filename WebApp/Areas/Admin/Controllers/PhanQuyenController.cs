@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Common;
+using System.Net.Http.Headers;
+using WebApp.Admin.Data;
 using WebApp.Areas.Admin.Data;
-using WebApp.Models;
 
 namespace WebApp.Areas.Admin.Controllers
 {
@@ -30,17 +32,22 @@ namespace WebApp.Areas.Admin.Controllers
             }
             else
             {
-                List<DTO_NhanVien_LoginNV> data = new List<DTO_NhanVien_LoginNV>();
-
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/Account/GetAllNhanVien").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<List<DTO_NhanVien_LoginNV>>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_NhanVien_LoginNV>>>(dataJson);
 
-                    ViewData["ThongTinNhanVien"] = data;
-                    return View();
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        ViewData["ThongTinNhanVien"] = apiResponse.Data;
+                        return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
                 else
                 {
@@ -64,23 +71,26 @@ namespace WebApp.Areas.Admin.Controllers
         {
             try
             {
-                DTO_NhanVien_LoginNV data = new DTO_NhanVien_LoginNV();
-
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Account/GetById/{id}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<DTO_NhanVien_LoginNV>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_NhanVien_LoginNV>>(dataJson);
 
-
-                        // Trả về dữ liệu JSON nếu thành công
-                        return Json(new { success = true, data = data });
+                    if(apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, data = apiResponse.Data });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
                     // Trả về thông báo lỗi nếu không tìm thấy sách
-                    return Json(new { success = false, message = "Không tìm thấy nhân viên" });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
             }
             catch (Exception ex)
@@ -94,7 +104,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("ThemNhanVien")]
-        public ActionResult ThemNhanVien(string hoTen, string soDienThoai, string gioiTinh, DateOnly ngaySinh, string diaChi, string chucVu, string username, string password)
+        public ActionResult ThemNhanVien(string hoTen, string soDienThoai, string gioiTinh, DateOnly ngaySinh, string diaChi, string chucVu, string username, string password, string token)
         {
             try
             {
@@ -109,12 +119,25 @@ namespace WebApp.Areas.Admin.Controllers
                 nv.Username = username;
                 nv.Password = password;
 
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // call API
                 HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/Account/ThemNhanVien", nv).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, data = nv });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success) 
+                    {
+                        return Json(new { success = true, data = apiResponse.Data });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
@@ -135,7 +158,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("CapNhatThongTin")]
-        public ActionResult CapNhatThongTin(int maNV, DateOnly ngaySinh, string diaChi, string gioiTinh, string soDienThoai, string hoTen, string chucVu, string username, string password)
+        public ActionResult CapNhatThongTin(int maNV, DateOnly ngaySinh, string diaChi, string gioiTinh, string soDienThoai, string hoTen, string chucVu, string username, string password, string token)
         {
             try
             {
@@ -151,12 +174,24 @@ namespace WebApp.Areas.Admin.Controllers
                 nv.Username = username;
                 nv.Password = password;
 
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 // call API
                 HttpResponseMessage response = _client.PostAsJsonAsync(_client.BaseAddress + "/Account/UpdateThongTinNhanVien", nv).Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, data = nv });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, data = nv });
+                    }
+                    else
+                    {
+                        return Json(new {success = false, message = apiResponse.Message});
+                    }
                 }
                 else
                 {
@@ -186,21 +221,31 @@ namespace WebApp.Areas.Admin.Controllers
         {
             try
             {
-                List<DTO_NhanVien_LoginNV> data = new List<DTO_NhanVien_LoginNV>();
-
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/Account/GetAllNhanVien").Result;
 
+                if (response.IsSuccessStatusCode)
+                {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<List<DTO_NhanVien_LoginNV>>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_NhanVien_LoginNV>>>(dataJson);
 
-                    // Trả về dữ liệu JSON nếu thành công
-                    return Json(new { data = data });
-
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, data = apiResponse.Data });
+                    }
+                    else
+                    { 
+                        return Json(new { success = false, message = apiResponse.Message }); 
+                    }
+                }
+                else
+                {
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
+                }
             }
             catch (Exception ex)
             {
                 // Trong trường hợp có lỗi, có thể log lỗi hoặc xử lý theo nhu cầu của bạn
-                return Json(new { Error = "Không thể lấy dữ liệu nhan vien." });
+                return Json(new { Error = ex.Message });
             }
         }
 

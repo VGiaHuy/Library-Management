@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Models;
-using WebAPI.Service_Admin;
+using WebAPI.Services.Admin;
 
 namespace WebAPI.Controllers.Admin
 {
     [Route("api/admin/[controller]/[action]")]
     [ApiController]
-    public class ThanhLySachController : ControllerBase
+    public class ThanhLySachController : Controller
     {
         private readonly QuanLyThuVienContext _context;
         private readonly IMapper _mapper;
@@ -54,11 +53,11 @@ namespace WebAPI.Controllers.Admin
         [HttpPost]
         public ActionResult ThemSachThanhLy_API([FromBody] SachNhapKhoDTO data)
         {
-            
+
             var success = _thanhLySachService.Insertsach(data);
             if (success)
             {
-                return Ok(new { success = true, message = "Thêm sach thành công." });
+                return Ok(new { success = true, message = "Thêm sách thành công." });
 
             }
             return BadRequest(new { success = false, message = "Thêm sách thất bại." });
@@ -69,16 +68,16 @@ namespace WebAPI.Controllers.Admin
         [HttpPost]
         public ActionResult PhieuThanhLy_API(DTO_Tao_Phieu_TL data)
         {
-           
-                var success = _thanhLySachService.InsertPhieuThanhLy(data);
-                if (success)
-                { // Trả về phản hồi thành công
 
-                    return Ok(new { success = true, message = "Tạo phiếu thanh lý thành công." });
+            var success = _thanhLySachService.InsertPhieuThanhLy(data);
+            if (success)
+            { // Trả về phản hồi thành công
 
-                }
-                return BadRequest(new { success = false, message = "Tạo phiếu thanh lý thất bại." });
-            
+                return Ok(new { success = true, message = "Tạo phiếu thanh lý thành công." });
+
+            }
+            return BadRequest(new { success = false, message = "Tạo phiếu thanh lý thất bại." });
+
 
         }
     }

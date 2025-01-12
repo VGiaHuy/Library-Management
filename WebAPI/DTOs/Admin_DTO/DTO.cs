@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
 using System.Web;
-using WebAPI.Models;
+//using WebAPI.Models;
 
 namespace WebAPI.Areas.Admin.Data
 {
@@ -17,9 +17,9 @@ namespace WebAPI.Areas.Admin.Data
         public string SDT { get; set; }
         public string DiaChi { get; set; }
         public string GioiTinh { get; set; }
-        public DateOnly NgaySinh { get; set; }
-        public DateOnly NgayDangKy { get; set; }
-        public DateOnly NgayHetHan { get; set; }
+        public DateOnly? NgaySinh { get; set; }
+        public DateOnly? NgayDangKy { get; set; }
+        public DateOnly? NgayHetHan { get; set; }
         public decimal TienThe { get; set; }
     }
 
@@ -37,19 +37,19 @@ namespace WebAPI.Areas.Admin.Data
         public string Password { get; set; }
 
 
-        public static explicit operator DTO_NhanVien_LoginNV(NhanVien v)
-        {
-            return new DTO_NhanVien_LoginNV
-            {
-                MaNV = v.MaNv,
-                HoTenNV = v.HoTenNv,
-                SDT = v.Sdt,
-                DiaChi = v.DiaChi,
-                GioiTinh = v.GioiTinh,
-                NgaySinh = v.Ngaysinh,
-                ChucVu = v.ChucVu,
-            };
-        }
+        //public static explicit operator DTO_NhanVien_LoginNV(NhanVien v)
+        //{
+        //    //return new DTO_NhanVien_LoginNV
+        //    //{
+        //    //    MaNV = v.MaNv,
+        //    //    HoTenNV = v.HoTenNv,
+        //    //    SDT = v.Sdt,
+        //    //    DiaChi = v.DiaChi,
+        //    //    GioiTinh = v.GioiTinh,
+        //    //    NgaySinh = v.Ngaysinh,
+        //    //    ChucVu = v.ChucVu,
+        //    //};
+        //}
     }
 
     public class DTO_Sach_Muon
@@ -58,21 +58,29 @@ namespace WebAPI.Areas.Admin.Data
         public string TenSach { get; set; }
         public int SoLuong { get; set; }
     }
+    public class DTO_CT_Sach_Muon
+    {
+        public string MaCuonSach { get; set; }
+        public bool TinhTrang { get; set; }
+
+    }
 
     public class DTO_Tao_Phieu_Muon
     {
         public int MaNhanVien { get; set; }
         public int MaTheDocGia { get; set; }
+        public string TenDocGia { get; set; }
         public DateOnly NgayMuon { get; set; }
         public DateOnly NgayTra { get; set; }
         public int MaDK { get; set; }
 
 
         public List<DTO_Sach_Muon> listSachMuon { get; set; }
-
+        public List<DTO_CT_Sach_Muon> listCTSachMuon { get; set; }
         public DTO_Tao_Phieu_Muon()
         {
             listSachMuon = new List<DTO_Sach_Muon>();
+            listCTSachMuon = new List<DTO_CT_Sach_Muon>();
         }
     }
 
@@ -96,13 +104,26 @@ namespace WebAPI.Areas.Admin.Data
     {
         public int MaNhanVien { get; set; }
         public int MaNhaCungCap { get; set; }
-        public DateOnly NgayNhap { get; set; }
+        public string TenNhaCungCap { get; set; }
+
+        public DateOnly? NgayNhap { get; set; }
         public List<DTO_Sach_Nhap> listSachNhap { get; set; }
 
-        //public DTO_Tao_Phieu_Nhap()
-        //{
-        //    listSachNhap = new List<DTO_Sach_Nhap>();
-        //}
+    }
+
+    public class DTO_ID
+    {
+        public int ID { get; set; }
+        
+    }
+    public class DTO_Tao_Phieu_Nhap_Excel
+    {
+        public int MaNhanVien { get; set; }
+        public int MaNhaCungCap { get; set; }
+        public string TenNhaCungCap { get; set; }
+
+        public DateOnly? NgayNhap { get; set; }
+        public List<DTO_ID> idThongTin { get; set; }
     }
     public class DTO_DangKyMuonSach
     {

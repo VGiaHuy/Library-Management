@@ -2,22 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using WebApp.Models;
 using WebApp.DTOs;
-using LoginDgDTO = WebApp.DTOs.LoginDgDTO;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using WebAPI.DTOs;
 using System.Security.Claims;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
 using System.Net.Http.Headers;
+using WebApp.Responses;
+using WebApp.Models;
+using WebApp.Admin.Data;
+using Newtonsoft.Json.Linq;
+using NuGet.Common;
+using Azure.Core;
+using System.Net;
 
 namespace WebApp.Controllers
 {
     public class UserController : Controller
     {
-        Uri baseAddress = new Uri("https://localhost:7028/api");
+        Uri baseAddress = new Uri("https://localhost:7028/api/Client");
         private readonly HttpClient _client;
 
         public UserController()
@@ -38,43 +40,82 @@ namespace WebApp.Controllers
         {
             try
             {
+                if (string.IsNullOrEmpty(phoneNumber))
+                {
+                    return Json(new { success = false, message = "Tài khoản không được để trống!" });
+                }
+                else if (string.IsNullOrEmpty(password))
+                {
+                    return Json(new { success = false, message = "Mật khẩu không được để trống!" });
+                }
 
                 // Gửi yêu cầu GET và truyền dữ liệu
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/UserAuth/CheckUserLogin/{phoneNumber}/{password}").Result;
 
+
+                // Kiểm tra mã trạng thái trả về từ API
                 if (response.IsSuccessStatusCode)
                 {
-                    UserAuthentication user = new UserAuthentication();
-                    string data = response.Content.ReadAsStringAsync().Result;
-                    user = JsonConvert.DeserializeObject<UserAuthentication>(data);
+                    // Deserialize dữ liệu trả về từ API
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<LoginResponseModel>>(dataJson);
 
-                    var claims = new List<Claim>()
+                    if (apiResponse != null && apiResponse.Success)
                     {
-                        new Claim(ClaimTypes.Name, user.HoTen),
-                        new Claim(ClaimTypes.Email, user.Email),
-                        new Claim("PhoneNumber", phoneNumber)
-                    };
+                        // gọi API lấy thông tin độc giả sau khi đăng nhập để lưu trữ
+                        HttpResponseMessage getInfo = _client.GetAsync(_client.BaseAddress + $"/UserAuth/GetInfoLogin/{phoneNumber}").Result;
 
+                        if (getInfo.IsSuccessStatusCode)
+                        {
+                            string dataJsonGetInfo = getInfo.Content.ReadAsStringAsync().Result;
+                            var apiResponseGetInfo = JsonConvert.DeserializeObject<APIResponse<LoginDg>>(dataJsonGetInfo);
 
-                    var claimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var claimsPrincial = new ClaimsPrincipal(claimIdentity);
+                            if (apiResponseGetInfo != null && apiResponseGetInfo.Success)
+                            {
+                                // Tạo danh sách các claims cho người dùng
+                                var claims = new List<Claim>
+                                {
+                                    new Claim(ClaimTypes.Name, apiResponseGetInfo.Data.Hoten),
+                                    new Claim(ClaimTypes.Email, apiResponseGetInfo.Data.Email),
+                                    new Claim("PhoneNumber", phoneNumber)
+                                };
 
-                    await HttpContext.SignInAsync(claimsPrincial);
+                                // Tạo ClaimsIdentity và ClaimsPrincipal
+                                var claimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                                var claimsPrincipal = new ClaimsPrincipal(claimIdentity);
 
-                    return Json(new { success = true });
+                                // Đăng nhập người dùng và tạo phiên làm việc
+                                await HttpContext.SignInAsync(claimsPrincipal);
+
+                                return Json(new { success = true, message = apiResponseGetInfo.Message, data = apiResponse.Data.AccessToken });
+                            }
+                            else
+                            {
+                                return Json(new { success = false, message = apiResponseGetInfo.Message });
+                            }
+                        }
+                        else
+                        {
+                            return Json(new { success = false, message = await getInfo.Content.ReadAsStringAsync() });
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Failed to retrieve data from API." });
+                    // Nếu API trả về lỗi, trả về thông báo chi tiết
+                    return Json(new { success = false, message = await response.Content.ReadAsStringAsync() });
                 }
             }
             catch (Exception ex)
             {
-                // Xử lý ngoại lệ
+                // Xử lý ngoại lệ nếu có
                 return StatusCode(500, new { success = false, message = ex.Message });
             }
         }
-
 
         public async Task LoginByGoogle()
         {
@@ -100,7 +141,6 @@ namespace WebApp.Controllers
             return RedirectToAction("ConfirmLoginGG", "User");
         }
 
-
         public IActionResult ConfirmLoginGG()
         {
             var user = HttpContext.User;
@@ -112,28 +152,45 @@ namespace WebApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                // Add sđt vào Claim
-                HttpResponseMessage respon = _client.GetAsync(_client.BaseAddress + $"/UserAuth/GetSdtByEmail/{userEmail}").Result;
-                string data = respon.Content.ReadAsStringAsync().Result;
+                string dataJson = response.Content.ReadAsStringAsync().Result;
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<LoginResponseModel>>(dataJson);
 
-                // Lấy danh sách Claims hiện tại của người dùng
-                var listClaimsUser = User.Claims.ToList();
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    // Add sđt vào Claim
+                    HttpResponseMessage responseSdt = _client.GetAsync(_client.BaseAddress + $"/UserAuth/GetSdtByEmail/{userEmail}").Result;
+                    string dataJson2 = responseSdt.Content.ReadAsStringAsync().Result;
+                    var apiResponse2 = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson2);
 
-                // Thêm Claim mới
-                listClaimsUser.Add(new Claim("PhoneNumber", data));
+                    if (apiResponse2 != null && apiResponse2.Success)
+                    {
+                        // Lấy danh sách Claims hiện tại của người dùng
+                        var listClaimsUser = User.Claims.ToList();
 
-                // Tạo danh sách Claims mới cho người dùng
-                var newIdentity = new ClaimsIdentity(listClaimsUser, CookieAuthenticationDefaults.AuthenticationScheme);
+                        // Thêm Claim mới
+                        listClaimsUser.Add(new Claim("PhoneNumber", apiResponse2.Message));
 
-                // Cập nhật danh sách Claims cho người dùng
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
+                        // Tạo danh sách Claims mới cho người dùng
+                        var newIdentity = new ClaimsIdentity(listClaimsUser, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                return RedirectToAction("Index", "Home");
+                        // Cập nhật danh sách Claims cho người dùng
+                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
+
+                        return View(model: apiResponse.Data.AccessToken); // Truyền token dưới dạng Model
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                else
+                {
+                    return View();
+                }
             }
             else
             {
                 return View();
-
             }
         }
 
@@ -161,23 +218,55 @@ namespace WebApp.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    // Lấy danh sách Claims hiện tại của người dùng
-                    var listClaimsUser = User.Claims.ToList();
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
 
-                    // Thêm Claim mới
-                    listClaimsUser.Add(new Claim("PhoneNumber", phoneNumber));
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        // Lấy danh sách Claims hiện tại của người dùng
+                        var listClaimsUser = User.Claims.ToList();
 
-                    // Tạo danh sách Claims mới cho người dùng
-                    var newIdentity = new ClaimsIdentity(listClaimsUser, CookieAuthenticationDefaults.AuthenticationScheme);
+                        // Thêm Claim mới
+                        listClaimsUser.Add(new Claim("PhoneNumber", phoneNumber));
 
-                    // Cập nhật danh sách Claims cho người dùng
-                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
+                        // Tạo danh sách Claims mới cho người dùng
+                        var newIdentity = new ClaimsIdentity(listClaimsUser, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    return Json(new { success = true });
+                        // Cập nhật danh sách Claims cho người dùng
+                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(newIdentity));
+
+
+                        // gọi API lấy token
+                        HttpResponseMessage getToken = _client.PostAsJsonAsync(_client.BaseAddress + "/UserAuth/GetTokenJWT", model).Result;
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string dataJsonGetToken = getToken.Content.ReadAsStringAsync().Result;
+                            var apiGetTokenResponse = JsonConvert.DeserializeObject<APIResponse<LoginResponseModel>>(dataJsonGetToken);
+
+                            if (apiGetTokenResponse != null && apiGetTokenResponse.Success)
+                            {
+                                return Json(new { success = true, message = apiResponse.Message, token = apiGetTokenResponse.Data.AccessToken });
+                            }
+                            else
+                            {
+                                return Json(new { success = false, message = apiGetTokenResponse.Message });
+
+                            }
+                        }
+                        else
+                        {
+                            return Json(new { success = false, message = getToken.Content.ReadAsStringAsync() });
+                        }
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = false });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
             }
             catch
@@ -185,7 +274,6 @@ namespace WebApp.Controllers
                 return Json(new { success = false });
             }
         }
-
 
 
         public IActionResult Register()
@@ -211,11 +299,21 @@ namespace WebApp.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, message = "Đăng ký thành công!" });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, message = apiResponse.Message });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = false, message = "Đăng ký thấy bại!" });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
                 }
             }
             catch
@@ -238,7 +336,17 @@ namespace WebApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return Json(new { success = true, message = "Gửi mail thành công" });
+                string dataJson = response.Content.ReadAsStringAsync().Result;
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
+
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, message = apiResponse.Message });
+                }
+                else
+                {
+                    return Json(new { success = false, message = apiResponse.Message });
+                }
             }
             else
             {
@@ -254,11 +362,21 @@ namespace WebApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return Json(new { success = true, message = "Xác thực thành công!" });
+                string dataJson = response.Content.ReadAsStringAsync().Result;
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<object>>(dataJson);
+
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, message = apiResponse.Message });
+                }
+                else
+                {
+                    return Json(new { success = false, message = apiResponse.Message });
+                }
             }
             else
             {
-                return Json(new { success = false, message = "Mã OTP sai!!!" });
+                return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
             }
         }
 
@@ -279,7 +397,6 @@ namespace WebApp.Controllers
             {
                 List<DkiMuonSach> bookList = new List<DkiMuonSach>();
                 var user = HttpContext.User;
-
                 var sdt = user.FindFirst("PhoneNumber")?.Value;
 
                 // gọi API lấy ra dữ liệu từ bảng DkiMuonSaches với sđt = sdt của user
@@ -290,8 +407,13 @@ namespace WebApp.Controllers
                     string data = response.Content.ReadAsStringAsync().Result;
                     bookList = JsonConvert.DeserializeObject<List<DkiMuonSach>>(data);
                 }
+                else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    ViewBag.MessageData = "Không thể truy cập dữ liệu vì lỗi API Key";
+                    return View(bookList);
+                }
                 // Kiểm tra nếu user có dữ liệu ở bảng DkiMuonSaches thì trả dữ liệu ra view
-                if (bookList.Count > 0)  
+                if (bookList.Count > 0)
                 {
                     return View(bookList);
                 }
@@ -305,28 +427,41 @@ namespace WebApp.Controllers
             {
                 return BadRequest(e.Message);
             }
-
         }
 
-        [HttpPut]
-        public async Task<IActionResult> CancelOrderBooks(int maDK)
+        [Authorize]
+        public async Task<IActionResult> CancelOrderBooks(int maDK, string token)
         {
-
-            var requestUrl = new Uri(_client.BaseAddress + $"/UserAuth/CancelOrderBooks/{maDK}");
-
-            using (var httpContent = new StringContent(string.Empty))
+            try
             {
-                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = await _client.PutAsync(requestUrl, httpContent);
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                if (response.IsSuccessStatusCode)
+                // Tạo request URL
+                string requestUrl = _client.BaseAddress + $"/UserAuth/CancelOrderBooks/{maDK}";
+
+                // Tạo nội dung trống để gửi đi với PUT request
+                using (var httpContent = new StringContent(string.Empty))
                 {
-                    return Json(new { success = true, message = "Đã hủy đơn thành công" });
+                    httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                    // Gửi PUT request
+                    HttpResponseMessage response = await _client.PutAsync(requestUrl, httpContent);
+
+                    // Kiểm tra kết quả trả về
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return Json(new { success = true, message = "Đã hủy đơn thành công" });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = "Hủy đơn thất bại" });
+                    }
                 }
-                else
-                {
-                    return Json(new { success = false, message = "Hủy đơn thất bại" });
-                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Lỗi: {ex.Message}" });
             }
         }
 
@@ -348,6 +483,5 @@ namespace WebApp.Controllers
                 return BadRequest();
             }
         }
-
     }
 }

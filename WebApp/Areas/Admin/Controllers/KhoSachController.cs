@@ -12,6 +12,7 @@ namespace WebApp.Areas.Admin.Controllers
 
     public class KhoSachController : Controller
     {
+
         Uri baseAddress = new Uri("https://localhost:7028/api/admin");
         private readonly HttpClient _client;
 
@@ -35,7 +36,7 @@ namespace WebApp.Areas.Admin.Controllers
         {
             try
             {
-                List<SachDTO>sach = new List<SachDTO>();
+                List<SachDTO> sach = new List<SachDTO>();
 
                 var reqjson = JsonConvert.SerializeObject(req);
                 var httpContent = new StringContent(reqjson, Encoding.UTF8, "application/json");

@@ -8,7 +8,7 @@
 <h1>Đăng ký tài khoản</h1>
 
 <hr />
-<div class="row justify-content-center" >
+<div class="row justify-content-center">
     <div class="col-md-4">
         <form style="max-width: 400px; margin: 5px auto; border: 1px solid #009999; background-color: #CCFFFF; padding: 20px; border-radius: 5px;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -97,105 +97,112 @@
 </div>
 
 
-    <script>
+<script>
 
-        document.getElementById("buttonCloseModal").addEventListener("click", function () {
-            window.location.href = '/Home/Index';
+    document.getElementById("buttonCloseModal").addEventListener("click", function () {
+        window.location.href = '/User/Index';
+    });
+
+    function callModalSendEmail() {
+        console.log("callModalSendEmail start")
+        var username = $("#username").val();
+        var email = $("#email").val();
+        var phoneNumber = $("#phoneNumber").val();
+
+        $.ajax({
+            url: "/User/SendEmailRegister",
+            type: "POST",
+            data:
+            {
+                phoneNumber: phoneNumber,
+                username: username,
+                email: email
+            },
+            success: function (result) {
+                if (result.success) {
+                    $('#sendEmailModal').modal('show');
+                } else {
+                    document.getElementById("contentModalError").innerHTML = result.message;
+                    $('#failModal').modal('show');
+                }
+            },
+            error: function (result) {
+                document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra!";
+                $('#failModal').modal('show');
+            }
+        });
+    }
+
+    function checkEmail() {
+        var otp = $('#otpEmail').val();
+        console.log("otp nhận vào: ", otp);
+
+        $.ajax({
+            url: "/User/CheckEmailRegister",
+            type: "GET",
+            data:
+            {
+                otp: otp
+            },
+            success: function (result) {
+
+                if (result.success) {
+                    Register();
+                } else {
+                    document.getElementById("contentModalError").innerHTML = result.message;
+                    $('#failModal').modal('show');
+
+                    document.getElementById('failModal').addEventListener('hidden.bs.modal', function () {
+                        console.log('Modal đã được đóng.');
+                        // Thực hiện hành động sau khi failModal được đóng
+                        $('#sendEmailModal').modal('show');
+                    });
+
+                }
+            },
+            error: function (result) {
+                document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra";
+                $('#failModal').modal('show');
+            }
         });
 
-        function callModalSendEmail() {
-            console.log("callModalSendEmail start")
-            var username = $("#username").val();
-            var email = $("#email").val();
-            var phoneNumber = $("#phoneNumber").val();
-                
-            $.ajax({
-                url: "/User/SendEmailRegister",
-                type: "POST",
-                data:
-                {
-                    phoneNumber: phoneNumber,
-                    username: username,
-                    email: email
-                },
-                success: function (result) {
-                    if (result.success) {
-                        $('#sendEmailModal').modal('show');
-                    } else {
-                        document.getElementById("contentModalError").innerHTML = result.message;
-                        $('#failModal').modal('show');
-                    }
-                },
-                error: function (result) {
-                    document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra!";
+    }
+
+    function Register() {
+        // Lấy giá trị từ ô input
+        var phoneNumber = $("#phoneNumber").val();
+        console.log("dữ liệu nhận vào: ", phoneNumber);
+        var password = $("#password").val();
+        console.log("dữ liệu nhận vào: ", password);
+        var username = $("#username").val();
+        console.log("dữ liệu nhận vào: ", username);
+        var email = $("#email").val();
+        console.log("dữ liệu nhận vào: ", email);
+
+        $.ajax({
+            url: "/User/Register",
+            type: "POST",
+            data:
+            {
+                phoneNumber: phoneNumber,
+                password: password,
+                username: username,
+                email: email
+            },
+            success: function (result) {
+
+                if (result.success) {
+                    document.getElementById("contentModalSuccess").innerHTML = result.message;
+                    $('#successModal').modal('show');
+                } else {
+                    document.getElementById("contentModalError").innerHTML = result.message;
                     $('#failModal').modal('show');
                 }
-            });
-        }
-
-        function checkEmail(){
-            var otp = $('#otpEmail').val();
-            console.log("otp nhận vào: ", otp);
-
-            $.ajax({
-                url: "/User/CheckEmailRegister",
-                type: "GET",
-                data:
-                {
-                    otp: otp
-                },
-                success: function (result) {
-
-                    if (result.success) {
-                        Register();
-                    } else {
-                        document.getElementById("contentModalError").innerHTML = result.message;
-                        $('#failModal').modal('show');
-                    }
-                },
-                error: function (result) {
-                    document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra";
-                    $('#failModal').modal('show');
+            },
+            error: function (result) {
+                document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra!";
+                $('#failModal').modal('show');
             }
-            });
-
-        }
-
-        function Register() {
-            // Lấy giá trị từ ô input
-            var phoneNumber = $("#phoneNumber").val();
-            console.log("dữ liệu nhận vào: ", phoneNumber);
-            var password = $("#password").val();
-            console.log("dữ liệu nhận vào: ", password);
-            var username = $("#username").val();
-            console.log("dữ liệu nhận vào: ", username);
-            var email = $("#email").val();
-            console.log("dữ liệu nhận vào: ", email);
-
-            $.ajax({
-                url: "/User/Register",
-                type: "POST",
-                data:
-                {
-                    phoneNumber: phoneNumber,
-                    password: password,
-                    username: username,
-                    email: email
-                },
-                success: function (result) {
-
-                    if (result.success) {
-                        document.getElementById("contentModalSuccess").innerHTML = result.message;
-                        $('#successModal').modal('show');
-                    } else {
-                        document.getElementById("contentModalError").innerHTML = result.message;
-                        $('#failModal').modal('show');
-                    }
-                },
-                error: function (result) {
-                    document.getElementById("contentModalError").innerHTML = "Có lỗi xảy ra!";
-                    $('#failModal').modal('show');
-                }
-            });
-        }
-    </script>
+        });
+    }
+</script>

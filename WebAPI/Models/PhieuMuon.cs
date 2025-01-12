@@ -5,25 +5,27 @@ namespace WebAPI.Models;
 
 public partial class PhieuMuon
 {
-    public int MaPm { get; set; }
+    public int Mapm { get; set; }
 
-    public DateOnly? NgayMuon { get; set; }
+    public int? Mathe { get; set; }
 
-    public DateOnly? HanTra { get; set; }
+    public DateOnly? Ngaymuon { get; set; }
 
-    public int? MaThe { get; set; }
+    public DateOnly? Hantra { get; set; }
 
-    public int? MaNv { get; set; }
+    public int? Manv { get; set; }
 
-    public bool Tinhtrang { get; set; }
+    public bool? Tinhtrang { get; set; }
 
-    public int? MaDk { get; set; }
+    public int? Madk { get; set; }
 
     public virtual ICollection<ChiTietPm> ChiTietPms { get; set; } = new List<ChiTietPm>();
 
-    public virtual NhanVien? MaNvNavigation { get; set; }
+    public virtual ICollection<ChiTietSachMuon> ChiTietSachMuons { get; set; } = new List<ChiTietSachMuon>();
 
-    public virtual TheDocGium? MaTheNavigation { get; set; }
+    public virtual NhanVien? ManvNavigation { get; set; }
+
+    public virtual TheDocGium? MatheNavigation { get; set; }
 
     public virtual ICollection<PhieuTra> PhieuTras { get; set; } = new List<PhieuTra>();
 }

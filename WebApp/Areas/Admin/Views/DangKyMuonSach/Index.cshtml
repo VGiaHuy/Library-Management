@@ -13,6 +13,7 @@
                     <div class="card-header">
                         <div class="form-row">
 
+
                             <div class="col-6">
                                 <h3 class="text-center text-blue text-bold">Quản Lý Đăng Ký Sách Mượn </h3>
                             </div>
@@ -72,7 +73,7 @@
                                                     <td>@string.Format("{0:dd-MM-yyyy}", dataDkiMuonSach.NgayDK)</td>
                                                     <td>@string.Format("{0:dd-MM-yyyy}", dataDkiMuonSach.NgayHen)</td>
 
-                                                    @if (dataDkiMuonSach.NgayHen < DateOnly.FromDateTime(DateTime.Now) && (dataDkiMuonSach.TinhTrang ==0 || dataDkiMuonSach.TinhTrang ==1) )
+                                                    @if (dataDkiMuonSach.NgayHen < DateOnly.FromDateTime(DateTime.Now) && (dataDkiMuonSach.TinhTrang == 0 || dataDkiMuonSach.TinhTrang == 1))
                                                     {
                                                         <td><button type="button" class="btn btn-danger px-3" style="font-size: 14px;" onclick="handleTinhTrang(@dataDkiMuonSach.MaDK, @dataDkiMuonSach.SDT, @dataDkiMuonSach.TinhTrang)">Đã hủy</button></td>
                                                     }
@@ -184,40 +185,8 @@
     </div>
 </div>
 
-<!-- Modal nhập hạn trả -->
-<!--<div class="modal fade bd-example-modal-md" id="ModalHanTra" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog modal-md" role="document">
-        <div class="modal-content">-->
-<!-- Header -->
-<!--<div class="modal-header text-center">
-    <h4 class="modal-title w-100 text-blue" style="font-weight: bold;" id="">Chọn hạn trả</h4>
-</div>-->
-<!-- Body -->
-<!--<form class="modal-body p-4">
-    <div class="form-row">-->
-<!--Ngày trả-->
-<!--<div class="form-group col">
-            <label for="HanTra">Hạn trả:</label>
-            <select class="form-control" id="HanTra" name="HanTra">
-                <option value="0">-- Chọn hạn trả --</option>
-                <option value="1">1 tháng</option>
-                <option value="2">2 tháng</option>
-                <option value="3">3 tháng</option>
-                <option value="4">4 tháng</option>
-                <option value="5">5 tháng</option>
-                <option value="6">6 tháng</option>
-            </select>
-        </div>
-    </div>
-</form>-->
-<!-- Footer -->
-<!--<div class="modal-footer" id="modal-footer">
-                <button type="button" class="btn btn-primary" style="font-size: 15px;" onclick="">Submit</button>
-            </div>
 
-        </div>
-    </div>
-</div>-->
+
 <!-- Modal error-->
 <div class="modal fade" id="ModalError" tabindex="-1" role="dialog" aria-labelledby="ModalError" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -240,10 +209,32 @@
     </div>
 </div>
 
+<!-- Modal confirm -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="xacNhanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="xacNhanModalLabel">Xác nhận hành động</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span class="" id="contentModalConfirm"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Đóng </button>
+                <button type="button" class="btn btn-primary" id="confirmButton">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 @section scripts
 {
     <script>
+        const tokenJWT = localStorage.getItem("accessToken");
 
         // Lấy ngày hiện tại
         var currentDate = new Date();
@@ -299,6 +290,7 @@
                 data: {
                     maDK: maDK,
                     tinhTrang: tinhTrang,
+                    token: tokenJWT
                 },
                 success: function (data) {
                     if (data.success) {
@@ -336,60 +328,6 @@
                 }
             });
         }
-
-        function BtnSubmitTaoPhieuMuon(maDK) {
-            var soThang = parseInt(document.getElementById("HanTra").value);
-
-            if (soThang == 0) {
-                document.getElementById("contentModalError").innerHTML = "Hãy chọn hạn trả!";
-                $("#ModalError").modal("show");
-            } else {
-
-                // Xử lý tạo phiếu mượn
-
-                var x = new Date(formatCurrentDate); // Tạo đối tượng Date từ chuỗi
-                var ngayTra = new Date(x); // Tạo một bản sao của ngayMuon
-                ngayTra.setDate(ngayTra.getDate() + (soThang * 7));
-                var formatNgayTra = ngayTra.toISOString().slice(0, 10);// Định dạng ngày trả
-                var ngayMuon = formatCurrentDate;
-                var maNV = @User.FindFirst("MaNV").Value;
-                var sdt = document.getElementById("sdtModal").value;
-
-                console.log('ngayMuon', ngayMuon);
-                console.log('formatNgayTra', formatNgayTra);
-                console.log('maNV', maNV);
-                console.log('sdt', sdt);
-
-                var confirmed = confirm("Bạn có chắc muốn tạo phiếu mượn không?");
-                if (confirmed) {
-                    $.ajax({
-                        url: '@Url.Action("SubmitTaoPhieuMuon", "DangKyMuonSach")',
-                        type: 'POST',
-                        data: {
-                            maNV: maNV,
-                            maDK: maDK,
-                            ngayTra: formatNgayTra,
-                            ngayMuon: ngayMuon,
-                            sdt: sdt,
-                        },
-                        success: function (data) {
-                            if (data.success) {
-                                if (data.data === "checkthedocgia") {
-                                    document.getElementById("contentModalError").innerHTML = "Thẻ độc giả đã hết hạn. Vui lòng gia  hạn để được mượn sách!";
-                                    $("#ModalError").modal("show");
-                                } else {
-                                    HandleBtnHuyAndDuyet(maDK, 2);
-                                }
-                                $("#ModaldanhSachDkiMuon").modal("hide");
-                            } else {
-                                console.error("Không thành công trong việc nhận dữ liệu từ server.");
-                            }
-                        }
-                    });
-                }
-            }
-        }
-
 
 
         //=====================  Xử lý sự kiện khi click vào btn  trong table  =====================
@@ -436,10 +374,10 @@
 
                         $.each(ctdk, function (index, item) {
                             var newRow = $(` <tr class="sachdk-row" data-ma-sach="${item.maSach}">
-                                     <td>${item.maSach}</td>
-                                     <td>${item.tenSach}</td>
-                                     <td>${item.soLuong}</td>
-                                     </tr> `);
+                                             <td id="maSach">${item.maSach}</td>
+                                             <td id="tenSach">${item.tenSach}</td>
+                                             <td id="soLuong">${item.soLuong}</td>
+                                             </tr> `);
 
                             danhSachSachDK.append(newRow);
                         });
@@ -490,7 +428,7 @@
                                 selectHanTra.append('<option value="2">2 tuần</option>');
                                 selectHanTra.append('<option value="3">3 tuần</option>');
                                 selectHanTra.append('<option value="4">4 tuần</option>');
-                               
+
 
                                 divHanTra.append(selectHanTra);
 
@@ -626,9 +564,198 @@
             });
         }
 
-        // $(document).ready(function () {
-        //     GetAllDkiMuonSach(); // Gọi hàm khi trang đã sẵn sàng
-        // });
+
+        function BtnSubmitTaoPhieuMuon(maDK) {
+            var soThang = parseInt(document.getElementById("HanTra").value);
+
+            if (soThang == 0) {
+                document.getElementById("contentModalError").innerHTML = "Hãy chọn hạn trả!";
+                $("#ModalError").modal("show");
+            } else {
+                // Thu thập dữ liệu "Mã sách" và các "Mã cuốn sách"
+                const data = [];
+
+                // Đếm số dòng sách trong bảng
+                var giaTriSoLuong = 0;
+                // Tạo vòng lặp qua tất cả các <td> có id="soLuong"
+                $("#danhSachSachDk td#soLuong").each(function () {
+                    giaTriSoLuong += parseInt($(this).text().trim(), 10); // Lấy giá trị và loại bỏ khoảng trắng
+                });
+
+                let isValid = true; // Biến kiểm tra tính hợp lệ
+                let allMaCuonSach = []; // Mảng chứa tất cả giá trị của các input
+
+                // Lặp qua tất cả các dòng sách
+                $(".sachdk-row").each(function () {
+                    const maSach = $(this).find("#maSach").text().trim();
+
+                    // Lấy các input "Mã cuốn sách" tương ứng với mỗi Mã sách
+                    const maCuonSachInputs = $(this).next(".details-table")
+                        .find('input[name="maCuonSach[' + maSach + '][]"]')
+                        .map(function () {
+                            return $(this).val().trim(); // Lấy giá trị của mỗi input và loại bỏ khoảng trắng
+                        }).get();
+
+                    // Kiểm tra dữ liệu rỗng
+                    if (maCuonSachInputs.some(value => value === "")) {
+                        document.getElementById("contentModalError").innerHTML = "Mã cuốn sách không được để trống!";
+                        $("#ModalError").modal("show");
+                        isValid = false;
+                        return false; // Thoát khỏi vòng lặp nếu dữ liệu không hợp lệ
+                    }
+
+                    // Kiểm tra trùng lặp trong chính danh sách hiện tại
+                    const hasDuplicates = new Set(maCuonSachInputs).size !== maCuonSachInputs.length;
+                    if (hasDuplicates) {
+                        document.getElementById("contentModalError").innerHTML = "Dữ liệu không được trùng nhau trong cùng một mã sách!";
+                        $("#ModalError").modal("show"); isValid = false;
+                        return false; // Thoát khỏi vòng lặp nếu dữ liệu không hợp lệ
+                    }
+
+                    // Thêm dữ liệu vào mảng tổng để kiểm tra trùng lặp giữa các dòng
+                    allMaCuonSach = allMaCuonSach.concat(maCuonSachInputs);
+
+                    const maSachInt = parseInt(maSach, 10);
+                    if (!isNaN(maSachInt) && maCuonSachInputs.length > 0) {
+                        data.push({
+                            maSach: maSachInt, // Thêm giá trị đã được chuyển đổi
+                            maCuonSach: maCuonSachInputs
+                        });
+                    }
+                });
+
+                // Kiểm tra trùng lặp giữa các dòng
+                if (new Set(allMaCuonSach).size !== allMaCuonSach.length) {
+                    document.getElementById("contentModalError").innerHTML = "Dữ liệu không được trùng nhau giữa các dòng sách";
+                    $("#ModalError").modal("show");
+                    isValid = false;
+                }
+
+                console.log("allMaCuonSach: ", allMaCuonSach.length)
+                console.log("giaTriSoLuong: ", giaTriSoLuong);
+
+
+                if (allMaCuonSach.length != giaTriSoLuong) {
+                    document.getElementById("contentModalError").innerHTML = "Vui lòng điền đầy đủ Mã cuốn sách";
+                    $("#ModalError").modal("show");
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    console.log(data); // Dữ liệu đã thu thập (mảng chứa Mã sách và Mã cuốn sách)
+
+                    // Tiến hành gửi dữ liệu qua AJAX
+                    var x = new Date(formatCurrentDate);
+                    var ngayTra = new Date(x);
+                    ngayTra.setDate(ngayTra.getDate() + (soThang * 7));
+                    var formatNgayTra = ngayTra.toISOString().slice(0, 10);
+                    var ngayMuon = formatCurrentDate;
+                    var maNV = @User.FindFirst("MaNV").Value;
+                    var sdt = document.getElementById("sdtModal").value;
+
+                    console.log('ngayMuon', ngayMuon);
+                    console.log('formatNgayTra', formatNgayTra);
+                    console.log('maNV', maNV);
+                    console.log('sdt', sdt);
+
+
+                    document.getElementById("contentModalConfirm").innerHTML = "Bạn có chắc muốn tạo phiếu mượn không?";
+                    const modal = new bootstrap.Modal(document.getElementById("confirmModal"));
+                    modal.show();
+
+                    // Lắng nghe sự kiện xác nhận
+                    const confirmButton = document.getElementById("confirmButton");
+                    confirmButton.onclick = function () {
+
+                        modal.hide(); // Ẩn modal
+                            $.ajax({
+                                url: '@Url.Action("SubmitTaoPhieuMuon", "DangKyMuonSach")',
+                                type: 'POST',
+                                data: {
+                                    maNV: maNV,
+                                    maDK: maDK,
+                                    ngayTra: formatNgayTra,
+                                    ngayMuon: ngayMuon,
+                                    sdt: sdt,
+                                    data: data, // Gửi mảng dữ liệu chứa các Mã sách và Mã cuốn sách
+                                    token: tokenJWT
+                                },
+                                success: function (data) {
+                                    if (data.success) {
+                                        if (data.data === "checkthedocgia") {
+                                            document.getElementById("contentModalError").innerHTML = "Thẻ độc giả đã hết hạn. Vui lòng gia  hạn để được mượn sách!";
+                                            $("#ModalError").modal("show");
+                                        } else {
+                                            HandleBtnHuyAndDuyet(maDK, 2);
+                                        }
+                                        $("#ModaldanhSachDkiMuon").modal("hide");
+                                    } else {
+                                        document.getElementById("contentModalError").innerHTML = data.message;
+                                        $("#ModalError").modal("show");
+                                    }
+                                }
+                            });
+                    };
+                }
+
+
+
+            }
+        }
+
+
+        $(document).on("click", ".sachdk-row", function () {
+            // Hiển thị modal (nếu cần)
+            $("#ModalChiTietSachMuon").modal("show");
+
+            // Kiểm tra xem bảng chi tiết đã tồn tại chưa
+            const detailsTable = $(this).next(".details-table");
+            if (detailsTable.length > 0) {
+                // Nếu đã tồn tại, xóa bảng
+                detailsTable.remove();
+            } else {
+                // Lấy giá trị từ hàng hiện tại
+                const maSach = $(this).find("#maSach").text().trim();
+                const soLuong = parseInt($(this).find("#soLuong").text().trim());
+                const tenSach = $(this).find("#tenSach").text().trim();
+
+                // Tạo danh sách các dòng cho cột "Mã cuốn sách" (dùng input để người dùng nhập)
+                let maCuonSachRows = '';
+                const soLuongList = Array.from({ length: soLuong }, (_, index) => index + 1);
+
+                soLuongList.forEach((soLuongIndex) => {
+                    maCuonSachRows += `
+                                <tr>
+                                    ${soLuongIndex === 1 ? `<td rowspan="${soLuongList.length}" class="align-middle text-center">${tenSach}</td>` : ''}
+                                    <td class="text-center align-middle">
+                                        <input type="text" class="form-control" name="maCuonSach[${maSach}][]" placeholder="Nhập mã cuốn sách" />
+                                    </td>
+                                </tr>`;
+                });
+
+                // Tạo bảng mới
+                const newTable = `
+                            <tr class="details-table">
+                                <td colspan="3">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Tên sách</th>
+                                                <th class="text-center">Mã cuốn sách</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            ${maCuonSachRows}
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>`;
+
+                // Thêm bảng mới ngay sau hàng hiện tại
+                $(this).after(newTable);
+            }
+        });
+
 
     </script>
 }

@@ -5,11 +5,11 @@ namespace WebAPI.Models;
 
 public partial class DonViTl
 {
-    public int MaDv { get; set; }
+    public int Madv { get; set; }
 
-    public string? TenDv { get; set; }
+    public string? Tendv { get; set; }
 
-    public string? DiaChiDv { get; set; }
+    public string? Diachidv { get; set; }
 
     public string? Sdtdv { get; set; }
 

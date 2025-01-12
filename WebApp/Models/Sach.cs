@@ -5,21 +5,25 @@ namespace WebApp.Models;
 
 public partial class Sach
 {
-    public int MaSach { get; set; }
+    public int Masach { get; set; }
 
-    public string? TenSach { get; set; }
+    public string? Tensach { get; set; }
 
-    public string? TheLoai { get; set; }
+    public string? Theloai { get; set; }
 
-    public string? TacGia { get; set; }
+    public string? Tacgia { get; set; }
 
-    public string? NgonNgu { get; set; }
+    public string? Ngonngu { get; set; }
 
     public string? Nxb { get; set; }
 
-    public int? NamXb { get; set; }
+    public int? Namxb { get; set; }
 
-    public int? SoLuongHientai { get; set; }
+    public string? UrlImage { get; set; }
+
+    public string? Mota { get; set; }
+
+    public int? Soluonghientai { get; set; }
 
     public virtual ICollection<ChiTietDk> ChiTietDks { get; set; } = new List<ChiTietDk>();
 
@@ -29,5 +33,5 @@ public partial class Sach
 
     public virtual ICollection<Chitietpn> Chitietpns { get; set; } = new List<Chitietpn>();
 
-    public virtual ICollection<TtSach> TtSaches { get; set; } = new List<TtSach>();
+    public virtual ICollection<CuonSach> CuonSaches { get; set; } = new List<CuonSach>();
 }

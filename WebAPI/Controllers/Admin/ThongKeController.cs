@@ -9,6 +9,7 @@ namespace WebAPI.Controllers.Admin
 {
     [Route("api/admin/[controller]/[action]")]
     [ApiController]
+
     public class ThongKeController : ControllerBase
     {
         private readonly ThongKeService _thongkeService;
@@ -23,20 +24,7 @@ namespace WebAPI.Controllers.Admin
             _thongkeService = thongkeService;
 
         }
-
-        [HttpGet("{tungay}/{denngay}")]
-        public IActionResult Get_SachNhap_API(DateOnly tungay, DateOnly denngay)
-        {
-            try
-            {
-                List<ThongKeSach> sachNhap = _thongkeService.GetSachNhap(tungay, denngay);
-                return Ok(sachNhap);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        
 
         [HttpGet("{tungay}/{denngay}")]
         public IActionResult Get_SachMuon_API(DateOnly tungay, DateOnly denngay)
@@ -51,7 +39,7 @@ namespace WebAPI.Controllers.Admin
                 return BadRequest(ex.Message);
             }
         }
-
+     
 
         [HttpGet("{tungay}/{denngay}")]
         public IActionResult Get_PhieuMuon_API(DateOnly tungay, DateOnly denngay)
@@ -157,3 +145,60 @@ namespace WebAPI.Controllers.Admin
 
     }
 }
+//[HttpGet]
+//public IActionResult Get_TongSachNhap_API()
+//{
+//    try
+//    {
+//        ThongKePhieu sach = _thongkeService.GetTongSachNhap();
+//        return Ok(sach);
+//    }
+//    catch (Exception ex)
+//    {
+//        return BadRequest(ex.Message);
+//    }
+//}
+
+
+//[HttpGet]
+//public IActionResult Get_TongSach_HienTai_API()
+//{
+//    try
+//    {
+//        ThongKePhieu sach = _thongkeService.GetTongSachHienTai();
+//        return Ok(sach);
+//    }
+//    catch (Exception ex)
+//    {
+//        return BadRequest(ex.Message);
+//    }
+//}
+
+
+//[HttpGet]
+//public IActionResult Get_TongSachMuon_API()
+//{
+//    try
+//    {
+//        ThongKePhieu sach = _thongkeService.GetTongSachMuon();
+//        return Ok(sach);
+//    }
+//    catch (Exception ex)
+//    {
+//        return BadRequest(ex.Message);
+//    }
+//}
+
+//[HttpGet("{tungay}/{denngay}")]
+//public IActionResult Get_SachNhap_API(DateOnly tungay, DateOnly denngay)
+//{
+//    try
+//    {
+//        List<ThongKeSach> sachNhap = _thongkeService.GetSachNhap(tungay, denngay);
+//        return Ok(sachNhap);
+//    }
+//    catch (Exception ex)
+//    {
+//        return BadRequest(ex.Message);
+//    }
+//}

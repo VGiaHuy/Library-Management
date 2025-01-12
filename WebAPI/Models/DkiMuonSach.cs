@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAPI.Models;
 
 public partial class DkiMuonSach
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int MaDk { get; set; }
+    public int Madk { get; set; }
 
     public string? Sdt { get; set; }
 
-    public DateOnly? NgayDkmuon { get; set; }
+    public DateOnly? Ngaydkmuon { get; set; }
 
-    public DateOnly? NgayHen { get; set; }
+    public DateOnly? Ngayhen { get; set; }
 
     public int? Tinhtrang { get; set; }
 

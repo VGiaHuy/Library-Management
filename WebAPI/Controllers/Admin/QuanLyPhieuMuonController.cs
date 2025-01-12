@@ -1,16 +1,17 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Models;
-using WebAPI.Service_Admin;
+using WebAPI.Services.Admin;
 
 namespace WebAPI.Controllers.Admin
 {
     [Route("api/admin/[controller]/[action]")]
     [ApiController]
-    public class QuanLyPhieuMuonController : ControllerBase
+    public class QuanLyPhieuMuonController : Controller
     {
+
+
         private readonly QuanLyPhieuMuonService _qlphieuMuonService;
         private readonly QuanLyThuVienContext _context;
         private readonly IMapper _mapper;
@@ -25,13 +26,12 @@ namespace WebAPI.Controllers.Admin
         [HttpPost]
         public async Task<ActionResult<PagingResult<PhieuMuon_GroupMaDG_DTO>>> GetListDG_PhieuMuonPaging_API([FromBody] GetListPhieuTraPaging req)
         {
-            try 
-            { 
+            try
+            {
                 var docgia = await _qlphieuMuonService.GetAllDocGiaPaging(req);
-
                 return Ok(docgia);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -81,4 +81,6 @@ namespace WebAPI.Controllers.Admin
             }
         }
     }
-}
+} 
+    
+

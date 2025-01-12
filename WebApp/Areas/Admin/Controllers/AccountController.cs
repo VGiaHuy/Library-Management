@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Newtonsoft.Json;
 using WebApp.Areas.Admin.Data;
 using Microsoft.AspNetCore.Authorization;
+using WebApp.Admin.Data;
 
 namespace WebApp.Areas.Admin.Controllers
 {
@@ -32,46 +33,53 @@ namespace WebApp.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Home");
         }
 
+
         [Route("Login")]
-        public async Task<ActionResult> Login()
+        public IActionResult Login()
         {
             return View();
         }
 
+
         [HttpPost]
         [Route("Login")]
-        public async Task<ActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            // check database
-            DTO_NhanVien_LoginNV login = new DTO_NhanVien_LoginNV();
-
-            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/Account/Login/{username}/{password}").Result;
+            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + $"/Account/Login/{username}/{password}");
 
             if (response.IsSuccessStatusCode)
             {
-                string dataJson = response.Content.ReadAsStringAsync().Result;
-                login = JsonConvert.DeserializeObject<DTO_NhanVien_LoginNV>(dataJson);
+                string dataJson = await response.Content.ReadAsStringAsync();
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_NhanVien_LoginNV>>(dataJson);
 
-                var claims = new List<Claim>()
+                if (apiResponse != null && apiResponse.Success)
                 {
-                    new Claim(ClaimTypes.Name, login.HoTenNV),
-                    new Claim(ClaimTypes.Role, login.ChucVu),
-                    new Claim("chucvu", login.ChucVu),
-                    new Claim("MaNV", login.MaNV.ToString()),
+                    var claims = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.Name, apiResponse.Data!.HoTenNV),
+                        new Claim(ClaimTypes.Role, apiResponse.Data.ChucVu),
+                        new Claim("chucvu", apiResponse.Data.ChucVu),
+                        new Claim("MaNV", apiResponse.Data.MaNV.ToString()),
 
-                };
+                    };
 
+                    var claimsIdentity = new ClaimsIdentity(claims, "AdminCookie");
+                    var claimsPrincial = new ClaimsPrincipal(claimsIdentity);
 
-                var claimsIdentity = new ClaimsIdentity(claims, "AdminCookie");
-                var claimsPrincial = new ClaimsPrincipal(claimsIdentity);
+                    await HttpContext.SignInAsync("AdminCookie", claimsPrincial);
 
-                await HttpContext.SignInAsync("AdminCookie", claimsPrincial);
+                    return View(model: apiResponse.Message);
+                }
+                else
+                {
+                    TempData["error"] = apiResponse!.Message;
+                    return View();
+                }
 
-                return RedirectToAction("Index", "Home");
             }
             else
             {
-                TempData["error"] = "Tài khoản hoặc mật khẩu không chính xác!";
+                TempData["error"] = await response.Content.ReadAsStringAsync();
                 return View();
             }
         }

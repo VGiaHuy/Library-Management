@@ -15,6 +15,7 @@ builder.Services.AddAuthentication(option =>
         option.LoginPath = "/User/Login"; // Đường dẫn khi user chưa đăng nhập
     })
 
+
     .AddCookie("AdminCookie", options =>
     {
         options.LoginPath = "/admin/Account/Login"; // Đường dẫn khi admin chưa đăng nhập

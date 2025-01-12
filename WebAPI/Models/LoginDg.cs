@@ -9,7 +9,7 @@ public partial class LoginDg
 
     public string? PasswordDg { get; set; }
 
-    public string? HoTen { get; set; }
+    public string? Hoten { get; set; }
 
     public string? Email { get; set; }
 

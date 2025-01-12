@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.DTOs;
 using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Models;
-using WebAPI.Service_Admin;
+using WebAPI.Services.Admin;
 
 namespace WebAPI.Controllers.Admin
 {
@@ -25,10 +23,9 @@ namespace WebAPI.Controllers.Admin
 
         }
         [HttpPost]
-        public async Task<ActionResult<PagingResult<SachDTO>>> GetListSachPaging_API([FromBody] GetListPhieuTraPaging req)
+        public async Task<ActionResult<PagingResult<Sach>>> GetListSachPaging_API([FromBody] GetListPhieuTraPaging req)
         {
             var sach = await _sachService.GetAllSachPaging(req);
-
             return Ok(sach);
         }
 

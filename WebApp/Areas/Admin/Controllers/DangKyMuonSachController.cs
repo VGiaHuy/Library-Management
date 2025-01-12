@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Common;
+using System.Net.Http.Headers;
+using WebApp.Admin.Data;
 using WebApp.Areas.Admin.Data;
+using WebApp.DTOs.Admin;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApp.Areas.Admin.Controllers
@@ -23,7 +27,7 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         [Route("")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             if (User.IsInRole("QuanLyKho"))
             {
@@ -31,43 +35,58 @@ namespace WebApp.Areas.Admin.Controllers
             }
             else
             {
-                List<DTO_DangKyMuonSach_GroupSDT> data = new List<DTO_DangKyMuonSach_GroupSDT>();
-
-                HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/DangKyMuonSach/GetAllDangKyMuonSach").Result;
+                HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + "/DangKyMuonSach/GetAllDangKyMuonSach");
 
                 if (response.IsSuccessStatusCode)
                 {
                     string dataJson = response.Content.ReadAsStringAsync().Result;
-                    data = JsonConvert.DeserializeObject<List<DTO_DangKyMuonSach_GroupSDT>>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>>(dataJson);
 
-                    ViewData["dkiMuonSach"] = data;
-                    return View();
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        ViewData["dkiMuonSach"] = apiResponse.Data;
+                        return View();
+                    }
+                    else
+                    {
+                        return View();
+                    }
                 }
                 else
-
                 {
                     return View();
                 }
             }
-
         }
 
 
         [HttpPost]
         [Route("HandleBtnHuyAndDuyet")]
-        public ActionResult HandleBtnHuyAndDuyet(int maDK, int tinhTrang)
+        public ActionResult HandleBtnHuyAndDuyet(int maDK, int tinhTrang, string token)
         {
             try
             {
+                // đính kèm token khi gọi API
+                _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/DangKyMuonSach/UpdateTinhTrang/{maDK}/{tinhTrang}").Result;
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, message = "Update tình trạng thành công", data = true });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, message = apiResponse.Message, data = true });
+                    }
+                    else
+                    {
+                        return Json(new { success = false, message = apiResponse.Message, data = false });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = true, message = "Update tình trạng thất bại", data = false });
+                    return Json(new { success = false, message = response.Content.ReadAsStringAsync(), data = false });
                 }
             }
             catch (Exception ex)
@@ -79,23 +98,12 @@ namespace WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [Route("SubmitTaoPhieuMuon")]
-        public ActionResult SubmitTaoPhieuMuon(int maNV, int maDK, DateOnly ngayTra, DateOnly ngayMuon, string sdt)
+        public ActionResult SubmitTaoPhieuMuon(int maNV, int maDK, DateOnly ngayTra, DateOnly ngayMuon, string sdt, List<MaSachCuonSachDto> data, string token)
         {
             try
             {
-                List<DTO_Sach_Muon> danhSachDK = new List<DTO_Sach_Muon>();
                 int maThe;
                 bool checkHanThe;
-
-
-                // call API
-                HttpResponseMessage response_Get_CTDK_ByMaDK = _client.GetAsync(_client.BaseAddress + $"/DangKyMuonSach/Get_CTDK_ByMaDK/{maDK}").Result;
-
-                if (response_Get_CTDK_ByMaDK.IsSuccessStatusCode)
-                {
-                    string dataJson = response_Get_CTDK_ByMaDK.Content.ReadAsStringAsync().Result;
-                    danhSachDK = JsonConvert.DeserializeObject<List<DTO_Sach_Muon>>(dataJson);
-                }
 
 
                 // call API
@@ -104,7 +112,8 @@ namespace WebApp.Areas.Admin.Controllers
                 if (response_GetMaTheBySDT.IsSuccessStatusCode)
                 {
                     string dataJson = response_GetMaTheBySDT.Content.ReadAsStringAsync().Result;
-                    maThe = JsonConvert.DeserializeObject<int>(dataJson);
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<int>>(dataJson);
+                    maThe = apiResponse.Data;
                 }
                 else
                 {
@@ -117,6 +126,9 @@ namespace WebApp.Areas.Admin.Controllers
 
                 if (response_CheckHanTheDocGia.IsSuccessStatusCode)
                 {
+                    string dataJson = response_CheckHanTheDocGia.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>>(dataJson);
+
                     checkHanThe = true;
                 }
                 else
@@ -125,33 +137,97 @@ namespace WebApp.Areas.Admin.Controllers
                 }
 
 
-
                 if (checkHanThe)
                 {
-                    DTO_Tao_Phieu_Muon tpm = new DTO_Tao_Phieu_Muon();
-                    tpm.NgayMuon = ngayMuon;
-                    tpm.NgayTra = ngayTra;
-                    tpm.MaNhanVien = maNV;
-                    tpm.MaTheDocGia = maThe;
-                    tpm.MaDK = maDK;
-                    tpm.listSachMuon = danhSachDK;
-
-
-                    // call API
-                    HttpResponseMessage response_Insert = _client.PostAsJsonAsync(_client.BaseAddress + "/DangKyMuonSach/Insert", tpm).Result;
-
-                    if (response_Insert.IsSuccessStatusCode)
+                    // Kiểm tra lịch sử mượn sách (điều kiện cho độc giả mượn sách)
+                    HttpResponseMessage response_CheckAllow = _client.GetAsync(_client.BaseAddress + $"/PhieuMuon/ValidatePhieuMuon/{maThe}").Result;
+                    if (response_CheckAllow.IsSuccessStatusCode)
                     {
-                        return Json(new { success = true, data = tpm });
+                        string dataJsonCheckAllow = response_CheckAllow.Content.ReadAsStringAsync().Result;
+                        var apiResponseCheckAllow = JsonConvert.DeserializeObject<APIResponse<object>>(dataJsonCheckAllow);
+
+                        if (apiResponseCheckAllow != null && apiResponseCheckAllow.Success)
+                        {
+                            // thông tin tổng quan của sách
+                            List<DTO_Sach_Muon> dTO_Sach_Muons = new List<DTO_Sach_Muon>();
+                            foreach (var item in data)
+                            {
+                                DTO_Sach_Muon dTO_Sach_Muon = new DTO_Sach_Muon()
+                                {
+                                    MaSach = item.MaSach,
+                                    SoLuong = data
+                                        .Where(d => d.MaSach == item.MaSach)
+                                        .Select(d => d.MaCuonSach.Count)
+                                        .FirstOrDefault(),
+                                    TenSach = "",
+
+                                };
+                                dTO_Sach_Muons.Add(dTO_Sach_Muon);
+                            }
+
+                            // thông tin chi tiết
+                            List<DTO_CT_Sach_Muon> dTO_CT_Sach_Muons = new List<DTO_CT_Sach_Muon>();
+                            foreach (var item in data)
+                            {
+                                foreach (var items in item.MaCuonSach)
+                                {
+                                    DTO_CT_Sach_Muon dTO_CT_Sach_Muon = new DTO_CT_Sach_Muon()
+                                    {
+                                        MaCuonSach = items,
+                                        TinhTrang = false,
+                                    };
+                                    dTO_CT_Sach_Muons.Add(dTO_CT_Sach_Muon);
+                                }
+                            };
+
+                            DTO_Tao_Phieu_Muon tpm = new DTO_Tao_Phieu_Muon();
+                            tpm.NgayMuon = ngayMuon;
+                            tpm.NgayTra = ngayTra;
+                            tpm.MaNhanVien = maNV;
+                            tpm.MaTheDocGia = maThe;
+                            tpm.MaDK = maDK;
+                            tpm.TenDocGia = "";
+                            tpm.listSachMuon = dTO_Sach_Muons;
+                            tpm.listCTSachMuon = dTO_CT_Sach_Muons;
+
+                            // đính kèm token khi gọi API
+                            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                            // call API
+                            HttpResponseMessage response_Insert = _client.PostAsJsonAsync(_client.BaseAddress + "/DangKyMuonSach/Insert", tpm).Result;
+
+                            if (response_Insert.IsSuccessStatusCode)
+                            {
+                                string dataJson = response_Insert.Content.ReadAsStringAsync().Result;
+                                var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>>(dataJson);
+
+                                if (apiResponse != null && apiResponse.Success)
+                                {
+                                    return Json(new { success = true, data = apiResponse.Data, message = apiResponse.Message });
+                                }
+                                else
+                                {
+                                    return Json(new { success = false, data = apiResponse.Data, message = apiResponse.Message });
+                                }
+                            }
+                            else
+                            {
+                                return Json(new { success = false, message = response_Insert.RequestMessage });
+                            }
+                        }
+                        else
+                        {
+                            return Json(new { success = false, message = apiResponseCheckAllow.Message});
+                        }
                     }
                     else
                     {
-                        return Json(new { success = false, message = response_Insert.RequestMessage });
+                        return Json(new { success = false, message = response_CheckAllow.Content.ReadAsStringAsync() });
                     }
+
                 }
                 else
                 {
-                    return Json(new { success = true, message = "Thẻ độc giả đã hết hạn", data = "checkthedocgia" });
+                    return Json(new { success = false, message = "Thẻ độc giả đã hết hạn", data = "checkthedocgia" });
                 }
             }
             catch (Exception ex)
@@ -165,21 +241,26 @@ namespace WebApp.Areas.Admin.Controllers
         [Route("GetDKSachMuonByMaDK")]
         public ActionResult GetDKSachMuonByMaDK(int maDK)
         {
-            DTO_DangKyMuonSach data = new DTO_DangKyMuonSach();
-
             // call API
             HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/DangKyMuonSach/Get_DangKySachMuon_ByMaDK/{maDK}").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 string dataJson = response.Content.ReadAsStringAsync().Result;
-                data = JsonConvert.DeserializeObject<DTO_DangKyMuonSach>(dataJson);
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<DTO_DangKyMuonSach>>(dataJson);
 
-                return Json(new { success = true, data = data });
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, data = apiResponse.Data });
+                }
+                else
+                {
+                    return Json(new { success = false, data = apiResponse.Data });
+                }
             }
             else
             {
-                return Json(new { success = false });
+                return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
             }
         }
 
@@ -196,13 +277,21 @@ namespace WebApp.Areas.Admin.Controllers
             if (response_Get_CTDK_ByMaDK.IsSuccessStatusCode)
             {
                 string dataJson = response_Get_CTDK_ByMaDK.Content.ReadAsStringAsync().Result;
-                danhSachDK = JsonConvert.DeserializeObject<List<DTO_Sach_Muon>>(dataJson);
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_Sach_Muon>>>(dataJson);
 
-                return Json(new { success = true, data = danhSachDK });
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, data = apiResponse.Data });
+                }
+                else
+                {
+                    return Json(new { success = false, data = danhSachDK, message = apiResponse.Message });
+                }
+
             }
             else
             {
-                return Json(new { success = false });
+                return Json(new { success = false, message = response_Get_CTDK_ByMaDK.Content.ReadAsStringAsync() });
 
             }
         }
@@ -219,16 +308,26 @@ namespace WebApp.Areas.Admin.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return Json(new { success = true, message = "SDT đã đăng ký thẻ", data = true });
+                    string dataJson = response.Content.ReadAsStringAsync().Result;
+                    var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_Sach_Muon>>>(dataJson);
+
+                    if (apiResponse != null && apiResponse.Success)
+                    {
+                        return Json(new { success = true, message = apiResponse.Message, data = true });
+                    }
+                    else
+                    {
+                        return Json(new { success = true, message = apiResponse.Message, data = true });
+                    }
                 }
                 else
                 {
-                    return Json(new { success = true, message = "SDT chưa đăng ký thẻ", data = false });
+                    return Json(new { success = true, message = response.Content.ReadAsStringAsync(), data = false });
                 }
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = "An error occurred while checking DocGia" });
+                return Json(new { success = false, message = "An error occurred while checking DocGia: ", ex.Message });
             }
         }
 
@@ -237,22 +336,26 @@ namespace WebApp.Areas.Admin.Controllers
         [Route("GetAllDkiMuonSach")]
         public ActionResult GetAllDkiMuonSach()
         {
-            List<DTO_DangKyMuonSach_GroupSDT> data = new List<DTO_DangKyMuonSach_GroupSDT>();
-
             HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/DangKyMuonSach/GetAllDangKyMuonSach").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 string dataJson = response.Content.ReadAsStringAsync().Result;
-                data = JsonConvert.DeserializeObject<List<DTO_DangKyMuonSach_GroupSDT>>(dataJson);
+                var apiResponse = JsonConvert.DeserializeObject<APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>>(dataJson);
 
-                return Json(new { success = true, data = data });
+                if (apiResponse != null && apiResponse.Success)
+                {
+                    return Json(new { success = true, data = apiResponse.Data });
+                }
+                else
+                {
+                    return Json(new { success = false, data = apiResponse.Data, message = apiResponse.Message });
+                }
             }
             else
             {
-                return Json(new { success = false });
+                return Json(new { success = false, message = response.Content.ReadAsStringAsync() });
             }
-
         }
 
     }

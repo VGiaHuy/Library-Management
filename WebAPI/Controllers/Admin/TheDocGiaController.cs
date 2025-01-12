@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Areas.Admin.Data;
+using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Models;
-using WebAPI.Service_Admin;
+using WebAPI.Services.Admin;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebAPI.Controllers.Admin
 {
@@ -24,7 +27,12 @@ namespace WebAPI.Controllers.Admin
             {
                 List<DTO_DocGia_TheDocGia> listTheDocGia = _theDocGiaService.GetAllTheDocGia();
 
-                return Ok(listTheDocGia);
+                return Ok(new APIResponse<List<DTO_DocGia_TheDocGia>>()
+                {
+                    Success = true,
+                    Message = "Lấy dữ liệu thành công",
+                    Data = listTheDocGia
+                });
             }
             catch (Exception ex)
             {
@@ -39,16 +47,33 @@ namespace WebAPI.Controllers.Admin
             try
             {
                 DTO_DocGia_TheDocGia thongTinDocGia = _theDocGiaService.GetById(id);
-                return Ok(thongTinDocGia);
 
+                if (thongTinDocGia != null)
+                {
+                    return Ok(new APIResponse<DTO_DocGia_TheDocGia>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = thongTinDocGia
+                    });
+                }
+                else
+                {
+                    return Ok(new APIResponse<DTO_DocGia_TheDocGia>()
+                    {
+                        Success = false,
+                        Message = "Không tìm thấy độc giả",
+                        Data = thongTinDocGia
+                    });
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult Update([FromBody] DTO_DocGia_TheDocGia obj)
         {
@@ -57,7 +82,7 @@ namespace WebAPI.Controllers.Admin
                 if (_theDocGiaService.Update(obj))
                     return Ok();
                 else
-                    return BadRequest();
+                    return BadRequest("Không cập nhật được! Lỗi từ server");
 
             }
             catch (Exception ex)
@@ -66,19 +91,31 @@ namespace WebAPI.Controllers.Admin
             }
         }
 
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult DangKyTheDocGia([FromBody] DTO_DocGia_TheDocGia obj)
         {
             try
             {
-                if (_theDocGiaService.DangKyTheDocGia(obj))
+                var tdg = _theDocGiaService.DangKyTheDocGia(obj);
+
+                if (tdg != null)
                 {
-                    return Ok();
+                    return Ok(new APIResponse<DTO_DocGia_TheDocGia>()
+                    {
+                        Success = true,
+                        Message = "Đăng ký thành công",
+                        Data = tdg 
+                    });
                 }
                 else
                 {
-                    return BadRequest("Số điện thoại đã tồn tại!");
+                    return Ok(new APIResponse<DTO_DocGia_TheDocGia>()
+                    {
+                        Success = false,
+                        Message = "Số điện thoại đã tồn tại",
+                        Data = null
+                    });
                 }
 
             }

@@ -17,6 +17,7 @@
                             <div class="col-6">
                                 <h3 class="text-center text-blue text-bold"> Đăng Ký Thẻ </h3>
                             </div>
+
                             <div class="pl-5">
                                 <button type="submit" class="btn btn-primary dangKyThe" id="dangKyThe" onclick="DangKyThe()">Đăng ký</button>
                             </div>
@@ -241,7 +242,7 @@
                     <!--Số điện thoại-->
                     <div class="form-group col">
                         <label>Số điện thoại:</label>
-                        <input class="form-control" id="soDienThoaiModal" readonly >
+                        <input class="form-control" id="soDienThoaiModal" readonly>
                     </div>
                 </div>
 
@@ -313,9 +314,30 @@
     </div>
 </div>
 
+<!-- Modal confirm -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="xacNhanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="xacNhanModalLabel">Xác nhận hành động</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span class="" id="contentModalConfirm"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Đóng </button>
+                <button type="button" class="btn btn-primary" id="confirmButton">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts
 {
     <script>
+        const tokenJWT = localStorage.getItem("accessToken");
+
         //khong cho nhap chu
         function validateInput(event, maxQuantity) {
             // Prevent input of non-numeric characters
@@ -404,7 +426,9 @@
         document.getElementById("ngayDangKy").value = formatCurrentDate;
 
         // Set mã nhân viên
-        var manv = @User.FindFirst("MaNV")?.Value;   // Update MaNV
+        // var manv = @User.FindFirst("MaNV")?.Value;   // Update MaNV
+        var manv = 1;   // Update MaNV
+
         document.getElementById("MaNhanVien").value = manv;
 
         // Format date
@@ -603,8 +627,14 @@
                     console.log("thoiGianGiaHan: ", thoiGianGiaHan);
 
 
-                    var confirmed = confirm("Bạn có chắc muốn gia hạn không?");
-                    if (confirmed) {
+                    document.getElementById("contentModalConfirm").innerHTML = "Bạn có chắc muốn gia hạn không?";
+                    const modal = new bootstrap.Modal(document.getElementById("confirmModal"));
+                    modal.show();
+
+                    // Lắng nghe sự kiện xác nhận
+                    const confirmButton = document.getElementById("confirmButton");
+                    confirmButton.onclick = function () {
+                        modal.hide(); // Ẩn modal
 
                         $.ajax({
                             url: '@Url.Action("GiaHanTheDocGia", "TheDocGia")',
@@ -613,11 +643,59 @@
                                 maThe: maThe,
                                 thoiGianGiaHan: thoiGianGiaHan,
                                 tienGiaHan: tienGiaHan,
+                                token: tokenJWT
                             },
                             success: function (data) {
                                 if (data.success) {
                                     document.getElementById("contentModalSuccess").innerHTML = "Gia hạn thẻ thành công!";
                                     $("#ModalSuccess").modal("show");
+
+                                    // Xuất file PDF hóa đơn gia hạn thẻ
+                                    // $.ajax({
+                                    //     url: '@Url.Action("GenerateTheDocGiaPDF", "TheDocGia")',
+                                    //     type: 'GET',
+                                    //     data: {
+                                    //         maNV: maNV,
+                                    //         maThe: data.data.maThe,
+                                    //         ngayDK: ngayDK,
+                                    //         tenDocGia: tenDocGia,
+                                    //         soDienThoai: soDienThoai,
+                                    //         gioiTinh: gioiTinh,
+                                    //         ngaySinh: ngaySinh,
+                                    //         diaChi: diaChi,
+                                    //         hanThe: hanThe,
+                                    //         tienDK: parseMoneyString(tienDK),
+                                    //     },
+                                    //     xhrFields: {
+                                    //         responseType: 'blob' // Để nhận phản hồi là file Blob
+                                    //     },
+                                    //     success: function (data, status, xhr) {
+                                    //         // Lấy tên file từ header Content-Disposition
+                                    //         var disposition = xhr.getResponseHeader('Content-Disposition');
+                                    //         var fileName = "HoaDonTaoThe.pdf"; // Tên mặc định
+                                    //         if (disposition && disposition.indexOf('attachment') !== -1) {
+                                    //             var matches = /filename="([^"]*)"/.exec(disposition);
+                                    //             if (matches != null && matches[1]) {
+                                    //                 fileName = matches[1];
+                                    //             }
+                                    //         }
+
+                                    //         // Tải file về trình duyệt
+                                    //         var blob = new Blob([data], { type: 'application/pdf' });
+                                    //         var url = window.URL.createObjectURL(blob);
+                                    //         var a = document.createElement('a');
+                                    //         a.style.display = 'none';
+                                    //         a.href = url;
+                                    //         a.download = fileName;
+                                    //         document.body.appendChild(a);
+                                    //         a.click();
+                                    //         window.URL.revokeObjectURL(url);
+                                    //     },
+                                    //     error: function (xhr, status, error) {
+                                    //         console.log("Lỗi tải file: ", error);
+                                    //     }
+                                    // });
+
                                     // Reload the table
                                     GetAllTheDocGia();
 
@@ -629,7 +707,7 @@
                                 }
                             }
                         });
-                    }
+                    };
                 }
             }
         }
@@ -668,8 +746,15 @@
                 return;
             }
 
-            var confirmed = confirm("Bạn có chắc muốn đăng ký thẻ không?");
-            if (confirmed) {
+            document.getElementById("contentModalConfirm").innerHTML = "Bạn có chắc muốn đăng ký Độc giả mới không?";
+            const modal = new bootstrap.Modal(document.getElementById("confirmModal"));
+            modal.show();
+
+            // Lắng nghe sự kiện xác nhận
+            const confirmButton = document.getElementById("confirmButton");
+            confirmButton.onclick = function () {
+                modal.hide(); // Ẩn modal
+
                 $.ajax({
                     url: '@Url.Action("DangKyTheDocGia", "TheDocGia")',
                     type: 'POST',
@@ -683,6 +768,7 @@
                         diaChi: diaChi,
                         hanThe: hanThe,
                         tienDK: parseMoneyString(tienDK),
+                        token: tokenJWT
                     },
                     success: function (data) {
                         if (data.success) {
@@ -699,19 +785,65 @@
                             document.getElementById('hanThe').value = "Chọn hạn thẻ";
                             document.getElementById('tienDangKyThe').value = formatMoney(0);
 
+                            $.ajax({
+                                url: '@Url.Action("GenerateTheDocGiaPDF", "TheDocGia")',
+                                type: 'GET',
+                                data: {
+                                    maNV: maNV,
+                                    maThe: data.data.maThe,
+                                    ngayDK: ngayDK,
+                                    tenDocGia: tenDocGia,
+                                    soDienThoai: soDienThoai,
+                                    gioiTinh: gioiTinh,
+                                    ngaySinh: ngaySinh,
+                                    diaChi: diaChi,
+                                    hanThe: hanThe,
+                                    tienDK: parseMoneyString(tienDK),
+                                },
+                                xhrFields: {
+                                    responseType: 'blob' // Để nhận phản hồi là file Blob
+                                },
+                                success: function (data, status, xhr) {
+                                    // Lấy tên file từ header Content-Disposition
+                                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                                    var fileName = "HoaDonTaoThe.pdf"; // Tên mặc định
+                                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                                        var matches = /filename="([^"]*)"/.exec(disposition);
+                                        if (matches != null && matches[1]) {
+                                            fileName = matches[1];
+                                        }
+                                    }
+
+                                    // Tải file về trình duyệt
+                                    var blob = new Blob([data], { type: 'application/pdf' });
+                                    var url = window.URL.createObjectURL(blob);
+                                    var a = document.createElement('a');
+                                    a.style.display = 'none';
+                                    a.href = url;
+                                    a.download = fileName;
+                                    document.body.appendChild(a);
+                                    a.click();
+                                    window.URL.revokeObjectURL(url);
+                                },
+                                error: function (xhr, status, error) {
+                                    console.log("Lỗi tải file: ", error);
+                                }
+                            });
+
+
                             // Reload the table
                             GetAllTheDocGia();
 
                         } else {
                             console.log("data: ", data)
 
-                            document.getElementById("contentModalError").innerHTML = data.message.result;
+                            document.getElementById("contentModalError").innerHTML = data.message;
                             $("#ModalError").modal("show");
 
                         }
                     }
                 });
-            }
+            };
         }
 
 

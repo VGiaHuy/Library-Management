@@ -9,7 +9,7 @@
     #tablesachnhap {
         display: block;
         overflow-x: auto;
-        max-height: 400px;
+        max-height: 300px;
     }
 
     #tablesachmuon {
@@ -17,6 +17,7 @@
         overflow-x: auto;
         max-height: 400px;
     }
+    
 
      #tablephieumuon, #tablephieutra {
         display: block;
@@ -58,49 +59,69 @@
                                 <input type="date" class="form-control" id="denNgay" name="denNgay">
                             </div>
 
-
-
-                            <div class="row justify-content-center">
-                                <div class="col-md-3 col-sm-6">
-
-                                    <div class="card-header">
-                                        <button id="btnSach" class="btn btn-primary nav-button" style="background-color: aquamarine; border-color: aquamarine; width:150px;" onclick="changeTableShow(sachShow, muontraShow, docgiaShow, doanhthuShow) ">Sách</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-
-                                    <div class="card-header">
-                                        <button id="btnMuonTra" class="btn btn-primary nav-button" style="background-color: lightcoral; border-color: lightcoral; width:150px;" onclick="changeTableShow(muontraShow, sachShow, docgiaShow, doanhthuShow) ">Mượn - Trả</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-
-                                    <div class="card-header">
-                                        <button id="btnDocGia" class="btn btn-primary nav-button" style="background-color: lightblue; border-color: lightblue; width:150px;" onclick="changeTableShow(docgiaShow, sachShow, muontraShow, doanhthuShow) ">Độc giả</button>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-3 col-sm-6">
-
-                                    <div class="card-header">
-                                        <button id="btnDoanhSo" class="btn btn-primary nav-button" style="background-color: lightgreen; border-color: lightgreen; width:150px;" onclick="changeTableShow(doanhthuShow, sachShow, muontraShow, docgiaShow) ">Doanh số</button>
-                                    </div>
-
-                                </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button id="btnSach" class="btn btn-primary nav-button" style="background-color: aquamarine; border-color: aquamarine; width: 150px; height: 50px;" onclick="changeTableShow(sachShow, muontraShow, docgiaShow, doanhthuShow)">Sách</button>
                             </div>
 
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button id="btnMuonTra" class="btn btn-primary nav-button" style="background-color: lightcoral; border-color: lightcoral; width: 150px; height: 50px;" onclick="changeTableShow(muontraShow, sachShow, docgiaShow, doanhthuShow)">Mượn - Trả</button>
+                            </div>
+
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button id="btnDocGia" class="btn btn-primary nav-button" style="background-color: lightblue; border-color: lightblue; width: 150px; height: 50px;" onclick="changeTableShow(docgiaShow, sachShow, muontraShow, doanhthuShow)">Độc giả</button>
+                            </div>
+
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button id="btnDoanhSo" class="btn btn-primary nav-button" style="background-color: lightgreen; border-color: lightgreen; width: 150px; height: 50px;" onclick="changeTableShow(doanhthuShow, sachShow, muontraShow, docgiaShow)">Doanh số</button>
+                            </div>
                         </div>
-                        <div id="sachShow" class="table-responsive" style="margin-top: 20px;">
+
+                         <div id="sachShow" class="table-responsive" style="margin-top: 20px;">
+                           @* <div class="row">
+                               
+                                <div class="col-md-4">
+                                    <table  class="table table-head-fixed table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="height:50px">Tổng sách nhập</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabletongSachNhap">
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <table class="table table-head-fixed table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="height:50px">Tổng sách hiện tại có trong kho</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabletongSachHT">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-4">
+                                    <table class="table table-head-fixed table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="height:50px">Tổng sách đã mượn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabletongSachMuon">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                       
+                           </div> *@
+ 
                            
-                            <div class="row">
-                                <div class="col-md-6 ">
+
+                            @*<div class="row">
+                                 <div class="col-md-6 ">
                                     <p>Danh sách sách nhập</p>
-                                    <table id="tablesachnhap" class="table table-head-fixed table-hover table-bordered">
+                                     <table id="tablesachnhap" class="table table-head-fixed table-hover table-bordered">
                                         <thead>
                                             <tr>
                                                 <th style="width:120px">Mã Sách</th>
@@ -111,16 +132,17 @@
                                         <tbody id="tableSachNhap">
                                             <!-- Content for first table -->
                                         </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-md-6 ">
+                                    </table> 
+                                </div> *@
+                                <div @* class="col-md-6 " *@>
                                     <p>Danh sách sách cho mượn</p>
                                     <table id="tablesachmuon" class="table table-head-fixed table-hover table-bordered">
                                         <thead>
                                             <tr>
-                                                <th style="width:120px">Mã Sách</th>
-                                                <th style="width:400px"> Tên Sách</th>
-                                                <th style="width:150px">Số lượng</th>
+                                                <th style="width:260px">Mã Sách</th>
+                                                <th style="width:510px"> Tên Sách</th>
+                                                <th style="width:400px"> Thể loại</th>
+                                                <th style="width:200px">Số lượng</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tableSachHot">
@@ -128,7 +150,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                           @*  </div> *@
                         </div>
 
 
@@ -253,8 +275,11 @@
             tableToHide3.style.display = "none";
 
             if (sachShow.style.display == "block" && muontraShow.style.display == "none" && docgiaShow.style.display == 'none' && doanhthuShow.style.display == 'none') {
-                loadSachNhaps();
+                // loadSachNhaps();
                 loadSachMuons();
+               // loadTongsachNhap();
+                //loadTongsachkhoHT();
+               // loadTongsachMuon();
                 
             }
             if (muontraShow.style.display == "block" && sachShow.style.display == "none" && docgiaShow.style.display == 'none' && doanhthuShow.style.display == 'none') {
@@ -302,66 +327,7 @@
             changeTableShow(doanhthuShow, sachShow, muontraShow, docgiaShow)
         }
 
-        function loadSachNhaps() {
-            var tungayString = document.getElementById("tuNgay").value;
-            var denngayString = document.getElementById("denNgay").value;
-
-            var tungay = new Date(tungayString);
-            var denngay = new Date(denngayString);
-            var today = new Date();
-
-            // Validate dates
-            if (tungayString === "" || denngayString === "") {
-                alert("Vui lòng nhập cả hai ngày.");
-                init();
-                return;
-            }
-
-            if (tungay > denngay) {
-                alert("Từ ngày phải nhỏ hơn hoặc bằng đến ngày.");
-                init();
-                return;
-            }
-
-            if (denngay > today) {
-                alert("Đến ngày không hợp lệ");
-                init();
-                return;
-            }
-
-            $.ajax({
-                type: "POST",
-                url: `/admin/thongke/Get_SachNhap_APP/${tungayString}/${denngayString}`,
-                dataType: 'json', // Đảm bảo dữ liệu trả về là JSON
-                success: function (res) {
-                    console.log("ketqua sach nhap ", res.sachList);
-                    var render = "";
-                    // Check if sachList exists and has items
-                    if (res.sachList && res.sachList.length > 0) {
-                        $.each(res.sachList, function (i, item) {
-
-                            render += '<tr class="ncc-row" aria-expanded="false" data-widget="expandable-table" data-ma-sach=' + item.MaSach + '>';
-                            render += '<td>' + item.maSach + '</td>';
-                            render += '<td>' + item.tenSach + '</td>';
-                            render += '<td>' + item.soLuong + '</td>';
-
-                            render += '</tr>';
-                        });
-                    } else {
-                        // Display message if no items found
-                        render += '<tr><td colspan="3">Không có nhập sách trong khoảng thời gian này</td></tr>';
-                    }
-
-
-
-                    let danhSachsachnhap = document.getElementById("tableSachNhap");
-                    danhSachsachnhap.innerHTML = render;
-                },
-                error: function (status) {
-                    alert("Không tìm thấy dữ liệu");
-                }
-            });
-        }
+        
 
         function loadSachMuons() {
             var tungayString = document.getElementById("tuNgay").value;
@@ -402,6 +368,7 @@
                             render += '<tr class="ncc-row" aria-expanded="false" data-widget="expandable-table" data-ma-sach=' + item.MaSach + '>';
                             render += '<td>' + item.maSach + '</td>';
                             render += '<td>' + item.tenSach + '</td>';
+                            render += '<td>' + item.theLoai + '</td>';
                             render += '<td>' + item.soLuong + '</td>';
 
                             render += '</tr>';

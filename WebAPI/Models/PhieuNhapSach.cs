@@ -5,17 +5,17 @@ namespace WebAPI.Models;
 
 public partial class PhieuNhapSach
 {
-    public int MaPn { get; set; }
+    public int Mapn { get; set; }
 
-    public DateOnly? NgayNhap { get; set; }
+    public DateOnly? Ngaynhap { get; set; }
 
-    public int? MaNv { get; set; }
+    public int? Manv { get; set; }
 
-    public int? MaNcc { get; set; }
+    public int? Mancc { get; set; }
 
     public virtual ICollection<Chitietpn> Chitietpns { get; set; } = new List<Chitietpn>();
 
-    public virtual NhaCungCap? MaNccNavigation { get; set; }
+    public virtual NhaCungCap? ManccNavigation { get; set; }
 
-    public virtual NhanVien? MaNvNavigation { get; set; }
+    public virtual NhanVien? ManvNavigation { get; set; }
 }

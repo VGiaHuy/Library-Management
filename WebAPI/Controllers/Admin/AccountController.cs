@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Areas.Admin.Data;
+using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Models;
 using WebAPI.Service_Admin;
+using WebAPI.Services;
 
 namespace WebAPI.Controllers.Admin
 {
@@ -11,10 +14,12 @@ namespace WebAPI.Controllers.Admin
     public class AccountController : ControllerBase
     {
         private readonly AccountService _accountService;
+        private readonly JwtService _jwtService;
 
-        public AccountController(AccountService accountService)
+        public AccountController(AccountService accountService, JwtService jwtService)
         {
             _accountService = accountService;
+            _jwtService = jwtService;
         }
 
         [HttpGet]
@@ -26,14 +31,25 @@ namespace WebAPI.Controllers.Admin
 
                 if (nhanViens != null)
                 {
-                    return Ok(nhanViens);
+                    return Ok(new APIResponse<List<NhanVien>>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = nhanViens
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Không tìm thấy dữ liệu trong database",
+                        Data = null
+                    });
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -49,13 +65,22 @@ namespace WebAPI.Controllers.Admin
 
                 if (nhanViens != null)
                 {
-                    return Ok(nhanViens);
+                    return Ok(new APIResponse<List<DTO_NhanVien_LoginNV>>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = nhanViens
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Không tìm thấy dữ liệu trong database",
+                        Data = null
+                    });
                 }
-
             }
             catch (Exception ex)
             {
@@ -71,13 +96,23 @@ namespace WebAPI.Controllers.Admin
             {
                 DTO_NhanVien_LoginNV nhanViens = _accountService.GetById(id);
 
-                if(nhanViens != null)
+                if (nhanViens != null)
                 {
-                    return Ok(nhanViens);
+                    return Ok(new APIResponse<DTO_NhanVien_LoginNV>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu nhân viên thành công",
+                        Data = nhanViens
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Không có dữ liệu của nhân viên",
+                        Data = null
+                    });
                 }
 
             }
@@ -89,19 +124,33 @@ namespace WebAPI.Controllers.Admin
 
 
         [HttpGet("{username}/{password}")]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
             try
             {
                 DTO_NhanVien_LoginNV nhanViens = _accountService.Login(username, password);
 
-                if(nhanViens != null)
+                if (nhanViens != null)
                 {
-                    return Ok(nhanViens);
+                    var token = await _jwtService.CreateTokenAdmin(nhanViens.HoTenNV);
+
+                    return Ok(new APIResponse<DTO_NhanVien_LoginNV>()
+                    {
+                        Success = true,
+                        Message = token!.AccessToken!,
+                        Data = nhanViens
+                    });
                 }
                 else
                 {
-                    return NotFound("Tài khoản hoặc mật khẩu không chính xác");
+                    string checkLogin = _accountService.CheckLogin(username, password);
+
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = checkLogin,
+                        Data = null
+                    });
                 }
 
             }
@@ -119,21 +168,33 @@ namespace WebAPI.Controllers.Admin
             {
                 NhanVien nhanVien = _accountService.GetBySDT(sdt);
 
-                if(nhanVien != null)
+                if (nhanVien != null)
                 {
-                    return Ok(nhanVien);
+                    return Ok(new APIResponse<NhanVien>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = nhanVien
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Không tìm thấy dữ liệu ở database",
+                        Data = null
+                    });
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult Insert([FromBody] NhanVien obj)
         {
@@ -141,13 +202,22 @@ namespace WebAPI.Controllers.Admin
             {
                 if (_accountService.Insert(obj))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Thêm dữ liệu thành công",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return BadRequest("So dien thoai da trung");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Số điện thoại đã tồn tại",
+                        Data = null
+                    });
                 }
-
             }
             catch (Exception ex)
             {
@@ -155,7 +225,7 @@ namespace WebAPI.Controllers.Admin
             }
         }
 
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public async Task<IActionResult> ThemNhanVien([FromBody] DTO_NhanVien_LoginNV obj)
         {
@@ -163,11 +233,21 @@ namespace WebAPI.Controllers.Admin
             {
                 if (await _accountService.ThemNhanVien(obj))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Thêm dữ liệu thành công",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return BadRequest("Số điện thoại đã trùng");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Số điện thoại đã tồn tại",
+                        Data = null
+                    });
                 }
 
             }
@@ -177,6 +257,7 @@ namespace WebAPI.Controllers.Admin
             }
         }
 
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
         public IActionResult UpdateThongTinNhanVien([FromBody] DTO_NhanVien_LoginNV obj)
         {
@@ -184,11 +265,21 @@ namespace WebAPI.Controllers.Admin
             {
                 if (_accountService.UpdateThongTinNhanVien(obj))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Cập nhật dữ liệu thành công",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return BadRequest("Số điện thoại hoặc tên đã trùng!");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Số điện thoại hoặc tên đã tồn tại",
+                        Data = null
+                    });
                 }
 
             }
@@ -197,8 +288,5 @@ namespace WebAPI.Controllers.Admin
                 return BadRequest(ex.Message);
             }
         }
-
-
-
     }
 }

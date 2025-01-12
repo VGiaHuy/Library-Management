@@ -1,769 +1,344 @@
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\appsettings.Development.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\appsettings.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.exe
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.deps.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.runtimeconfig.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.pdb
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\AutoMapper.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Azure.Core.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Azure.Identity.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Humanizer.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.Framework.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Common.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Configuration.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Frameworks.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.LibraryModel.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Packaging.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.ProjectModel.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.CodeDom.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Convention.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Memory.Data.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\af\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ar\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\az\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\bg\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\da\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\el\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fa\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\he\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\hr\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\hu\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\hy\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\id\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\is\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ku\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\lv\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\mt\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\nb\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\nl\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ro\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\sk\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\sl\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\sr\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\sv\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\uk\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\vi\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WebAPI.props
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.pdb
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
-C:\Workplace\3. CaNhan\API_Book\API_Book\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\appsettings.Development.json
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\appsettings.json
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.exe
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.deps.json
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.runtimeconfig.json
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.pdb
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\AutoMapper.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Azure.Core.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Azure.Identity.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Humanizer.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.Framework.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Common.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Configuration.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Frameworks.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.LibraryModel.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Packaging.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.ProjectModel.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.CodeDom.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Convention.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Memory.Data.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\af\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ar\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\az\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\bg\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\da\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\el\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fa\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\he\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\hr\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\hu\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\hy\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\id\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\is\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ku\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\lv\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\mt\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\nb\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\nl\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ro\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\sk\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\sl\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\sr\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\sv\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\uk\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\vi\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WebAPI.props
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.pdb
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
-D:\Nam3Ky2\API\API_Book\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
-D:\Nam3Ky2\API\API_BOOK\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\appsettings.Development.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\appsettings.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.exe
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.deps.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.runtimeconfig.json
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\WebAPI.pdb
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\AutoMapper.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Azure.Core.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Azure.Identity.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Humanizer.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Build.Framework.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Common.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Configuration.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Frameworks.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.LibraryModel.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Packaging.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.ProjectModel.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.CodeDom.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Convention.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Drawing.Common.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Memory.Data.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Security.Permissions.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\af\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ar\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\az\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\bg\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\da\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\el\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fa\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\he\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\hr\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\hu\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\hy\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\id\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\is\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ku\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\lv\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\mt\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\nb\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\nl\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ro\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\sk\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\sl\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\sr\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\sv\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\uk\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\vi\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\Code\.NET\API_Book\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WebAPI.props
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.dll
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.pdb
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
-D:\Code\.NET\API_Book\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\appsettings.Development.json
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\appsettings.json
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Black.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Bold.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Italic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Light.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Medium.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Regular.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Thin.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\LatoFont\OFL.txt
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.exe
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.deps.json
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.runtimeconfig.json
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\WebAPI.pdb
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\AutoMapper.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Azure.Core.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Azure.Identity.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ClosedXML.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ClosedXML.Parser.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\EPPlus.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ExcelNumberFormat.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Humanizer.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\MailKit.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Build.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Build.Framework.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Features.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Elfie.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Features.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Razor.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\dotnet-aspnet-codegenerator-design.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\MimeKit.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Common.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Configuration.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.LibraryModel.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Packaging.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.ProjectModel.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\QuestPDF.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\RBush.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\SixLabors.Fonts.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.CodeDom.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Composition.Convention.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Composition.Hosting.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Composition.Runtime.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Composition.TypedParts.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Drawing.Common.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.IO.Packaging.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\af\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ar\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\az\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\bg\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\bn-BD\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\da\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\el\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fa\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fi-FI\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr-BE\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\he\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\hr\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\hu\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\hy\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\id\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\is\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko-KR\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ku\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\lv\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ms-MY\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\mt\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\nb\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\nb-NO\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\nl\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ro\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\sk\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\sl\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\sr\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\sr-Latn\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\sv\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\th-TH\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\uk\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\uz-Cyrl-UZ\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\uz-Latn-UZ\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\vi\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-CN\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Humanizer.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Features.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\Code\.NET\Official-project\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.WebAPI.props
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.WebAPI.props
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.WebAPI.props
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.dll
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.pdb
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
+D:\Code\.NET\Official-project\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.pdb
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\appsettings.Development.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\appsettings.json
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Black.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Bold.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Italic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Light.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Medium.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Regular.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-Thin.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\LatoFont\OFL.txt
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\WebAPI.staticwebassets.runtime.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\WebAPI.exe
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\WebAPI.deps.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\WebAPI.runtimeconfig.json
@@ -773,8 +348,17 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\AutoMapper.dl
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Azure.Core.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Azure.Identity.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\ClosedXML.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\ClosedXML.Parser.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\EPPlus.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\ExcelNumberFormat.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Humanizer.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\MailKit.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Build.dll
@@ -797,7 +381,15 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Ent
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -806,6 +398,7 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.Ide
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
@@ -829,7 +422,9 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\NuGet.Packagi
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\NuGet.ProjectModel.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\WebDriver.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\QuestPDF.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\RBush.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\SixLabors.Fonts.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -843,9 +438,11 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Config
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Drawing.Common.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.IO.Packaging.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Memory.Data.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Reflection.MetadataLoadContext.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Security.Permissions.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\System.Windows.Extensions.dll
@@ -994,19 +591,18 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.csproj.AssemblyReference.cache
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfoInputs.cache
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.AssemblyInfo.cs
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.csproj.CoreCompileInputs.cache
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\staticwebassets.build.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\staticwebassets.development.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
@@ -1016,8 +612,5 @@ D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\staticwebasse
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\scopedcss\bundle\WebAPI.styles.css
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.csproj.Up2Date
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
-D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.pdb
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
 D:\Code\.NET\Library-Management_.Net-Core8\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll

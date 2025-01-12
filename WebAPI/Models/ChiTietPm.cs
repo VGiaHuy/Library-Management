@@ -5,13 +5,13 @@ namespace WebAPI.Models;
 
 public partial class ChiTietPm
 {
-    public int MaPm { get; set; }
-
-    public int MaSach { get; set; }
+    public int Mapm { get; set; }
 
     public int? Soluongmuon { get; set; }
 
-    public virtual PhieuMuon MaPmNavigation { get; set; } = null!;
+    public int Masach { get; set; }
 
-    public virtual Sach MaSachNavigation { get; set; } = null!;
+    public virtual PhieuMuon MapmNavigation { get; set; } = null!;
+
+    public virtual Sach MasachNavigation { get; set; } = null!;
 }

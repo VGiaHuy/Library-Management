@@ -19,6 +19,7 @@
     <!-- iCheck for checkboxes and radio inputs -->
     <link rel="stylesheet" href="~/Content/Clients/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Bootstrap Color Picker -->
+
     <link rel="stylesheet" href="~/Content/Clients/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="~/Content/Clients/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -111,7 +112,7 @@
                                 <span class="float-right text-muted text-sm"></span>
                             </a>*@
                         <div class="dropdown-divider"></div>
-                        <a href="javascript:void(0);" onclick="confirmLogout()" class="dropdown-item">
+                        <a href="javascript:void(0);" onclick="confirmLogoutAdmin()" class="dropdown-item">
                             <i class="fas fa-sign-out-alt mr-2"></i> Đăng xuất
                             <span class="float-right text-muted text-sm"></span>
                         </a>
@@ -317,12 +318,12 @@
         // DropzoneJS Demo Code End
 
 
-        function confirmLogout() {
+        function confirmLogoutAdmin() {
             var confirmLogout = confirm("Bạn có chắc chắn muốn đăng xuất không?");
             if (confirmLogout) {
                 // Set a session variable to indicate logout
                 sessionStorage.setItem('logout', 'true');
-
+                localStorage.removeItem("accessToken"); // Xóa token
                 // Redirect to the logout URL
                 window.location.href = "/Admin/account/logout";
             }

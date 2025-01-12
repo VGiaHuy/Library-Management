@@ -5,13 +5,13 @@ namespace WebApp.Models;
 
 public partial class DkiMuonSach
 {
-    public int MaDk { get; set; }
+    public int Madk { get; set; }
 
     public string? Sdt { get; set; }
 
-    public DateOnly? NgayDkmuon { get; set; }
+    public DateOnly? Ngaydkmuon { get; set; }
 
-    public DateOnly? NgayHen { get; set; }
+    public DateOnly? Ngayhen { get; set; }
 
     public int? Tinhtrang { get; set; }
 

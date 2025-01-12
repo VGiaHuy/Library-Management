@@ -10,4 +10,6 @@ public partial class KhoSachThanhLy
     public int? Soluongkhotl { get; set; }
 
     public virtual ICollection<ChiTietPtl> ChiTietPtls { get; set; } = new List<ChiTietPtl>();
+
+    public virtual ICollection<ChitietKhoThanhLy> ChitietKhoThanhLies { get; set; } = new List<ChitietKhoThanhLy>();
 }

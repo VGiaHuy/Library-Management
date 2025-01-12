@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Areas.Admin.Data;
+using WebAPI.DTOs.Admin_DTO;
 using WebAPI.Service_Admin;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebAPI.Controllers.Admin
 {
@@ -21,26 +24,34 @@ namespace WebAPI.Controllers.Admin
         {
             try
             {
-
                 List<DTO_DangKyMuonSach_GroupSDT> listDangKyMuonSach = _dangKyMuonSachService.GetAllDangKyMuonSach();
 
                 if (listDangKyMuonSach.Count > 0)
                 {
-                    return Ok(listDangKyMuonSach);
+                    return Ok(new APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = listDangKyMuonSach
+                    });
                 }
-                else 
-                { 
-                    return NotFound(); 
+                else
+                {
+                    return Ok(new APIResponse<List<DTO_DangKyMuonSach_GroupSDT>>()
+                    {
+                        Success = false,
+                        Message = "Không có dữ liệu trong database",
+                        Data = listDangKyMuonSach
+                    });
                 }
-
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpGet("{maDK}/{tinhTrang}")]
         public IActionResult UpdateTinhTrang(int maDK, int tinhTrang)
         {
@@ -48,14 +59,25 @@ namespace WebAPI.Controllers.Admin
             {
                 if (_dangKyMuonSachService.UpdateTinhTrang(maDK, tinhTrang))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Cập nhật thành công",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return NotFound("Khong tim thay don");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Cập nhật không thành công thành công! Đã xảy ra lỗi",
+                        Data = null
+                    });
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -69,8 +91,24 @@ namespace WebAPI.Controllers.Admin
             {
                 List<DTO_Sach_Muon> listSachDK = _dangKyMuonSachService.Get_CTDK_ByMaDK(maDK);
 
-                if(listSachDK.Count > 0) { return Ok(listSachDK); }
-                else { return NotFound(); }
+                if (listSachDK.Count > 0) 
+                { 
+                    return Ok(new APIResponse<List<DTO_Sach_Muon>>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = listSachDK
+                    }); 
+                }
+                else 
+                { 
+                    return Ok(new APIResponse<List<DTO_Sach_Muon>>()
+                    {
+                        Success = false,
+                        Message = "Không có dữ liệu",
+                        Data = listSachDK
+                    });
+                }
             }
             catch (Exception ex)
             {
@@ -86,15 +124,24 @@ namespace WebAPI.Controllers.Admin
             {
                 int maThe = _dangKyMuonSachService.GetMaTheBySDT(sdt);
 
-                if(maThe > 0)
+                if (maThe > 0)
                 {
-                    return Ok(maThe);
+                    return Ok(new APIResponse<int>()
+                    {
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = maThe
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<int>()
+                    {
+                        Success = false,
+                        Message = "Không có dữ liệu",
+                        Data = maThe
+                    });
                 }
-
             }
             catch (Exception ex)
             {
@@ -110,11 +157,21 @@ namespace WebAPI.Controllers.Admin
             {
                 if (_dangKyMuonSachService.CheckHanTheDocGia(maThe))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Tìm thấy dữ liệu",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return NotFound("Khong tim thay du lieu");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Không tìm thấy dữ liệu",
+                        Data = null
+                    });
                 }
 
             }
@@ -124,21 +181,30 @@ namespace WebAPI.Controllers.Admin
             }
         }
 
-
+        [Authorize(Policy = "AdminPolicy")]
         [HttpPost]
-        public async Task<IActionResult> Insert([FromBody] DTO_Tao_Phieu_Muon x)
+        public IActionResult Insert([FromBody] DTO_Tao_Phieu_Muon x)
         {
             try
             {
-                if (_dangKyMuonSachService.Insert(x))
+                if ( _dangKyMuonSachService.Insert(x))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "Tạo phiếu mượn thành công",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return BadRequest("Da xay ra loi");
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "Tạo phiếu mượn không thành công thành công! Đã xảy ra lỗi",
+                        Data = null
+                    });
                 }
-
             }
             catch (Exception ex)
             {
@@ -154,18 +220,28 @@ namespace WebAPI.Controllers.Admin
             {
                 DTO_DangKyMuonSach data = _dangKyMuonSachService.Get_DangKySachMuon_ByMaDK(maDK);
 
-                if(data != null)
+                if (data != null)
                 {
-                    return Ok(data);
+                    return Ok(new APIResponse<DTO_DangKyMuonSach>()
+                    { 
+                        Success = true,
+                        Message = "Lấy dữ liệu thành công",
+                        Data = data
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<DTO_DangKyMuonSach>()
+                    {
+                        Success = false,
+                        Message = "Lấy dữ liệu không thành công",
+                        Data = data
+                    });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message); 
+                return BadRequest(ex.Message);
             }
         }
 
@@ -177,13 +253,24 @@ namespace WebAPI.Controllers.Admin
             {
                 if (_dangKyMuonSachService.CheckDocGia(SDT))
                 {
-                    return Ok();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = true,
+                        Message = "SDT đã đăng ký thẻ",
+                        Data = null
+                    });
                 }
                 else
                 {
-                    return NotFound();
+                    return Ok(new APIResponse<object>()
+                    {
+                        Success = false,
+                        Message = "SDT chưa đăng ký thẻ",
+                        Data = null
+                    });
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

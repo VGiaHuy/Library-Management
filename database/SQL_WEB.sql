@@ -1,208 +1,263 @@
-﻿CREATE DATABASE QuanLyThuVien;
+﻿-- DROP DATABASE QuanLyThuVien
+ CREATE DATABASE QuanLyThuVien;
 GO
 
 USE QuanLyThuVien;
 --DROP DATABASE QuanLyThuVien;
 CREATE TABLE NhanVien (
-	MaNV INT PRIMARY KEY IDENTITY NOT NULL ,
-	HoTenNV NVARCHAR(50),
-	GioiTinh NVARCHAR(50),
-	DiaChi NVARCHAR(50),
+	MANV INT PRIMARY KEY IDENTITY NOT NULL ,
+	HOTENNV NVARCHAR(50),
+	GIOITINH NVARCHAR(50),
+	DIACHI NVARCHAR(50),
 	NGAYSINH DATE,
 	SDT NVARCHAR(50),
-	ChucVu NVARCHAR(50)
+	CHUCVU NVARCHAR(50)
 );
 
 create TABLE DocGia (
-	MaDG INT PRIMARY KEY IDENTITY NOT NULL,
-	HoTenDG NVARCHAR(50),
-	GioiTinh NVARCHAR(50),
-	NgaySinh DATE,
+	MADG INT PRIMARY KEY IDENTITY NOT NULL,
+	HOTENDG NVARCHAR(50),
+	GIOITINH NVARCHAR(50),
+	NGAYSINH DATE,
 	SDT NVARCHAR(50),
-	DiaChi NVARCHAR(50)
+	DIACHI NVARCHAR(50)
 );
 
 CREATE TABLE TheDocGia (
-	MaThe INT PRIMARY KEY IDENTITY NOT NULL,
-	--HanThe NVARCHAR(50),
-	NgayDK DATE,
-	NgayHH DATE,
-	TienThe INT,
-	MaNV INT,
-	MaDG INT,
-	FOREIGN KEY (MaNV) REFERENCES NhanVien (MaNV),
-	FOREIGN KEY (MaDG) REFERENCES DocGia (MaDG)
+	MATHE INT PRIMARY KEY IDENTITY NOT NULL,
+	--HANTHE NVARCHAR(50),
+	NGAYDK DATE,
+	NGAYHH DATE,
+	TIENTHE INT,
+	MANV INT,
+	MADG INT,
+	EMAIL NVARCHAR(255),
+	FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+	FOREIGN KEY (MADG) REFERENCES DOCGIA (MADG)
 );
 
-CREATE TABLE NhaCungCap (
-	MaNCC INT PRIMARY KEY IDENTITY NOT NULL,
-	TenNCC NVARCHAR(150),
-	DiaChiNCC NVARCHAR(100),
-	sdtNCC NVARCHAR(50)
-);
-
-CREATE TABLE PhieuNhapSach (
-	MaPN INT PRIMARY KEY IDENTITY NOT NULL,
-	NgayNhap DATE,
-	MaNV INT,
-	MaNCC INT,
-	FOREIGN KEY (MaNV) REFERENCES NhanVien (MaNV),
-	FOREIGN KEY (MaNCC) REFERENCES NhaCungCap (MaNCC)
-);
-
-CREATE TABLE Sach (
-	MaSach INT PRIMARY KEY IDENTITY NOT NULL,
-	TenSach NVARCHAR(150),
-	TheLoai NVARCHAR(50),
-	TacGia NVARCHAR(50),
-	NgonNgu NVARCHAR(50),
-	NXB NVARCHAR(100),
-	NamXB INT,
-	SoLuongHIENTAI INT
-);
-
-CREATE TABLE CHITIETPN(
-	MaPN INT,
-	FOREIGN KEY (MaPN) REFERENCES PhieuNhapSach (MaPN),
-	MaSACH INT,
-	FOREIGN KEY (MaSACH) REFERENCES SACH (MaSACH),
-	GiaSach MONEY,
-	SoLuongNHAP INT,
-	constraint ChiTietPN_MaPN_MaSach PRIMARY KEY (MaPN, MaSach)
-	);
-
-CREATE TABLE DonViTL (
-	MaDV INT PRIMARY KEY IDENTITY NOT NULL,
-	TenDV NVARCHAR(150),
-	DiaChiDV NVARCHAR(100),
-	SDTDV NVARCHAR(50)
-);
-
-CREATE TABLE PhieuMuon (
-	MaPM INT PRIMARY KEY IDENTITY NOT NULL,
-	NgayMuon DATE,
-	HanTra DATE,
-	MaThe INT,
-	MaNV INT,
-	FOREIGN KEY (MaNV) REFERENCES NhanVien (MaNV),
-	FOREIGN KEY (MaThe) REFERENCES TheDocGia (MaThe),
-	Tinhtrang bit ,--default '0'--Nvarchar(10),
-	MaDK int
-);
-
-CREATE TABLE ChiTietPM (
-	MaPM INT,
-	MaSach INT,
-	Soluongmuon INT,
-	FOREIGN KEY (MaPM) REFERENCES PhieuMuon (MaPM),
-	FOREIGN KEY (MaSach) REFERENCES Sach (MaSach),
-	constraint ChiTietPM_MaPM_MaSach PRIMARY KEY (MaPM, MaSach)
-
-);
-
-CREATE TABLE PhieuTra (
-	MaPT INT PRIMARY KEY IDENTITY NOT NULL,
-	NgayTra DATE,
-	MaNV INT,
-	MaThe INT,
-	MaPM INT,
-	FOREIGN KEY (MaPM) REFERENCES PhieuMuon (MaPM),
-	FOREIGN KEY (MaNV) REFERENCES NhanVien (MaNV),
-	FOREIGN KEY (MaThe) REFERENCES TheDocGia (MaThe)
-);
-
-CREATE TABLE ChiTietPT (
-	MaPT INT,
-	MaSach INT,
-	Soluongtra INT,
-	Soluongloi INT,
-	Soluongmat INT,
-	PhuThu MONEY,
-	FOREIGN KEY (MaPT) REFERENCES PhieuTra (MaPT),
-	FOREIGN KEY (MaSach) REFERENCES Sach (MaSach),
-	constraint ChiTietPT_MaPT_MaSach PRIMARY KEY (MaPT, MaSach)---id
-);
-
-CREATE TABLE KhoSachThanhLy (
-    masachkho int PRIMARY KEY,
-    soluongkhotl INT
-);
-
-CREATE TABLE PhieuThanhLy (
-	MaPTL INT PRIMARY KEY IDENTITY NOT NULL,
-	NgayTL DATE,
-	MaDV INT,
-	MaNV INT,
-	FOREIGN KEY (MaNV) REFERENCES NhanVien (MaNV),
-	FOREIGN KEY (MaDV) REFERENCES DonViTL (MaDV)
-);
-
-CREATE  TABLE ChiTietPTL (
-    MaPTL INT,
-	MaSachkho INT,
-	Soluongtl INT,
-	GiaTL MONEY,
-    FOREIGN KEY (MaPTL) REFERENCES PhieuThanhLy (MaPTL),
-	FOREIGN KEY (MaSachkho) REFERENCES KhoSachThanhLy (MaSachkho), -- Thay vì tham chiếu đến MaSach, tham chiếu đến ID của KhoSachThanhLy
-	constraint ChiTietPTL_MaPTL_MaSach PRIMARY KEY (MaPTL, MaSachkho)
-);
-
-
---khong cho  nó đăng kí thẻ onlline 
 CREATE TABLE LOGIN_DG (
 	SDT NVARCHAR(50) PRIMARY KEY,
 	PASSWORD_DG NVARCHAR(255),
-	HoTen NVARCHAR(50),
-	Email Nvarchar(255)
-	--MaDG INT,
-	--	FOREIGN KEY (MaDG) REFERENCES DOCGIA (MaDG),
+	HOTEN NVARCHAR(50),
+	EMAIL NVARCHAR(255)
 );
 
 CREATE TABLE LOGIN_NV (
 	USERNAME_NV NVARCHAR(50) PRIMARY KEY,
 	PASSWORD_NV NVARCHAR(MAX),
 	MANV INT,
-		FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+    FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
 );
 
-CREATE TABLE TT_SACH(
-MA_TT_SACH  INT PRIMARY KEY IDENTITY NOT NULL,
-URL_IMAGE TEXT,
-MOTA NTEXT,
-MASACH INT,
-FOREIGN KEY (MASACH) REFERENCES Sach (MASACH),
+CREATE TABLE NhaCungCap (
+	MANCC INT PRIMARY KEY IDENTITY NOT NULL,
+	TENNCC NVARCHAR(150),
+	DIACHINCC NVARCHAR(100),
+	SDTNCC NVARCHAR(50)
+);
+
+CREATE TABLE Sach (
+	MASACH INT PRIMARY KEY IDENTITY NOT NULL,
+	TENSACH NVARCHAR(150),
+	THELOAI NVARCHAR(50),
+	TACGIA NVARCHAR(50),
+	NGONNGU NVARCHAR(50),
+	NXB NVARCHAR(100),
+	NAMXB INT,
+	URL_IMAGE TEXT,
+	MOTA NTEXT,
+	SOLUONGHIENTAI INT
+);
+
+CREATE TABLE CuonSach (
+	MACUONSACH NVARCHAR(10) PRIMARY KEY, 
+    TINHTRANG INT,--CÓ SẴN=0   ĐÃ MƯỢN = 1. . HƯ =2, MẤT =3 HẾT HẠN =4
+    MASACH INT NOT NULL, 
+    FOREIGN KEY (MASACH) REFERENCES SACH(MASACH)
+);
+
+CREATE TABLE PhieuNhapSach (
+	MAPN INT PRIMARY KEY IDENTITY NOT NULL,
+	NGAYNHAP DATE,
+	MANV INT,
+	MANCC INT,
+	FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+	FOREIGN KEY (MANCC) REFERENCES NHACUNGCAP (MANCC)
+);
+
+CREATE TABLE CHITIETPN(
+	MAPN INT,
+	MASACH INT,
+	GIASACH MONEY,
+	SOLUONGNHAP INT,
+	FOREIGN KEY (MAPN) REFERENCES PHIEUNHAPSACH (MAPN),
+	FOREIGN KEY (MASACH) REFERENCES SACH (MASACH),
+	CONSTRAINT CHITIETPN_MAPN_MASACH PRIMARY KEY (MAPN, MASACH)
+	);
+
+CREATE TABLE DonViTL (
+	MADV INT PRIMARY KEY IDENTITY NOT NULL,
+	TENDV NVARCHAR(150),
+	DIACHIDV NVARCHAR(100),
+	SDTDV NVARCHAR(50)
+);
+
+CREATE TABLE PhieuMuon (
+	MAPM INT PRIMARY KEY IDENTITY NOT NULL,
+	MATHE INT,
+	NGAYMUON DATE,
+	HANTRA DATE,
+	MANV INT,
+	TINHTRANG BIT ,
+	MADK INT,
+	FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+	FOREIGN KEY (MATHE) REFERENCES THEDOCGIA (MATHE)
+);
+
+CREATE TABLE ChiTietPM (
+	MAPM INT,
+	SOLUONGMUON INT,
+	FOREIGN KEY (MAPM) REFERENCES PHIEUMUON (MAPM),
+	MASACH INT,
+	FOREIGN KEY (MASACH) REFERENCES SACH (MASACH),
+	CONSTRAINT CHITIETPM_MAPM_MASACH PRIMARY KEY (MAPM, MASACH)
+); 
+
+
+CREATE TABLE ChiTietSachMuon (
+    MAPM INT,  -- MÃ PHIẾU MƯỢN (KHÓA NGOẠI TỪ BẢNG PHIEUMUON)
+    MACUONSACH NVARCHAR(10),  -- MÃ CUỐN SÁCH CỤ THỂ (1A, 1B,...)
+	TINHTRANG bit,  -- TÌNH TRẠNG CỦA CUỐN SÁCH đã mượn hoặc đã trả
+    PRIMARY KEY (MAPM, MACUONSACH),
+    FOREIGN KEY (MAPM) REFERENCES PHIEUMUON(MAPM),
+    FOREIGN KEY (MACUONSACH) REFERENCES CUONSACH(MACUONSACH)
+);
+
+
+CREATE TABLE PhieuTra (
+	MAPT INT PRIMARY KEY IDENTITY NOT NULL,
+	NGAYTRA DATE,
+	MANV INT,
+	MATHE INT,
+	MAPM INT,
+	FOREIGN KEY (MAPM) REFERENCES PHIEUMUON (MAPM),
+	FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+	FOREIGN KEY (MATHE) REFERENCES THEDOCGIA (MATHE)
+);
+
+CREATE TABLE ChiTietPT (
+	MAPT INT,
+	MASACH INT,
+	SOLUONGTRA INT,
+	SOLUONGLOI INT,
+	SOLUONGMAT INT,
+	PHUTHU MONEY,
+	FOREIGN KEY (MAPT) REFERENCES PHIEUTRA (MAPT),
+	FOREIGN KEY (MASACH) REFERENCES SACH (MASACH),
+	CONSTRAINT CHITIETPT_MAPT_MASACH PRIMARY KEY (MAPT, MASACH)---ID
+);
+
+CREATE TABLE ChiTietSachTra (
+    MAPT INT,  -- MÃ PHIẾU TRẢ (KHÓA NGOẠI TỪ BẢNG PHIEUTRA)
+    MACUONSACH NVARCHAR(10),  -- MÃ CUỐN SÁCH CỤ THỂ
+    TINHTRANG INT,  -- TÌNH TRẠNG CỦA CUỐN SÁCH KHI TRẢ (BÌNH THƯỜNG 1, HƯ HỎNG 2, MẤT 3)
+    PRIMARY KEY (MAPT, MACUONSACH),
+    FOREIGN KEY (MAPT) REFERENCES PHIEUTRA(MAPT),
+    FOREIGN KEY (MACUONSACH) REFERENCES CUONSACH(MACUONSACH)
+);
+
+CREATE TABLE KhoSachThanhLy (
+    MASACHKHO INT PRIMARY KEY, ---SỬA THÀNH MÃ CỦA TỪNG CUỐN HAY GIỮ NGUYÊN NẾU GIỮ NGUYÊN THÌ THIẾU MÃ TỪNG CUỐN 
+    SOLUONGKHOTL INT
+);
+
+CREATE TABLE ChitietKhoThanhLy (
+    MASACHKHO INT,
+    MACUONSACH NVARCHAR(10),
+    VANDE INT, --1 sách bị quá hạn hay  2 là hư hỏng
+    TINHTRANG INT, --0 là chưa tl, 1 là đã thanh lý
+    PRIMARY KEY (MASACHKHO, MACUONSACH),
+    FOREIGN KEY (MACUONSACH) REFERENCES CUONSACH(MACUONSACH),
+    FOREIGN KEY (MASACHKHO) REFERENCES KHOSACHTHANHLY(MASACHKHO),
+    CONSTRAINT UQ_ChitietKhoThanhLy_MaCuonSach UNIQUE (MACUONSACH) -- Thêm ràng buộc UNIQUE
+);
+
+
+CREATE TABLE PhieuThanhLy (
+	MAPTL INT PRIMARY KEY IDENTITY NOT NULL,
+	NGAYTL DATE,
+	MADV INT,
+	MANV INT,
+	FOREIGN KEY (MANV) REFERENCES NHANVIEN (MANV),
+	FOREIGN KEY (MADV) REFERENCES DONVITL (MADV)
+);
+
+CREATE  TABLE ChiTietPTL (
+    MAPTL INT,
+	MASACHKHO INT,
+	SOLUONGTL INT,
+	GIATL MONEY,
+    FOREIGN KEY (MAPTL) REFERENCES PHIEUTHANHLY (MAPTL),
+	FOREIGN KEY (MASACHKHO) REFERENCES KHOSACHTHANHLY (MASACHKHO), -- THAY VÌ THAM CHIẾU ĐẾN MASACH, THAM CHIẾU ĐẾN ID CỦA KHOSACHTHANHLY
+	CONSTRAINT CHITIETPTL_MAPTL_MASACH PRIMARY KEY (MAPTL, MASACHKHO)
+);
+
+--ALTER TABLE ChitietKhoThanhLy
+CREATE TABLE ChiTietSachThanhLy (
+    MAPTL INT,  -- MÃ PHIẾU THANH LÝ (KHÓA NGOẠI TỪ BẢNG PHIEUTHANHLY)
+    MACUONSACH NVARCHAR(10),  -- MÃ CUỐN SÁCH CỤ THỂ (1A, 1B,...)
+	TINHTRANG INT, --mặc định là hư 1
+    PRIMARY KEY (MAPTL, MACUONSACH),  -- KHÓA CHÍNH BAO GỒM MÃ PHIẾU VÀ MÃ CUỐN
+    FOREIGN KEY (MAPTL) REFERENCES PHIEUTHANHLY(MAPTL),  -- LIÊN KẾT ĐẾN BẢNG PHIEUTHANHLY
+    FOREIGN KEY (MACUONSACH) REFERENCES ChitietKhoThanhLy(MaCuonSach)  -- LIÊN KẾT ĐẾN BẢNG CHITIETKHOTHANHLY
+
 );
 
 CREATE TABLE DkiMuonSach (
-	MaDK INT PRIMARY KEY IDENTITY NOT NULL,
+	MADK INT PRIMARY KEY IDENTITY NOT NULL,
 	SDT NVARCHAR(50),
-	NgayDKMuon DATE,
-	NgayHen DATE,
+	NGAYDKMUON DATE,
+	NGAYHEN DATE,
 	FOREIGN KEY (SDT) REFERENCES LOGIN_DG (SDT),
-	Tinhtrang int --DANG CHỜ XÁC THỰC  0
+	TINHTRANG INT --DANG CHỜ XÁC THỰC  0
 	--đã duyệt  1
 	--đã mượn  2
 	--đã hủy 3
 );
 
 CREATE TABLE ChiTietDk (
-	MaDK INT,
-	MaSach INT,
-	Soluongmuon INT,
-	FOREIGN KEY (MaDK) REFERENCES DkiMuonSach (MaDK),
-	FOREIGN KEY (MaSach) REFERENCES Sach (MaSach),
-	constraint ChiTietDk_MaDK_MaSach PRIMARY KEY (MaDK, MaSach)
+	MADK INT,
+	MASACH INT,
+	SOLUONGMUON INT,
+	FOREIGN KEY (MADK) REFERENCES DKIMUONSACH (MADK),
+	FOREIGN KEY (MASACH) REFERENCES SACH (MASACH),
+	CONSTRAINT CHITIETDK_MADK_MASACH PRIMARY KEY (MADK, MASACH)
 );
 
-CREATE TABLE GioHang (
-	gioHangId INT,
-	SDT NVARCHAR(50),
-	MaSach INT,
-	Soluong INT,
-	FOREIGN KEY (MaSach) REFERENCES Sach (MaSach),
-	FOREIGN KEY (SDT) REFERENCES LOGIN_DG (SDT)
+CREATE TABLE QuyDinh (
+	MaQuyDinh INT PRIMARY KEY IDENTITY NOT NULL,
+	NamXBMax INT, 
+	SosachmuonMax INT,
+	SongayMax INT
+	
 );
 
+CREATE  TABLE ImportSachTemp (
+    ID INT IDENTITY(1,1) PRIMARY KEY,       -- KHOÁ CHÍNH TẠM THỜI CHO MỖI DÒNG IMPORT
+    TENSACH NVARCHAR(150),                 -- TÊN SÁCH
+    THELOAI NVARCHAR(50),                  -- THỂ LOẠI
+    TACGIA NVARCHAR(50),                   -- TÁC GIẢ
+    NGONNGU NVARCHAR(50),                  -- NGÔN NGỮ
+    NXB NVARCHAR(100),                     -- NHÀ XUẤT BẢN
+    NAMXUATBAN INT,                             -- NĂM XUẤT BẢN
+    URLIMAGE TEXT,                        -- LINK ẢNH
+	GIASACH MONEY,
+    MOTA NTEXT,                            -- MÔ TẢ
+    SOLUONG INT,                           -- SỐ LƯỢNG (TẠM THỜI)
+    TRANGTHAI NVARCHAR(20),                -- TRẠNG THÁI: 'OK' HOẶC 'LỖI'
+    MOTALOI NVARCHAR(255)                  -- Mô tả lỗi (VD: "Trùng mã sách", "Số lượng không hợp lệ")
+);
 
 ----------------+**************************************************************+----------------
 --RANG BUOC NHAN VIEN 
@@ -232,7 +287,9 @@ ALTER TABLE PHIEUNHAPSACH ADD CONSTRAINT CHECK_NGAYNHAP_PNS CHECK (NGAYNHAP <= G
 
 
 --RANG BUOC SACH
-ALTER TABLE SACH ADD CONSTRAINT CHK_THELOAI_SACH CHECK (THELOAI IN(N'Truyện ngắn',N'Truyện thiếu nhi',N'Tiểu thuyết', N'Ngôn tình',N'Sách giáo khoa',N'Sách tham khảo', N'Văn học',N'Sách ngoại ngữ',N'Kỹ năng sống'));
+--ALTER TABLE SACH ADD CONSTRAINT CHK_THELOAI_SACH CHECK (THELOAI IN(N'Truyện ngắn',N'Truyện thiếu nhi',N'Tiểu thuyết', N'Ngôn tình',N'Sách giáo khoa',N'Sách tham khảo', N'Văn học',N'Sách ngoại ngữ',N'Kỹ năng sống'));
+--ALTER TABLE SACH DROP CONSTRAINT CHK_THELOAI_SACH;
+
 ALTER TABLE SACH ADD CONSTRAINT CHK_NGONNGU_SACH CHECK (NGONNGU IN(N'Tiếng anh',N'Tiếng việt',N'Tiếng hàn',N'Tiếng trung',N'Tiếng pháp'));
 ALTER TABLE SACH ADD CONSTRAINT CHK_NAMXB_SACH CHECK (NAMXB <= YEAR(GETDATE()));
 --ALTER TABLE SACH ADD CONSTRAINT CHK_GIASACH_SACH CHECK (GIASACH >0);
@@ -291,492 +348,60 @@ ALTER TABLE CHITIETDK ADD CONSTRAINT CHK_SOLUONG_CTDK CHECK (SOLUONGmuon > 0);
 ALTER TABLE Login_DG ADD CONSTRAINT CHK_SDT_LOGIN_DG   UNIQUE(SDT);
 ALTER TABLE Login_DG ADD CONSTRAINT CHK_EMAIL_LOGIN_DG   UNIQUE(EMAIL);
 
-
---***************CẬP NHẬT SỐ LƯỢNG CÁC THAO TÁC+******************
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI NHAP  */
-CREATE or ALTER TRIGGER TRG_SACHNHAP ON CHITIETPN AFTER INSERT AS 
-BEGIN
-	UPDATE SACH
-	SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI + (
-		SELECT SOLUONGNHAP
-		FROM INSERTED
-		WHERE MASACH = SACH.MASACH
-	)
-	FROM SACH
-	JOIN INSERTED ON INSERTED.MASACH = SACH.MASACH
-END
-
-GO
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI MƯỢN  */
---CREATE or ALTER drop TRIGGER TRG_SACHMUON ON CHITIETPM AFTER INSERT AS 
---BEGIN
-   
---	UPDATE SACH
---	SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI - (
---		SELECT SOLUONGmuon
---		FROM INSERTED
---		WHERE MASACH = SACH.MASACH
---	)
---	FROM SACH
---	JOIN INSERTED ON INSERTED.MASACH = SACH.MASACH
---END
-
-CREATE OR ALTER  TRIGGER TRG_SACHMUON ON CHITIETPM AFTER INSERT AS 
-BEGIN
-    DECLARE @Madk INT;
-
-    SELECT TOP 1 @Madk = MADK 
-    FROM INSERTED JOIN PHIEUMUON ON INSERTED.MAPM = PHIEUMUON.MAPM;
-     
-    IF isnull(@Madk,0) = 0
-    BEGIN
-            PRINT 'Updating SACH';
-            -- Nếu Madk = 0, cập nhật kho sách
-            UPDATE SACH
-            SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI - (
-                SELECT SOLUONGmuon
-                FROM INSERTED
-                WHERE MASACH = SACH.MASACH
-            )
-            FROM SACH
-            JOIN INSERTED ON INSERTED.MASACH = SACH.MASACH;
-        
-    END
-	else 
-		begin 
-			Print 'Update tinhtrangdki = 2'
-			UPDATE DkiMuonSach 
-			SET TINHTRANG = '2'
-			FROM DkiMuonSach 
-			where @Madk = DkiMuonSach.MaDK
-		end;
-END;
-
-
---/* CẬP NHẬT SÁCH TRONG KHO SAU KHI TRẢ  */
-CREATE OR ALTER TRIGGER TRG_SACHTRAvaTL ON CHITIETPT AFTER INSERT AS 
-BEGIN
-    -- Update the current quantity of books in the 'SACH' table after a book is returned
-	UPDATE SACH
-	SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI + (
-		SELECT SOLUONGtra
-		FROM INSERTED
-		WHERE MASACH = SACH.MASACH
-	)
-	FROM SACH
-	JOIN INSERTED ON INSERTED.MASACH = SACH.MASACH;
-
-    -- Update the quantity of books and faulty books in the 'KhoSachThanhLy' table after a book is returned
-    DECLARE @MaSach INT;
-    DECLARE @soluongLOI INT;
-
-    -- Iterate over the inserted rows
-    DECLARE Cursor_SachTra CURSOR FOR
-    SELECT MASACH, SOLUONGloi
-    FROM INSERTED;
-
-    OPEN Cursor_SachTra;
-
-    FETCH NEXT FROM Cursor_SachTra INTO @MaSach, @soluongLOI;
-
-    WHILE @@FETCH_STATUS = 0
-    BEGIN
-        -- Check if the book exists in 'KhoSachThanhLy'
-        IF EXISTS (SELECT 1 FROM KhoSachThanhLy WHERE masachkho = @MaSach)
-        BEGIN
-            -- If exists, update the quantity of faulty books
-            UPDATE KhoSachThanhLy
-            SET soluongkhotl = soluongkhotl + @soluongLOI
-            WHERE masachkho = @MaSach;
-        END
-        ELSE
-        BEGIN
-            -- If not exists and quantity of faulty books > 0, insert a new row for the book in 'KhoSachThanhLy'
-            IF @soluongLOI > 0
-            BEGIN
-                INSERT INTO KhoSachThanhLy (masachkho, soluongkhotl)
-                VALUES (@MaSach, @soluongLOI);
-            END;
-        END;
-
-        FETCH NEXT FROM Cursor_SachTra INTO @MaSach, @soluongLOI;
-    END;
-
-    CLOSE Cursor_SachTra;
-    DEALLOCATE Cursor_SachTra;
-END;
---GO
-
-
-
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI THANH LÍ  */
-CREATE or ALTER TRIGGER TRG_SACHTL ON CHITIETPTL AFTER INSERT AS 
-BEGIN
-	UPDATE KhoSachThanhLy 
-	SET KhoSachThanhLy.SOLUONGKHOTL = KhoSachThanhLy.SOLUONGKHOTL - (
-		SELECT Soluongtl
-		FROM INSERTED
-		WHERE MASACHKHO = KhoSachThanhLy.MASACHKHO
-	)
-	FROM KhoSachThanhLy 
-	JOIN INSERTED ON INSERTED.MASACHKHO = KhoSachThanhLy.MASACHKHO
-END
-
-
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI duyệt  */
-CREATE or ALTER TRIGGER TRG_SachMuonOnl ON DkiMuonSach after UPDATE AS 
-BEGIN
--- DECLARE @tinhtrang INT;
-  DECLARE @tinhtrang_before INT;
-    DECLARE @tinhtrang_after INT;
-
-    SELECT TOP 1 @tinhtrang_before = d.tinhtrang, @tinhtrang_after = i.tinhtrang
-    FROM DELETED d
-    JOIN INSERTED i ON d.madk = i.madk;
-    
-	--SELECT TOP 1 @tinhtrang_after = tinhtrang 
- --   FROM INSERTED;
-	if @tinhtrang_after=1
-	begin 
-		print @tinhtrang_after;
-		UPDATE SACH
-		SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI - (
-			SELECT SOLUONGmuon
-			FROM INSERTED JOIN ChiTietDk ON INSERTED.MADK = ChiTietDk.MaDK-- join DkiMuonSach on 
-			WHERE ChiTietDk.MASACH = SACH.MASACH AND Tinhtrang = 1
-		)
-		FROM SACH JOIN ChiTietDk  ON  ChiTietDk.MASACH = SACH.MASACH 
-		JOIN INSERTED ON INSERTED.MADK = ChiTietDk.MaDK 
-	end
-	if @tinhtrang_after =3
-	begin
-		print @tinhtrang_after;
-		UPDATE SACH
-		SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI + (
-			SELECT SOLUONGmuon
-			FROM INSERTED JOIN ChiTietDk ON INSERTED.MADK = ChiTietDk.MaDK
-			WHERE ChiTietDk.MASACH = SACH.MASACH AND @tinhtrang_after = 3
-		)
-		FROM SACH JOIN ChiTietDk  ON  ChiTietDk.MASACH = SACH.MASACH 
-		JOIN INSERTED ON INSERTED.MADK = ChiTietDk.MaDK 
-		join deleted on deleted.MaDK =INSERTED.MADK where   @tinhtrang_before = 1
-	end
-	
-END
-
-
-
---******************CÁC TRIGGER VỀ TÌNH TRẠNG XÉT DUYỆT*********************
-/* CẬP NHẬT TÌNH TRẠNG PHIẾU MƯỢN */
-CREATE OR ALTER  TRIGGER SetTinhTrangPM
-ON PHIEUMUON 
-FOR INSERT AS
-BEGIN 
-	UPDATE PHIEUMUON 
-	SET TINHTRANG = 0
-	FROM PHIEUMUON 
-	JOIN INSERTED ON INSERTED.MAPM = PHIEUMUON.MaPM
-END;
-
-
-CREATE OR ALTER TRIGGER UpdateTinhTrangPhieuMuon
-ON chitietpt
-AFTER INSERT
-AS
-BEGIN
--- Kiểm tra số lượng sách trả và số lượng sách mượn
-    IF (SELECT COUNT(*) FROM inserted) > 0
-		begin 
-		   UPDATE PM
-			SET Tinhtrang = '1'
-			FROM PhieuMuon PM
-			JOIN (
-				SELECT PM.mapm, count(pm.mapm) as loaisach
-				FROM PhieuMuon PM 
-				JOIN chitietpm ctpm ON PM.mapm  = ctpm.mapm 
-				WHERE PM.Tinhtrang = '0'
-				GROUP BY Pm.mapm
-				INTERSECT
-				SELECT mapm, count(mapm) as soluongls 
-				FROM (
-					SELECT PM.mapm , ctpm.masach, Soluongmuon
-					FROM PhieuMuon PM 
-					JOIN chitietpm ctpm ON PM.mapm  = ctpm.mapm 
-					WHERE PM.Tinhtrang = '0'
-					INTERSECT
-					SELECT Pt.mapm,  ctpt.masach, SUM(ISNULL(ctpt.Soluongtra, 0) + ISNULL(ctpt.Soluongloi, 0)+ ISNULL(ctpt.Soluongmat, 0)) AS soluongtra
-					FROM phieutra Pt
-					JOIN chitietpt ctpt ON Pt.mapt = ctpt.mapt
-					LEFT JOIN chitietpm ctpm ON Pt.mapm = ctpm.mapm AND ctpt.masach = ctpm.masach
-					GROUP BY Pt.mapm, ctpt.masach
-				) AS a
-				GROUP BY a.mapm
-			) AS CountResult ON PM.mapm = CountResult.mapm
-		end
-   -- WHERE CountResult.loaisach = CountResult.soluongls;
-END;
-
---/* CẬP NHẬT TÌNH TRẠNG ĐK MƯỢN SÁCH */
-CREATE OR ALTER  TRIGGER SetTinhTrangPhieuDK
-ON DkiMuonSach 
-FOR INSERT AS
-BEGIN 
-	UPDATE DkiMuonSach 
-	SET TINHTRANG = 0
-	FROM DkiMuonSach 
-	JOIN INSERTED ON INSERTED.MaDK = DkiMuonSach.MaDK
-END;
-
+--Rang buoc sach gio hang khong am
 
 
 --******************TẠO VIEW CHECK TỔNG TIEN *********************
-CREATE or alter VIEW PHIEUNHAP_VIEW 
-AS
-	SELECT PN.MAPN, NgayNhap, MaNV, MaNCC, SUM(ABS(S.GIASACH*SOLUONGNHAP)) AS N'TỔNG TIỀN', SUM(SOLUONGNHAP) AS N'TỔNG SÁCH'
-	FROM PHIEUNHAPSACH PN JOIN CHITIETPN S ON PN.MAPN= S.MAPN JOIN SACH ON SACH.MaSach = S.MaSACH
-	GROUP BY PN.MAPN, NgayNhap, MaNV, MaNCC;
+--CREATE or alter VIEW PHIEUNHAP_VIEW 
+--AS
+--	SELECT PN.MAPN, NgayNhap, MaNV, MaNCC, SUM(ABS(S.GIASACH*SOLUONGNHAP)) AS N'TỔNG TIỀN', SUM(SOLUONGNHAP) AS N'TỔNG SÁCH'
+--	FROM PHIEUNHAPSACH PN JOIN CHITIETPN S ON PN.MAPN= S.MAPN JOIN SACH ON SACH.MaSach = S.MaSACH
+--	GROUP BY PN.MAPN, NgayNhap, MaNV, MaNCC;
 		
 
-CREATE or alter VIEW PHIEUTra_VIEW 
-AS
-	SELECT pt.mapt,MaPM, MaThe, NgayTra, MaNV, SUM(PhuThu) AS N'Tổng tiền xử lý'
-	FROM PhieuTra Pt JOIN CHITIETPt ctpt ON Pt.MAPt= ctpt.MAPt JOIN SACH ON SACH.MaSach = ctpt.MaSACH
-	GROUP BY pt.mapt,MaPM, MaThe, NgayTra, MaNV;
+--CREATE or alter VIEW PHIEUTra_VIEW 
+--AS
+--	SELECT pt.mapt,MaPM, MaThe, NgayTra, MaNV, SUM(PhuThu) AS N'Tổng tiền xử lý'
+--	FROM PhieuTra Pt JOIN CHITIETPt ctpt ON Pt.MAPt= ctpt.MAPt JOIN SACH ON SACH.MaSach = ctpt.MaSACH
+--	GROUP BY pt.mapt,MaPM, MaThe, NgayTra, MaNV;
 
 
-CREATE or alter VIEW PHIEUThanhLy_VIEW 
-AS
-	SELECT ptl.maptl, Madv, NgayTL, MaNV, SUM(GiaTL*Soluongtl) AS N'Tổng tiền thanh lý'
-	FROM PhieuThanhLy Ptl JOIN CHITIETPtl ctptl ON Ptl.MAPtl= ctptl.MAPtl JOIN SACH ON SACH.MaSach = ctptl.MaSACHkho
-	GROUP BY ptl.maptl, Madv, NgayTL, MaNV;
+--CREATE or alter VIEW PHIEUThanhLy_VIEW 
+--AS
+--	SELECT ptl.maptl, Madv, NgayTL, MaNV, SUM(GiaTL*Soluongtl) AS N'Tổng tiền thanh lý'
+--	FROM PhieuThanhLy Ptl JOIN CHITIETPtl ctptl ON Ptl.MAPtl= ctptl.MAPtl JOIN SACH ON SACH.MaSach = ctptl.MaSACHkho
+--	GROUP BY ptl.maptl, Madv, NgayTL, MaNV;
 
 
-CREATE or alter VIEW DocGia_VIEW 
-AS
-	SELECT docgia.MaDG, HoTenDG, sdt,manv, SUM(TienThe) AS N'Tổng tiền khách hàng'
-	FROM DocGia join TheDocGia on DocGia.MaDG = TheDocGia.MaDG
-	GROUP BY docgia.MaDG, HoTenDG, sdt,manv;
+--CREATE or alter VIEW DocGia_VIEW 
+--AS
+--	SELECT docgia.MaDG, HoTenDG, sdt,manv, SUM(TienThe) AS N'Tổng tiền khách hàng'
+--	FROM DocGia join TheDocGia on DocGia.MaDG = TheDocGia.MaDG
+--	GROUP BY docgia.MaDG, HoTenDG, sdt,manv;
 
 
 
---	-----------------******************************-------------------
-CREATE  PROCEDURE pro_UpdateTinhTrangHuyDkiMuon
-AS
-BEGIN
-    -- Thực hiện cập nhật tình trạng của bảng
-    UPDATE DkiMuonSach
-    SET Tinhtrang = '3'
-    WHERE NgayHen <= DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), -1) and Tinhtrang in(0,1);
-END
 
 
-CREATE TABLE BackupStoredProcedures (
-    BackupID INT IDENTITY(1,1) PRIMARY KEY,
-    ProcName NVARCHAR(128),
-    BackupDate DATETIME,
-    ProcDefinition NVARCHAR(MAX)
-);
-
-
-----/* CẬP NHẬT SÁCH TRONG KHO khi insert  */
---CREATE OR ALTER drop PROCEDURE KiemTraMaVaCapNhatSachthanhly
---    @MaSachkho INT,
---    @soluongkhotl INT,
---    @InsertLocation INT -- Thêm tham số mới để phân biệt nơi thực hiện insert
+----	-----------------******************************-------------------
+--CREATE  PROCEDURE pro_UpdateTinhTrangHuyDkiMuon
 --AS
 --BEGIN
---    -- Kiểm tra xem mã sách đã tồn tại trong kho thanh lý chưa
---    IF EXISTS (SELECT 1 FROM KhosachThanhLy WHERE masachkho = @MaSachkho)
---    BEGIN
---        -- Nếu tồn tại, tăng số lượng sách
---        UPDATE KhosachThanhLy
---        SET soluongkhotl = soluongkhotl + @soluongkhotl
---        WHERE MaSachkho = @MaSachkho;
---    END
---    ELSE
---    BEGIN
---        -- Nếu chưa tồn tại, thêm mới sách vào kho thanh lý
---        INSERT INTO KhosachThanhLy (MaSachkho, soluongkhotl)
---        VALUES (@MaSachkho, @soluongkhotl);
---    END
-
---    -- Giảm số lượng sách trong bảng chính
---    IF @InsertLocation = 1 -- Thêm điều kiện để phân biệt nơi thực hiện insert
---    BEGIN
---        UPDATE SACH
---        SET SoLuongHIENTAI = SoLuongHIENTAI - @soluongkhotl
---        WHERE MaSach = @MaSachkho;
---    END;
---END;
-	
---CREATE OR ALTER drop TRIGGER Trig_CapNhatSachThanhLy
---ON KhosachThanhLy
---AFTER INSERT
---AS
---BEGIN
---    DECLARE @MaSachkho INT, @soluongkhotl INT;
-
---    -- Lấy dữ liệu từ bảng Inserted (chứa dữ liệu mới được thêm vào)
---    SELECT @MaSachkho = MaSachkho, @soluongkhotl = soluongkhotl
---    FROM Inserted;
-
---    -- Kiểm tra xem mã sách đã tồn tại trong kho thanh lý chưa
---    IF EXISTS (SELECT 1 FROM KhoSachThanhLy WHERE masachkho = @MaSachkho)
---    BEGIN
---        -- Nếu tồn tại, cập nhật số lượng sách lỗi
---        UPDATE KhoSachThanhLy
---        SET soluongkhotl = soluongkhotl + @soluongkhotl
---        WHERE masachkho = @MaSachkho;
---   end   
---    ELSE
---    BEGIN
---        -- Nếu không tồn tại, thêm mới sách vào kho thanh lý
---        INSERT INTO KhosachThanhLy (MaSachkho, soluongkhotl)
---        VALUES (@MaSachkho, @soluongkhotl);
---    END
---	  -- Giảm số lượng sách trong bảng chính
---        UPDATE SACH
---        SET SoLuongHIENTAI = SoLuongHIENTAI - @soluongkhotl
---        WHERE MaSach = @MaSachkho;    
---END;
-
-
---/* CẬP NHẬT  PHIẾU THANH LÝ */
---CREATE OR ALTER  TRIGGER trg_CapNhatGiaTL
---ON ChiTietPTL
---AFTER INSERT
---AS
---BEGIN
---    SET NOCOUNT ON;
-
---    DECLARE @GiaSachMax MONEY; 
---    SET @GiaSachMax = (
---        SELECT TOP 1 GiaSach
---        FROM INSERTED i
---        INNER JOIN ChitietPN ctpn ON i.MaSachKho = ctpn.MaSach
---        ORDER BY ctpn.GiaSach ASC
---    )
-  
---        UPDATE ChiTietPTl
---        SET GiaTL = @GiaSachMax * INSERTED.Soluongtl *0.3
---        FROM ChiTietPTL
---		INNER JOIN PhieuThanhLy ON ChiTietPTL.MaPTL = PhieuThanhLy.MaPTL
---        JOIN INSERTED ON ChiTietPTL.MaPTL = INSERTED.MaPTL 
---		where ChiTietPTL.MaSachkho = INSERTED.MaSachkho
---	END
-
-
---/* CẬP NHẬT TÌNH TRẠNG PHIẾU TRẢ */ 
---CREATE OR ALTER  TRIGGER trg_CapNhatPhuThu
---ON ChiTietPT
---AFTER INSERT
---AS
---BEGIN
---    SET NOCOUNT ON;
-
---    DECLARE @GiaSachMax MONEY; 
---    SET @GiaSachMax = (
---        SELECT TOP 1 GiaSach
---        FROM INSERTED i
---        INNER JOIN ChitietPN ctpn ON i.MaSach = ctpn.MaSach
---        ORDER BY ctpn.GiaSach DESC
---    );
-   
---    UPDATE ChiTietPT
---    SET PhuThu = CASE
---        WHEN DATEDIFF(DAY, 
---            ISNULL((SELECT HanTra FROM PhieuMuon WHERE MaPM = (SELECT MaPM FROM INSERTED i join phieutra on  i.mapt = phieutra.mapt)), GETDATE()), 
---            ISNULL((SELECT NgayTra FROM PhieuTra WHERE MaPT = (SELECT MaPT FROM INSERTED)), GETDATE())
---        ) > 0
---        THEN DATEDIFF(DAY, ISNULL((SELECT HanTra FROM PhieuMuon WHERE MaPM = (SELECT MaPM FROM INSERTED i JOIN phieutra ON i.mapt = phieutra.mapt)), GETDATE()), ISNULL((SELECT NgayTra FROM PhieuTra WHERE MaPT = (SELECT MaPT FROM INSERTED)), GETDATE())) * 2000
---                + (@GiaSachMax * 0.5 * ChiTietPT.Soluongloi)
---        ELSE (@GiaSachMax * 0.5 * ChiTietPT.Soluongloi)
---    END
---    FROM ChiTietPT
---    INNER JOIN ChitietPM ON ChiTietPT.MaSach = ChitietPM.MaSach
---    INNER JOIN PhieuTra ON ChiTietPT.MaPT = PhieuTra.MaPT
---    INNER JOIN PhieuMuon ON PhieuTra.MaPM = PhieuMuon.MaPM
---    INNER JOIN INSERTED ON ChiTietPT.MaSach = INSERTED.MaSach
---        AND ChiTietPT.MaPT = INSERTED.MaPT; -- Thêm điều kiện join cho MaSach và MaPT
---END;
-
---GO
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI CẬP NHẬT NHAP */
---CREATE TRIGGER TRG_CAPNHATNHAP ON CHITIETPN AFTER UPDATE AS
---BEGIN
---   UPDATE SACH SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI +
---	   (SELECT SOLUONGNHAP FROM INSERTED WHERE MASACH = SACH.MASACH) -
---	   (SELECT SOLUONGNHAP FROM DELETED WHERE MASACH = SACH.MASACH)
---   FROM SACH 
---   JOIN DELETED ON SACH.MASACH = DELETED.MASACH
---END
---UPDATE CHITIETPM SET SOLUONG = 1 WHERE MASACH = 18 AND MAPM = 5
-
-
---INSERT INTO CHITIETPM ( MAPM, MASACH, SOLUONG) VALUES ( 5, 18, 5);
-
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI CẬP NHẬT MƯỢN */
---CREATE TRIGGER TRG_CAPNHATMUON ON CHITIETPM AFTER UPDATE AS
---BEGIN
---   UPDATE SACH SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI -
---	   (SELECT SOLUONGmuon FROM INSERTED WHERE MASACH = SACH.MASACH) +
---	   (SELECT SOLUONGmuon FROM DELETED WHERE MASACH = SACH.MASACH)
---   FROM SACH 
---   JOIN DELETED ON SACH.MASACH = DELETED.MASACH
---END
---UPDATE CHITIETPM SET SOLUONG = 1 WHERE MASACH = 18 AND MAPM = 5
-
-
-
-/* CẬP NHẬT SÁCH TRONG KHO sach và kho thanh ly SAU KHI TRẢ  */
---CREATE or ALTER  TRIGGER TRG_SACHTRAvaTL ON CHITIETPT AFTER INSERT AS 
---BEGIN
---	UPDATE SACH
---	SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI + (
---		SELECT SOLUONGtra
---		FROM INSERTED
---		WHERE MASACH = SACH.MASACH
---	)
---	FROM SACH
---	JOIN INSERTED ON INSERTED.MASACH = SACH.MASACH
+--    -- Thực hiện cập nhật tình trạng của bảng
+--    UPDATE DkiMuonSach
+--    SET Tinhtrang = '3'
+--    WHERE NgayHen <= DATEADD(DAY, DATEDIFF(DAY, 0, GETDATE()), -1) and Tinhtrang in(0,1);
 --END
 
 
+--CREATE TABLE BackupStoredProcedures (
+--    BackupID INT IDENTITY(1,1) PRIMARY KEY,
+--    ProcName NVARCHAR(128),
+--    BackupDate DATETIME,
+--    ProcDefinition NVARCHAR(MAX)
+--);
 
 
---INSERT INTO CHITIETPT ( MAPT, MASACH, SOLUONG) VALUES ( 2, 18, 5);
-		
---GO
-
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI CẬP NHẬT TRẢ */
---CREATE TRIGGER TRG_CAPNHATTRA ON CHITIETPT AFTER UPDATE AS
---BEGIN
---   UPDATE SACH SET SACH.SOLUONGHIENTAI = SACH.SOLUONGHIENTAI +
---	   (SELECT SOLUONGtra FROM INSERTED WHERE MASACH = SACH.MASACH) -
---	   (SELECT SOLUONGtra FROM DELETED WHERE MASACH = SACH.MASACH)
---   FROM SACH 
---   JOIN DELETED ON SACH.MASACH = DELETED.MASACH
---END
---UPDATE CHITIETPT SET SOLUONG = 1 WHERE MASACH = 18 AND MAPT = 2
-
-
-
---INSERT INTO CHITIETPTL ( MAPTL, MASACH, SOLUONG) VALUES ( 1, 18, 5);
-
-
-/* CẬP NHẬT SÁCH TRONG KHO SAU KHI CẬP NHẬT THANH LÍ */
---CREATE TRIGGER TRG_CAPNHATTL ON CHITIETPTL AFTER UPDATE AS
---BEGIN
---   UPDATE KhoSachThanhLy SET KhoSachThanhLy.soluongkhotl = KhoSachThanhLy.soluongkhotl -
---	   (SELECT Soluongtl FROM INSERTED WHERE MASACHKHO = KhoSachThanhLy.MASACHKHO) +
---	   (SELECT Soluongtl FROM DELETED WHERE MASACHKHO = KhoSachThanhLy.MASACHKHO)
---   FROM KhoSachThanhLy 
---   JOIN DELETED ON KhoSachThanhLy.MASACHKHO = DELETED.MASACHKHO
---END
---UPDATE CHITIETPTL SET SOLUONG = 8 WHERE MASACH = 18 AND MAPTL = 1
-
-
---------------********************************--------------
 
 
 --insert into PhieuNhapSach ( NgayNhap,  MaNV, MaNCC) values ( '2023-10-15',  3,  1);
@@ -787,3 +412,10 @@ CREATE TABLE BackupStoredProcedures (
 ----------------+**************************************************************+----------------
 
 
+---- Them Phieu thanh ly
+--INSERT INTO PHIEUTHANHLY (MADV, NGAYTL,  MANV) VALUES (1, '2024-08-25',  3);
+
+
+---- Them Chi tiet phieu thanh ly 
+--INSERT INTO CHITIETPTL (MAPTL, MASACHKHO, SOLUONGTL, GIATL) VALUES (1, 17, 2, 67500);
+--INSERT INTO CHITIETPTL (MAPTL, MASACHKHO, SOLUONGTL, GIATL) VALUES (1 ,15, 1,33500);

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using WebAPI.DTOs;
 
 namespace WebApp.Models;
 
@@ -24,7 +23,17 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<ChiTietPtl> ChiTietPtls { get; set; }
 
+    public virtual DbSet<ChiTietSachMuon> ChiTietSachMuons { get; set; }
+
+    public virtual DbSet<ChiTietSachThanhLy> ChiTietSachThanhLies { get; set; }
+
+    public virtual DbSet<ChiTietSachTra> ChiTietSachTras { get; set; }
+
+    public virtual DbSet<ChitietKhoThanhLy> ChitietKhoThanhLies { get; set; }
+
     public virtual DbSet<Chitietpn> Chitietpns { get; set; }
+
+    public virtual DbSet<CuonSach> CuonSaches { get; set; }
 
     public virtual DbSet<DkiMuonSach> DkiMuonSaches { get; set; }
 
@@ -50,147 +59,306 @@ public partial class QuanLyThuVienContext : DbContext
 
     public virtual DbSet<PhieuTra> PhieuTras { get; set; }
 
+    public virtual DbSet<QuyDinh> QuyDinhs { get; set; }
+
     public virtual DbSet<Sach> Saches { get; set; }
 
     public virtual DbSet<TheDocGium> TheDocGia { get; set; }
 
-    public virtual DbSet<TtSach> TtSaches { get; set; }
+    public DbSet<ImportSachTemp> ImportSachTemps { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=VOGIAHUY\\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=QuanLyThuVien;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ChiTietDk>(entity =>
         {
-            entity.HasKey(e => new { e.MaDk, e.MaSach }).HasName("ChiTietDk_MaDK_MaSach");
+            entity.HasKey(e => new { e.Madk, e.Masach }).HasName("CHITIETDK_MADK_MASACH");
 
             entity.ToTable("ChiTietDk");
 
-            entity.Property(e => e.MaDk).HasColumnName("MaDK");
+            entity.Property(e => e.Madk).HasColumnName("MADK");
+            entity.Property(e => e.Masach).HasColumnName("MASACH");
+            entity.Property(e => e.Soluongmuon).HasColumnName("SOLUONGMUON");
 
-            entity.HasOne(d => d.MaDkNavigation).WithMany(p => p.ChiTietDks)
-                .HasForeignKey(d => d.MaDk)
+            entity.HasOne(d => d.MadkNavigation).WithMany(p => p.ChiTietDks)
+                .HasForeignKey(d => d.Madk)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietDk__MaDK__02FC7413");
+                .HasConstraintName("FK__ChiTietDk__MADK__01142BA1");
 
-            entity.HasOne(d => d.MaSachNavigation).WithMany(p => p.ChiTietDks)
-                .HasForeignKey(d => d.MaSach)
+            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.ChiTietDks)
+                .HasForeignKey(d => d.Masach)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietDk__MaSac__03F0984C");
+                .HasConstraintName("FK__ChiTietDk__MASAC__02084FDA");
         });
 
         modelBuilder.Entity<ChiTietPm>(entity =>
         {
-            entity.HasKey(e => new { e.MaPm, e.MaSach }).HasName("ChiTietPM_MaPM_MaSach");
+            entity.HasKey(e => new { e.Mapm, e.Masach }).HasName("CHITIETPM_MAPM_MASACH");
 
-            entity.ToTable("ChiTietPM");
+            entity.ToTable("ChiTietPM", tb => tb.HasTrigger("TRG_SACHMUON"));
 
-            entity.Property(e => e.MaPm).HasColumnName("MaPM");
+            entity.Property(e => e.Mapm).HasColumnName("MAPM");
+            entity.Property(e => e.Masach).HasColumnName("MASACH");
+            entity.Property(e => e.Soluongmuon).HasColumnName("SOLUONGMUON");
 
-            entity.HasOne(d => d.MaPmNavigation).WithMany(p => p.ChiTietPms)
-                .HasForeignKey(d => d.MaPm)
+            entity.HasOne(d => d.MapmNavigation).WithMany(p => p.ChiTietPms)
+                .HasForeignKey(d => d.Mapm)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPM__MaPM__628FA481");
+                .HasConstraintName("FK__ChiTietPM__MAPM__5812160E");
 
-            entity.HasOne(d => d.MaSachNavigation).WithMany(p => p.ChiTietPms)
-                .HasForeignKey(d => d.MaSach)
+            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.ChiTietPms)
+                .HasForeignKey(d => d.Masach)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPM__MaSac__6383C8BA");
+                .HasConstraintName("FK__ChiTietPM__MASAC__59063A47");
         });
 
         modelBuilder.Entity<ChiTietPt>(entity =>
         {
-            entity.HasKey(e => new { e.MaPt, e.MaSach }).HasName("ChiTietPT_MaPT_MaSach");
+            entity.HasKey(e => new { e.Mapt, e.Masach }).HasName("CHITIETPT_MAPT_MASACH");
 
-            entity.ToTable("ChiTietPT");
+            entity.ToTable("ChiTietPT", tb =>
+                {
+                    tb.HasTrigger("TRG_SACHTRAvaTL");
+                    tb.HasTrigger("UpdateTinhTrangPhieuMuon");
+                });
 
-            entity.Property(e => e.MaPt).HasColumnName("MaPT");
-            entity.Property(e => e.PhuThu).HasColumnType("money");
+            entity.Property(e => e.Mapt).HasColumnName("MAPT");
+            entity.Property(e => e.Masach).HasColumnName("MASACH");
+            entity.Property(e => e.Phuthu)
+                .HasColumnType("money")
+                .HasColumnName("PHUTHU");
+            entity.Property(e => e.Soluongloi).HasColumnName("SOLUONGLOI");
+            entity.Property(e => e.Soluongmat).HasColumnName("SOLUONGMAT");
+            entity.Property(e => e.Soluongtra).HasColumnName("SOLUONGTRA");
 
-            entity.HasOne(d => d.MaPtNavigation).WithMany(p => p.ChiTietPts)
-                .HasForeignKey(d => d.MaPt)
+            entity.HasOne(d => d.MaptNavigation).WithMany(p => p.ChiTietPts)
+                .HasForeignKey(d => d.Mapt)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPT__MaPT__6B24EA82");
+                .HasConstraintName("FK__ChiTietPT__MAPT__6477ECF3");
 
-            entity.HasOne(d => d.MaSachNavigation).WithMany(p => p.ChiTietPts)
-                .HasForeignKey(d => d.MaSach)
+            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.ChiTietPts)
+                .HasForeignKey(d => d.Masach)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPT__MaSac__6C190EBB");
+                .HasConstraintName("FK__ChiTietPT__MASAC__656C112C");
         });
 
         modelBuilder.Entity<ChiTietPtl>(entity =>
         {
-            entity.HasKey(e => new { e.MaPtl, e.MaSachkho }).HasName("ChiTietPTL_MaPTL_MaSach");
+            entity.HasKey(e => new { e.Maptl, e.Masachkho }).HasName("CHITIETPTL_MAPTL_MASACH");
 
-            entity.ToTable("ChiTietPTL");
+            entity.ToTable("ChiTietPTL", tb => tb.HasTrigger("TRG_SACHTL"));
 
-            entity.Property(e => e.MaPtl).HasColumnName("MaPTL");
-            entity.Property(e => e.GiaTl)
+            entity.Property(e => e.Maptl).HasColumnName("MAPTL");
+            entity.Property(e => e.Masachkho).HasColumnName("MASACHKHO");
+            entity.Property(e => e.Giatl)
                 .HasColumnType("money")
-                .HasColumnName("GiaTL");
+                .HasColumnName("GIATL");
+            entity.Property(e => e.Soluongtl).HasColumnName("SOLUONGTL");
 
-            entity.HasOne(d => d.MaPtlNavigation).WithMany(p => p.ChiTietPtls)
-                .HasForeignKey(d => d.MaPtl)
+            entity.HasOne(d => d.MaptlNavigation).WithMany(p => p.ChiTietPtls)
+                .HasForeignKey(d => d.Maptl)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPT__MaPTL__74AE54BC");
+                .HasConstraintName("FK__ChiTietPT__MAPTL__76969D2E");
 
-            entity.HasOne(d => d.MaSachkhoNavigation).WithMany(p => p.ChiTietPtls)
-                .HasForeignKey(d => d.MaSachkho)
+            entity.HasOne(d => d.MasachkhoNavigation).WithMany(p => p.ChiTietPtls)
+                .HasForeignKey(d => d.Masachkho)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ChiTietPT__MaSac__75A278F5");
+                .HasConstraintName("FK__ChiTietPT__MASAC__778AC167");
+        });
+
+        modelBuilder.Entity<ChiTietSachMuon>(entity =>
+        {
+            entity.HasKey(e => new { e.Mapm, e.Macuonsach }).HasName("PK__ChiTietS__8C4ADDE64E97DA59");
+
+            entity.ToTable("ChiTietSachMuon", tb => tb.HasTrigger("TRG_TT_SACHMUONTHANHCONG"));
+
+            entity.Property(e => e.Mapm).HasColumnName("MAPM");
+            entity.Property(e => e.Macuonsach)
+                .HasMaxLength(10)
+                .HasColumnName("MACUONSACH");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+
+            entity.HasOne(d => d.MacuonsachNavigation).WithMany(p => p.ChiTietSachMuons)
+                .HasForeignKey(d => d.Macuonsach)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSa__MACUO__5CD6CB2B");
+
+            entity.HasOne(d => d.MapmNavigation).WithMany(p => p.ChiTietSachMuons)
+                .HasForeignKey(d => d.Mapm)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSac__MAPM__5BE2A6F2");
+        });
+
+        modelBuilder.Entity<ChiTietSachThanhLy>(entity =>
+        {
+            entity.HasKey(e => new { e.Maptl, e.Macuonsach }).HasName("PK__ChiTietS__9740669ECEF6E6D5");
+
+            entity.ToTable("ChiTietSachThanhLy", tb =>
+                {
+                    tb.HasTrigger("SetTinhTrangchitietsachthanhly");
+                    tb.HasTrigger("TinhtrangCTKHOTHANHLI");
+                });
+
+            entity.Property(e => e.Maptl).HasColumnName("MAPTL");
+            entity.Property(e => e.Macuonsach)
+                .HasMaxLength(10)
+                .HasColumnName("MACUONSACH");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+
+            entity.HasOne(d => d.MacuonsachNavigation).WithMany(p => p.ChiTietSachThanhLies)
+                .HasPrincipalKey(p => p.Macuonsach)
+                .HasForeignKey(d => d.Macuonsach)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSa__MACUO__7B5B524B");
+
+            entity.HasOne(d => d.MaptlNavigation).WithMany(p => p.ChiTietSachThanhLies)
+                .HasForeignKey(d => d.Maptl)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSa__MAPTL__7A672E12");
+        });
+
+        modelBuilder.Entity<ChiTietSachTra>(entity =>
+        {
+            entity.HasKey(e => new { e.Mapt, e.Macuonsach }).HasName("PK__ChiTietS__8C4ADDFFD46A6549");
+
+            entity.ToTable("ChiTietSachTra", tb =>
+                {
+                    tb.HasTrigger("TRG_InsertChiTietKhoThanhLy");
+                    tb.HasTrigger("TRG_TT_CUONSACHTRA");
+                });
+
+            entity.Property(e => e.Mapt).HasColumnName("MAPT");
+            entity.Property(e => e.Macuonsach)
+                .HasMaxLength(10)
+                .HasColumnName("MACUONSACH");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+
+            entity.HasOne(d => d.MacuonsachNavigation).WithMany(p => p.ChiTietSachTras)
+                .HasForeignKey(d => d.Macuonsach)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSa__MACUO__693CA210");
+
+            entity.HasOne(d => d.MaptNavigation).WithMany(p => p.ChiTietSachTras)
+                .HasForeignKey(d => d.Mapt)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChiTietSac__MAPT__68487DD7");
+        });
+
+        modelBuilder.Entity<ChitietKhoThanhLy>(entity =>
+        {
+            entity.HasKey(e => new { e.Masachkho, e.Macuonsach }).HasName("PK__ChitietK__1C993EAD06D4EE41");
+
+            entity.ToTable("ChitietKhoThanhLy");
+
+            entity.HasIndex(e => e.Macuonsach, "UQ_ChitietKhoThanhLy_MaCuonSach").IsUnique();
+
+            entity.Property(e => e.Masachkho).HasColumnName("MASACHKHO");
+            entity.Property(e => e.Macuonsach)
+                .HasMaxLength(10)
+                .HasColumnName("MACUONSACH");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+            entity.Property(e => e.Vande).HasColumnName("VANDE");
+
+            entity.HasOne(d => d.MacuonsachNavigation).WithOne(p => p.ChitietKhoThanhLy)
+                .HasForeignKey<ChitietKhoThanhLy>(d => d.Macuonsach)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChitietKh__MACUO__6EF57B66");
+
+            entity.HasOne(d => d.MasachkhoNavigation).WithMany(p => p.ChitietKhoThanhLies)
+                .HasForeignKey(d => d.Masachkho)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ChitietKh__MASAC__6FE99F9F");
         });
 
         modelBuilder.Entity<Chitietpn>(entity =>
         {
-            entity.HasKey(e => new { e.MaPn, e.MaSach }).HasName("ChiTietPN_MaPN_MaSach");
+            entity.HasKey(e => new { e.Mapn, e.Masach }).HasName("CHITIETPN_MAPN_MASACH");
 
-            entity.ToTable("CHITIETPN");
+            entity.ToTable("CHITIETPN", tb =>
+                {
+                    tb.HasTrigger("TRG_SACHNHAP");
+                    tb.HasTrigger("TRG_TAO_MA_CUON_SACH");
+                });
 
-            entity.Property(e => e.MaPn).HasColumnName("MaPN");
-            entity.Property(e => e.MaSach).HasColumnName("MaSACH");
-            entity.Property(e => e.GiaSach).HasColumnType("money");
-            entity.Property(e => e.SoLuongNhap).HasColumnName("SoLuongNHAP");
+            entity.Property(e => e.Mapn).HasColumnName("MAPN");
+            entity.Property(e => e.Masach).HasColumnName("MASACH");
+            entity.Property(e => e.Giasach)
+                .HasColumnType("money")
+                .HasColumnName("GIASACH");
+            entity.Property(e => e.Soluongnhap).HasColumnName("SOLUONGNHAP");
 
-            entity.HasOne(d => d.MaPnNavigation).WithMany(p => p.Chitietpns)
-                .HasForeignKey(d => d.MaPn)
+            entity.HasOne(d => d.MapnNavigation).WithMany(p => p.Chitietpns)
+                .HasForeignKey(d => d.Mapn)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CHITIETPN__MaPN__59063A47");
+                .HasConstraintName("FK__CHITIETPN__MAPN__4E88ABD4");
 
-            entity.HasOne(d => d.MaSachNavigation).WithMany(p => p.Chitietpns)
-                .HasForeignKey(d => d.MaSach)
+            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.Chitietpns)
+                .HasForeignKey(d => d.Masach)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__CHITIETPN__MaSAC__59FA5E80");
+                .HasConstraintName("FK__CHITIETPN__MASAC__4F7CD00D");
+        });
+
+        modelBuilder.Entity<CuonSach>(entity =>
+        {
+            entity.HasKey(e => e.Macuonsach).HasName("PK__CuonSach__C75BC2BF5A2F72D9");
+
+            entity.ToTable("CuonSach");
+
+            entity.Property(e => e.Macuonsach)
+                .HasMaxLength(10)
+                .HasColumnName("MACUONSACH");
+            entity.Property(e => e.Masach).HasColumnName("MASACH");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
+
+            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.CuonSaches)
+                .HasForeignKey(d => d.Masach)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__CuonSach__MASACH__47DBAE45");
         });
 
         modelBuilder.Entity<DkiMuonSach>(entity =>
         {
-            entity.HasKey(e => e.MaDk).HasName("PK__DkiMuonS__2725866C7F609515");
+            entity.HasKey(e => e.Madk).HasName("PK__DkiMuonS__603F0042AE2E5A14");
 
-            entity.ToTable("DkiMuonSach");
+            entity.ToTable("DkiMuonSach", tb =>
+                {
+                    tb.HasTrigger("SetTinhTrangPhieuDK");
+                    tb.HasTrigger("TRG_SachMuonOnl");
+                });
 
-            entity.Property(e => e.MaDk).HasColumnName("MaDK");
-            entity.Property(e => e.NgayDkmuon).HasColumnName("NgayDKMuon");
+            entity.Property(e => e.Madk).HasColumnName("MADK");
+            entity.Property(e => e.Ngaydkmuon).HasColumnName("NGAYDKMUON");
+            entity.Property(e => e.Ngayhen).HasColumnName("NGAYHEN");
             entity.Property(e => e.Sdt)
                 .HasMaxLength(50)
                 .HasColumnName("SDT");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
 
             entity.HasOne(d => d.SdtNavigation).WithMany(p => p.DkiMuonSaches)
                 .HasForeignKey(d => d.Sdt)
-                .HasConstraintName("FK__DkiMuonSach__SDT__00200768");
+                .HasConstraintName("FK__DkiMuonSach__SDT__7E37BEF6");
         });
 
         modelBuilder.Entity<DocGium>(entity =>
         {
-            entity.HasKey(e => e.MaDg).HasName("PK__DocGia__27258660DF589E82");
+            entity.HasKey(e => e.Madg).HasName("PK__DocGia__603F004665A0F62F");
 
-            entity.Property(e => e.MaDg).HasColumnName("MaDG");
-            entity.Property(e => e.DiaChi).HasMaxLength(50);
-            entity.Property(e => e.GioiTinh).HasMaxLength(50);
-            entity.Property(e => e.HoTenDg)
+            entity.HasIndex(e => e.Sdt, "CHK_SDT_DG").IsUnique();
+
+            entity.Property(e => e.Madg).HasColumnName("MADG");
+            entity.Property(e => e.Diachi)
                 .HasMaxLength(50)
-                .HasColumnName("HoTenDG");
+                .HasColumnName("DIACHI");
+            entity.Property(e => e.Gioitinh)
+                .HasMaxLength(50)
+                .HasColumnName("GIOITINH");
+            entity.Property(e => e.Hotendg)
+                .HasMaxLength(50)
+                .HasColumnName("HOTENDG");
+            entity.Property(e => e.Ngaysinh).HasColumnName("NGAYSINH");
             entity.Property(e => e.Sdt)
                 .HasMaxLength(50)
                 .HasColumnName("SDT");
@@ -198,45 +366,55 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<DonViTl>(entity =>
         {
-            entity.HasKey(e => e.MaDv).HasName("PK__DonViTL__2725865746E7E7EA");
+            entity.HasKey(e => e.Madv).HasName("PK__DonViTL__603F0055B11C9F6E");
 
             entity.ToTable("DonViTL");
 
-            entity.Property(e => e.MaDv).HasColumnName("MaDV");
-            entity.Property(e => e.DiaChiDv)
+            entity.HasIndex(e => e.Sdtdv, "CHK_SDT_DVTL").IsUnique();
+
+            entity.Property(e => e.Madv).HasColumnName("MADV");
+            entity.Property(e => e.Diachidv)
                 .HasMaxLength(100)
-                .HasColumnName("DiaChiDV");
+                .HasColumnName("DIACHIDV");
             entity.Property(e => e.Sdtdv)
                 .HasMaxLength(50)
                 .HasColumnName("SDTDV");
-            entity.Property(e => e.TenDv)
+            entity.Property(e => e.Tendv)
                 .HasMaxLength(150)
-                .HasColumnName("TenDV");
+                .HasColumnName("TENDV");
         });
 
         modelBuilder.Entity<KhoSachThanhLy>(entity =>
         {
-            entity.HasKey(e => e.Masachkho).HasName("PK__KhoSachT__3E503873AFF5FD82");
+            entity.HasKey(e => e.Masachkho).HasName("PK__KhoSachT__F0EC82866730F233");
 
             entity.ToTable("KhoSachThanhLy");
 
             entity.Property(e => e.Masachkho)
                 .ValueGeneratedNever()
-                .HasColumnName("masachkho");
-            entity.Property(e => e.Soluongkhotl).HasColumnName("soluongkhotl");
+                .HasColumnName("MASACHKHO");
+            entity.Property(e => e.Soluongkhotl).HasColumnName("SOLUONGKHOTL");
         });
 
         modelBuilder.Entity<LoginDg>(entity =>
         {
-            entity.HasKey(e => e.Sdt).HasName("PK__LOGIN_DG__CA1930A4AAA17DA6");
+            entity.HasKey(e => e.Sdt).HasName("PK__LOGIN_DG__CA1930A4F84CBD30");
 
             entity.ToTable("LOGIN_DG");
+
+            entity.HasIndex(e => e.Email, "CHK_EMAIL_LOGIN_DG").IsUnique();
+
+            entity.HasIndex(e => e.Sdt, "CHK_SDT_LOGIN_DG").IsUnique();
 
             entity.Property(e => e.Sdt)
                 .HasMaxLength(50)
                 .HasColumnName("SDT");
-            entity.Property(e => e.Email).HasMaxLength(255);
-            entity.Property(e => e.HoTen).HasMaxLength(50);
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .HasColumnName("EMAIL");
+            entity.Property(e => e.Hoten)
+                .HasMaxLength(50)
+                .HasColumnName("HOTEN");
             entity.Property(e => e.PasswordDg)
                 .HasMaxLength(255)
                 .HasColumnName("PASSWORD_DG");
@@ -244,7 +422,7 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<LoginNv>(entity =>
         {
-            entity.HasKey(e => e.UsernameNv).HasName("PK__LOGIN_NV__296D7D76D2114FD1");
+            entity.HasKey(e => e.UsernameNv).HasName("PK__LOGIN_NV__296D7D766273A4EF");
 
             entity.ToTable("LOGIN_NV");
 
@@ -256,40 +434,50 @@ public partial class QuanLyThuVienContext : DbContext
 
             entity.HasOne(d => d.ManvNavigation).WithMany(p => p.LoginNvs)
                 .HasForeignKey(d => d.Manv)
-                .HasConstraintName("FK__LOGIN_NV__MANV__7A672E12");
+                .HasConstraintName("FK__LOGIN_NV__MANV__412EB0B6");
         });
 
         modelBuilder.Entity<NhaCungCap>(entity =>
         {
-            entity.HasKey(e => e.MaNcc).HasName("PK__NhaCungC__3A185DEB8CFE8FF8");
+            entity.HasKey(e => e.Mancc).HasName("PK__NhaCungC__7ABEA582D2072C1E");
 
             entity.ToTable("NhaCungCap");
 
-            entity.Property(e => e.MaNcc).HasColumnName("MaNCC");
-            entity.Property(e => e.DiaChiNcc)
+            entity.HasIndex(e => e.Sdtncc, "CHK_SDT_NCC").IsUnique();
+
+            entity.Property(e => e.Mancc).HasColumnName("MANCC");
+            entity.Property(e => e.Diachincc)
                 .HasMaxLength(100)
-                .HasColumnName("DiaChiNCC");
-            entity.Property(e => e.SdtNcc)
+                .HasColumnName("DIACHINCC");
+            entity.Property(e => e.Sdtncc)
                 .HasMaxLength(50)
-                .HasColumnName("sdtNCC");
-            entity.Property(e => e.TenNcc)
+                .HasColumnName("SDTNCC");
+            entity.Property(e => e.Tenncc)
                 .HasMaxLength(150)
-                .HasColumnName("TenNCC");
+                .HasColumnName("TENNCC");
         });
 
         modelBuilder.Entity<NhanVien>(entity =>
         {
-            entity.HasKey(e => e.MaNv).HasName("PK__NhanVien__2725D70A25DBADC7");
+            entity.HasKey(e => e.Manv).HasName("PK__NhanVien__603F51145BF4B39F");
 
             entity.ToTable("NhanVien");
 
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
-            entity.Property(e => e.ChucVu).HasMaxLength(50);
-            entity.Property(e => e.DiaChi).HasMaxLength(50);
-            entity.Property(e => e.GioiTinh).HasMaxLength(50);
-            entity.Property(e => e.HoTenNv)
+            entity.HasIndex(e => e.Sdt, "CHK_SDT_NV").IsUnique();
+
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Chucvu)
                 .HasMaxLength(50)
-                .HasColumnName("HoTenNV");
+                .HasColumnName("CHUCVU");
+            entity.Property(e => e.Diachi)
+                .HasMaxLength(50)
+                .HasColumnName("DIACHI");
+            entity.Property(e => e.Gioitinh)
+                .HasMaxLength(50)
+                .HasColumnName("GIOITINH");
+            entity.Property(e => e.Hotennv)
+                .HasMaxLength(50)
+                .HasColumnName("HOTENNV");
             entity.Property(e => e.Ngaysinh).HasColumnName("NGAYSINH");
             entity.Property(e => e.Sdt)
                 .HasMaxLength(50)
@@ -298,144 +486,160 @@ public partial class QuanLyThuVienContext : DbContext
 
         modelBuilder.Entity<PhieuMuon>(entity =>
         {
-            entity.HasKey(e => e.MaPm).HasName("PK__PhieuMuo__2725E7FF62C8D4F7");
+            entity.HasKey(e => e.Mapm).HasName("PK__PhieuMuo__603F61CD12F4DA68");
 
-            entity.ToTable("PhieuMuon");
+            entity.ToTable("PhieuMuon", tb => tb.HasTrigger("SetTinhTrangPM"));
 
-            entity.Property(e => e.MaPm).HasColumnName("MaPM");
-            entity.Property(e => e.MaDk).HasColumnName("MaDK");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
+            entity.Property(e => e.Mapm).HasColumnName("MAPM");
+            entity.Property(e => e.Hantra).HasColumnName("HANTRA");
+            entity.Property(e => e.Madk).HasColumnName("MADK");
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Mathe).HasColumnName("MATHE");
+            entity.Property(e => e.Ngaymuon).HasColumnName("NGAYMUON");
+            entity.Property(e => e.Tinhtrang).HasColumnName("TINHTRANG");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.PhieuMuons)
-                .HasForeignKey(d => d.MaNv)
-                .HasConstraintName("FK__PhieuMuon__MaNV__5EBF139D");
+            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.PhieuMuons)
+                .HasForeignKey(d => d.Manv)
+                .HasConstraintName("FK__PhieuMuon__MANV__5441852A");
 
-            entity.HasOne(d => d.MaTheNavigation).WithMany(p => p.PhieuMuons)
-                .HasForeignKey(d => d.MaThe)
-                .HasConstraintName("FK__PhieuMuon__MaThe__5FB337D6");
+            entity.HasOne(d => d.MatheNavigation).WithMany(p => p.PhieuMuons)
+                .HasForeignKey(d => d.Mathe)
+                .HasConstraintName("FK__PhieuMuon__MATHE__5535A963");
         });
 
         modelBuilder.Entity<PhieuNhapSach>(entity =>
         {
-            entity.HasKey(e => e.MaPn).HasName("PK__PhieuNha__2725E7F0576113F5");
+            entity.HasKey(e => e.Mapn).HasName("PK__PhieuNha__603F61CEAED1D888");
 
             entity.ToTable("PhieuNhapSach");
 
-            entity.Property(e => e.MaPn).HasColumnName("MaPN");
-            entity.Property(e => e.MaNcc).HasColumnName("MaNCC");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
+            entity.Property(e => e.Mapn).HasColumnName("MAPN");
+            entity.Property(e => e.Mancc).HasColumnName("MANCC");
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Ngaynhap).HasColumnName("NGAYNHAP");
 
-            entity.HasOne(d => d.MaNccNavigation).WithMany(p => p.PhieuNhapSaches)
-                .HasForeignKey(d => d.MaNcc)
-                .HasConstraintName("FK__PhieuNhap__MaNCC__5441852A");
+            entity.HasOne(d => d.ManccNavigation).WithMany(p => p.PhieuNhapSaches)
+                .HasForeignKey(d => d.Mancc)
+                .HasConstraintName("FK__PhieuNhap__MANCC__4BAC3F29");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.PhieuNhapSaches)
-                .HasForeignKey(d => d.MaNv)
-                .HasConstraintName("FK__PhieuNhapS__MaNV__534D60F1");
+            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.PhieuNhapSaches)
+                .HasForeignKey(d => d.Manv)
+                .HasConstraintName("FK__PhieuNhapS__MANV__4AB81AF0");
         });
 
         modelBuilder.Entity<PhieuThanhLy>(entity =>
         {
-            entity.HasKey(e => e.MaPtl).HasName("PK__PhieuTha__3AE3D6DF7D1CA3E9");
+            entity.HasKey(e => e.Maptl).HasName("PK__PhieuTha__7B35DAB50185B150");
 
             entity.ToTable("PhieuThanhLy");
 
-            entity.Property(e => e.MaPtl).HasColumnName("MaPTL");
-            entity.Property(e => e.MaDv).HasColumnName("MaDV");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
-            entity.Property(e => e.NgayTl).HasColumnName("NgayTL");
+            entity.Property(e => e.Maptl).HasColumnName("MAPTL");
+            entity.Property(e => e.Madv).HasColumnName("MADV");
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Ngaytl).HasColumnName("NGAYTL");
 
-            entity.HasOne(d => d.MaDvNavigation).WithMany(p => p.PhieuThanhLies)
-                .HasForeignKey(d => d.MaDv)
-                .HasConstraintName("FK__PhieuThanh__MaDV__71D1E811");
+            entity.HasOne(d => d.MadvNavigation).WithMany(p => p.PhieuThanhLies)
+                .HasForeignKey(d => d.Madv)
+                .HasConstraintName("FK__PhieuThanh__MADV__73BA3083");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.PhieuThanhLies)
-                .HasForeignKey(d => d.MaNv)
-                .HasConstraintName("FK__PhieuThanh__MaNV__70DDC3D8");
+            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.PhieuThanhLies)
+                .HasForeignKey(d => d.Manv)
+                .HasConstraintName("FK__PhieuThanh__MANV__72C60C4A");
         });
 
         modelBuilder.Entity<PhieuTra>(entity =>
         {
-            entity.HasKey(e => e.MaPt).HasName("PK__PhieuTra__2725E7F6B9CC4CCB");
+            entity.HasKey(e => e.Mapt).HasName("PK__PhieuTra__603F61D46B85B3CD");
 
             entity.ToTable("PhieuTra");
 
-            entity.Property(e => e.MaPt).HasColumnName("MaPT");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
-            entity.Property(e => e.MaPm).HasColumnName("MaPM");
+            entity.Property(e => e.Mapt).HasColumnName("MAPT");
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Mapm).HasColumnName("MAPM");
+            entity.Property(e => e.Mathe).HasColumnName("MATHE");
+            entity.Property(e => e.Ngaytra).HasColumnName("NGAYTRA");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.PhieuTras)
-                .HasForeignKey(d => d.MaNv)
-                .HasConstraintName("FK__PhieuTra__MaNV__6754599E");
+            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.PhieuTras)
+                .HasForeignKey(d => d.Manv)
+                .HasConstraintName("FK__PhieuTra__MANV__60A75C0F");
 
-            entity.HasOne(d => d.MaPmNavigation).WithMany(p => p.PhieuTras)
-                .HasForeignKey(d => d.MaPm)
-                .HasConstraintName("FK__PhieuTra__MaPM__66603565");
+            entity.HasOne(d => d.MapmNavigation).WithMany(p => p.PhieuTras)
+                .HasForeignKey(d => d.Mapm)
+                .HasConstraintName("FK__PhieuTra__MAPM__5FB337D6");
 
-            entity.HasOne(d => d.MaTheNavigation).WithMany(p => p.PhieuTras)
-                .HasForeignKey(d => d.MaThe)
-                .HasConstraintName("FK__PhieuTra__MaThe__68487DD7");
+            entity.HasOne(d => d.MatheNavigation).WithMany(p => p.PhieuTras)
+                .HasForeignKey(d => d.Mathe)
+                .HasConstraintName("FK__PhieuTra__MATHE__619B8048");
+        });
+
+        modelBuilder.Entity<QuyDinh>(entity =>
+        {
+            entity.HasKey(e => e.MaQuyDinh).HasName("PK__QuyDinh__EDD1A17A57077B9C");
+
+            entity.ToTable("QuyDinh");
+
+            entity.Property(e => e.MaQuyDinh)
+                .ValueGeneratedNever()
+                .HasColumnName("MaQuyDinh");
         });
 
         modelBuilder.Entity<Sach>(entity =>
         {
-            entity.HasKey(e => e.MaSach).HasName("PK__Sach__B235742DF53D7FC2");
+            entity.HasKey(e => e.Masach).HasName("PK__Sach__3FC48E4CEA4548CE");
 
             entity.ToTable("Sach");
 
-            entity.Property(e => e.NamXb).HasColumnName("NamXB");
-            entity.Property(e => e.NgonNgu).HasMaxLength(50);
-            entity.Property(e => e.Nxb)
-                .HasMaxLength(100)
-                .HasColumnName("NXB");
-            entity.Property(e => e.SoLuongHientai).HasColumnName("SoLuongHIENTAI");
-            entity.Property(e => e.TacGia).HasMaxLength(50);
-            entity.Property(e => e.TenSach).HasMaxLength(150);
-            entity.Property(e => e.TheLoai).HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<TheDocGium>(entity =>
-        {
-            entity.HasKey(e => e.MaThe).HasName("PK__TheDocGi__314EEAAF4E807265");
-
-            entity.Property(e => e.MaDg).HasColumnName("MaDG");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
-            entity.Property(e => e.NgayDk).HasColumnName("NgayDK");
-            entity.Property(e => e.NgayHh).HasColumnName("NgayHH");
-
-            entity.HasOne(d => d.MaDgNavigation).WithMany(p => p.TheDocGia)
-                .HasForeignKey(d => d.MaDg)
-                .HasConstraintName("FK__TheDocGia__MaDG__4E88ABD4");
-
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.TheDocGia)
-                .HasForeignKey(d => d.MaNv)
-                .HasConstraintName("FK__TheDocGia__MaNV__4D94879B");
-        });
-
-        modelBuilder.Entity<TtSach>(entity =>
-        {
-            entity.HasKey(e => e.MaTtSach).HasName("PK__TT_SACH__07B84A8AC678A9F5");
-
-            entity.ToTable("TT_SACH");
-
-            entity.Property(e => e.MaTtSach).HasColumnName("MA_TT_SACH");
             entity.Property(e => e.Masach).HasColumnName("MASACH");
             entity.Property(e => e.Mota)
                 .HasColumnType("ntext")
                 .HasColumnName("MOTA");
+            entity.Property(e => e.Namxb).HasColumnName("NAMXB");
+            entity.Property(e => e.Ngonngu)
+                .HasMaxLength(50)
+                .HasColumnName("NGONNGU");
+            entity.Property(e => e.Nxb)
+                .HasMaxLength(100)
+                .HasColumnName("NXB");
+            entity.Property(e => e.Soluonghientai).HasColumnName("SOLUONGHIENTAI");
+            entity.Property(e => e.Tacgia)
+                .HasMaxLength(50)
+                .HasColumnName("TACGIA");
+            entity.Property(e => e.Tensach)
+                .HasMaxLength(150)
+                .HasColumnName("TENSACH");
+            entity.Property(e => e.Theloai)
+                .HasMaxLength(50)
+                .HasColumnName("THELOAI");
             entity.Property(e => e.UrlImage)
                 .HasColumnType("text")
                 .HasColumnName("URL_IMAGE");
+        });
 
-            entity.HasOne(d => d.MasachNavigation).WithMany(p => p.TtSaches)
-                .HasForeignKey(d => d.Masach)
-                .HasConstraintName("FK__TT_SACH__MASACH__7D439ABD");
+        modelBuilder.Entity<TheDocGium>(entity =>
+        {
+            entity.HasKey(e => e.Mathe).HasName("PK__TheDocGi__58248210EE6A7C53");
+
+            entity.Property(e => e.Mathe).HasColumnName("MATHE");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .HasColumnName("EMAIL");
+            entity.Property(e => e.Madg).HasColumnName("MADG");
+            entity.Property(e => e.Manv).HasColumnName("MANV");
+            entity.Property(e => e.Ngaydk).HasColumnName("NGAYDK");
+            entity.Property(e => e.Ngayhh).HasColumnName("NGAYHH");
+            entity.Property(e => e.Tienthe).HasColumnName("TIENTHE");
+
+            entity.HasOne(d => d.MadgNavigation).WithMany(p => p.TheDocGia)
+                .HasForeignKey(d => d.Madg)
+                .HasConstraintName("FK__TheDocGia__MADG__3C69FB99");
+
+            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.TheDocGia)
+                .HasForeignKey(d => d.Manv)
+                .HasConstraintName("FK__TheDocGia__MANV__3B75D760");
         });
 
         OnModelCreatingPartial(modelBuilder);
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-public DbSet<WebAPI.DTOs.SachDTO> SachDTO { get; set; } = default!;
 }

@@ -37,61 +37,6 @@ namespace WebApp.Areas.Admin.Controllers
 
 
         [HttpPost]
-        [Route("Get_SachNhap_APP/{tungay}/{denngay}")]
-        public IActionResult Get_SachNhap_APP(string tungay, string denngay)
-        {
-            try
-            {
-                List<ThongKeSach> bookList = new List<ThongKeSach>();
-                if (DateTime.TryParse(tungay, out DateTime tungayDate) && DateTime.TryParse(denngay, out DateTime denngayDate))
-                {
-                    DateOnly tungayDateOnly = new DateOnly(tungayDate.Year, tungayDate.Month, tungayDate.Day);
-                    DateOnly denngayDateOnly = new DateOnly(denngayDate.Year, denngayDate.Month, denngayDate.Day);
-
-                    HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/ThongKe/Get_SachNhap_API/{tungay}/{denngay}").Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string data = response.Content.ReadAsStringAsync().Result;
-
-                        // Log the response data to understand its structure
-                        Console.WriteLine("Response Data: " + data);
-
-                        try
-                        {
-                            // Deserialize the response directly to List<ThongKeSach>
-                            bookList = JsonConvert.DeserializeObject<List<ThongKeSach>>(data);
-
-                            return Ok(new { success = true, sachList = bookList });
-                        }
-                        catch (JsonException ex)
-                        {
-                            // Log the deserialization error for debugging
-                            Console.WriteLine("Deserialization error: " + ex.Message);
-                            return StatusCode(500, new { success = false, message = "Error processing API response." });
-                        }
-                    }
-                    else
-                    {
-                        return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
-                    }
-                }
-                else
-                {
-                    return BadRequest("Invalid date format.");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the exception details
-                Console.WriteLine("Exception: " + ex.Message);
-                Console.WriteLine("Stack Trace: " + ex.StackTrace);
-                return StatusCode(500, new { success = false, message = ex.Message });
-            }
-        }
-
-
-        [HttpPost]
         [Route("Get_SachMuon_APP/{tungay}/{denngay}")]
         public IActionResult Get_SachMuon_APP(string tungay, string denngay)
         {
@@ -160,7 +105,6 @@ namespace WebApp.Areas.Admin.Controllers
                 {
                     DateOnly tungayDateOnly = new DateOnly(tungayDate.Year, tungayDate.Month, tungayDate.Day);
                     DateOnly denngayDateOnly = new DateOnly(denngayDate.Year, denngayDate.Month, denngayDate.Day);
-
                     HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/ThongKe/Get_PhieuMuon_API/{tungay}/{denngay}").Result;
 
                     if (response.IsSuccessStatusCode)
@@ -485,7 +429,7 @@ namespace WebApp.Areas.Admin.Controllers
             }
 
         }
-        
+
 
         [HttpPost]
         [Route("Get_Money_APP/{tungay}/{denngay}")]
@@ -540,6 +484,209 @@ namespace WebApp.Areas.Admin.Controllers
                 return StatusCode(500, new { success = false, message = ex.Message });
             }
         }
-
     }
 }
+//[HttpPost]
+//[Route("Get_TongSachNhap_APP")]
+//public IActionResult Get_TongSachNhap_APP()
+//{
+
+//    try
+//    {
+//        ThongKePhieu phieu = new ThongKePhieu();
+
+//        HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/ThongKe/Get_TongSachNhap_API").Result;
+
+//        if (response.IsSuccessStatusCode)
+//        {
+//            string data = response.Content.ReadAsStringAsync().Result;
+
+//            // Log the response data to understand its structure
+//            Console.WriteLine("Response Data: " + data);
+
+//            try
+//            {
+//                // Deserialize the response directly to List<ThongKeSach>
+//                phieu = JsonConvert.DeserializeObject<ThongKePhieu>(data);
+
+//                return Ok(new { success = true, phieuList = phieu });
+//            }
+//            catch (JsonException ex)
+//            {
+//                // Log the deserialization error for debugging
+//                Console.WriteLine("Deserialization error: " + ex.Message);
+//                return StatusCode(500, new { success = false, message = "Error processing API response." });
+//            }
+//        }
+//        else
+//        {
+//            return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
+//        }
+
+
+//    }
+//    catch (Exception ex)
+//    {
+//        // Log the exception details
+//        Console.WriteLine("Exception: " + ex.Message);
+//        Console.WriteLine("Stack Trace: " + ex.StackTrace);
+//        return StatusCode(500, new { success = false, message = ex.Message });
+//    }
+
+
+//}
+
+
+//[HttpPost]
+//[Route("Get_TongSach_HienTai_APP")]
+//public IActionResult Get_TongSach_HienTai_APP()
+//{
+
+//    try
+//    {
+//        ThongKePhieu phieu = new ThongKePhieu();
+
+//        HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/ThongKe/Get_TongSach_HienTai_API").Result;
+
+//        if (response.IsSuccessStatusCode)
+//        {
+//            string data = response.Content.ReadAsStringAsync().Result;
+
+//            // Log the response data to understand its structure
+//            Console.WriteLine("Response Data: " + data);
+
+//            try
+//            {
+//                // Deserialize the response directly to List<ThongKeSach>
+//                phieu = JsonConvert.DeserializeObject<ThongKePhieu>(data);
+
+//                return Ok(new { success = true, phieuList = phieu });
+//            }
+//            catch (JsonException ex)
+//            {
+//                // Log the deserialization error for debugging
+//                Console.WriteLine("Deserialization error: " + ex.Message);
+//                return StatusCode(500, new { success = false, message = "Error processing API response." });
+//            }
+//        }
+//        else
+//        {
+//            return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
+//        }
+
+
+//    }
+//    catch (Exception ex)
+//    {
+//        // Log the exception details
+//        Console.WriteLine("Exception: " + ex.Message);
+//        Console.WriteLine("Stack Trace: " + ex.StackTrace);
+//        return StatusCode(500, new { success = false, message = ex.Message });
+//    }
+
+
+//}
+
+//[HttpPost]
+//[Route("Get_TongSachMuon_APP")]
+//public IActionResult Get_TongSachMuon_APP()
+//{
+
+//    try
+//    {
+//        ThongKePhieu phieu = new ThongKePhieu();
+
+//        HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + "/ThongKe/Get_TongSachMuon_API").Result;
+
+//        if (response.IsSuccessStatusCode)
+//        {
+//            string data = response.Content.ReadAsStringAsync().Result;
+
+//            // Log the response data to understand its structure
+//            Console.WriteLine("Response Data: " + data);
+
+//            try
+//            {
+//                // Deserialize the response directly to List<ThongKeSach>
+//                phieu = JsonConvert.DeserializeObject<ThongKePhieu>(data);
+
+//                return Ok(new { success = true, phieuList = phieu });
+//            }
+//            catch (JsonException ex)
+//            {
+//                // Log the deserialization error for debugging
+//                Console.WriteLine("Deserialization error: " + ex.Message);
+//                return StatusCode(500, new { success = false, message = "Error processing API response." });
+//            }
+//        }
+//        else
+//        {
+//            return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
+//        }
+
+
+//    }
+//    catch (Exception ex)
+//    {
+//        // Log the exception details
+//        Console.WriteLine("Exception: " + ex.Message);
+//        Console.WriteLine("Stack Trace: " + ex.StackTrace);
+//        return StatusCode(500, new { success = false, message = ex.Message });
+//    }
+
+
+//}
+
+//[HttpPost]
+//[Route("Get_SachNhap_APP/{tungay}/{denngay}")]
+//public IActionResult Get_SachNhap_APP(string tungay, string denngay)
+//{
+//    try
+//    {
+//        List<ThongKeSach> bookList = new List<ThongKeSach>();
+//        if (DateTime.TryParse(tungay, out DateTime tungayDate) && DateTime.TryParse(denngay, out DateTime denngayDate))
+//        {
+//            DateOnly tungayDateOnly = new DateOnly(tungayDate.Year, tungayDate.Month, tungayDate.Day);
+//            DateOnly denngayDateOnly = new DateOnly(denngayDate.Year, denngayDate.Month, denngayDate.Day);
+
+//            HttpResponseMessage response = _client.GetAsync(_client.BaseAddress + $"/ThongKe/Get_SachNhap_API/{tungay}/{denngay}").Result;
+
+//            if (response.IsSuccessStatusCode)
+//            {
+//                string data = response.Content.ReadAsStringAsync().Result;
+
+//                // Log the response data to understand its structure
+//                Console.WriteLine("Response Data: " + data);
+
+//                try
+//                {
+//                    // Deserialize the response directly to List<ThongKeSach>
+//                    bookList = JsonConvert.DeserializeObject<List<ThongKeSach>>(data);
+
+//                    return Ok(new { success = true, sachList = bookList });
+//                }
+//                catch (JsonException ex)
+//                {
+//                    // Log the deserialization error for debugging
+//                    Console.WriteLine("Deserialization error: " + ex.Message);
+//                    return StatusCode(500, new { success = false, message = "Error processing API response." });
+//                }
+//            }
+//            else
+//            {
+//                return BadRequest(new { success = false, message = "Failed to retrieve data from API." });
+//            }
+//        }
+//        else
+//        {
+//            return BadRequest("Invalid date format.");
+//        }
+//    }
+//    catch (Exception ex)
+//    {
+//        // Log the exception details
+//        Console.WriteLine("Exception: " + ex.Message);
+//        Console.WriteLine("Stack Trace: " + ex.StackTrace);
+//        return StatusCode(500, new { success = false, message = ex.Message });
+//    }
+//}

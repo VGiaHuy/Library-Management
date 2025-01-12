@@ -5,13 +5,13 @@ namespace WebAPI.Models;
 
 public partial class NhaCungCap
 {
-    public int MaNcc { get; set; }
+    public int Mancc { get; set; }
 
-    public string? TenNcc { get; set; }
+    public string? Tenncc { get; set; }
 
-    public string? DiaChiNcc { get; set; }
+    public string? Diachincc { get; set; }
 
-    public string? SdtNcc { get; set; }
+    public string? Sdtncc { get; set; }
 
     public virtual ICollection<PhieuNhapSach> PhieuNhapSaches { get; set; } = new List<PhieuNhapSach>();
 }
